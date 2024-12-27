@@ -201,6 +201,32 @@ Overriding `en` Locale Messages with Custom Messages
 GetTimeAgo.setCustomLocaleMessages('en', CustomMessages());
 ```
 
+### Minimum Variance Unit
+
+With the addition of the `minimumVarianceUnit` parameter, you can now control how recently past events are displayed before switching to standard time ago strings. For example:
+
+- If you specify `TimeVarianceUnit.minutes`, the output will show **"Less than a minute"** until 60 seconds have elapsed, at which point it will switch to **"a minute ago"**.
+- If no variance unit is specified, the behavior defaults to the original "time ago" logic.
+
+```dart
+import 'package:get_time_ago/get_time_ago.dart';
+
+// Example: Default behavior
+final now = DateTime.now();
+final fiveSecondsAgo = now.subtract(Duration(seconds: 5));
+print(GetTimeAgo.parse(fiveSecondsAgo)); // Output: "Just now"
+
+// Example: With minimumVarianceUnit set to minutes
+final thirtySecondsAgo = now.subtract(Duration(seconds: 30));
+print(GetTimeAgo.parse(thirtySecondsAgo, minimumVarianceUnit: TimeVarianceUnit.minutes));
+// Output: "Less than a minute"
+
+// Example: Five minutes ago with minutes variance
+final fiveMinutesAgo = now.subtract(Duration(minutes: 5));
+print(GetTimeAgo.parse(fiveMinutesAgo, minimumVarianceUnit: TimeVarianceUnit.minutes));
+// Output: "5 minutes ago"
+```
+
 ## Supported Languages
 
 - Arabic
