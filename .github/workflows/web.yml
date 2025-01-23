@@ -39,7 +39,7 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.x.x
+          flutter-version: 3.27.x
 
       - name: Check Flutter Version
         run: flutter --version
