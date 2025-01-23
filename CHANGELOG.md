@@ -1,252 +1,242 @@
 # Changelog
 
-## 2.1.1
+## [2.1.2]
 
-- **Fix**: Demo web app issue fixed.
-- **Security**: Added `SECURITY.md` for vulnerability reporting and security best practices.
-- **Enhancement**: Added `Pull Request template` to ensure thorough checks for new contributions.
+- **Updated:** Dependencies.
 
-## 2.1.0
+## [2.1.1]
 
-- **Change**: Added support for `Dutch` (nl) locale.
-- **Change**: Dependencies updated.
-- **Fix**: All known bugs and issues fixed.
+- **Fixed:** Issue with the demo web app.
+- **Security:** Added `SECURITY.md` for reporting vulnerabilities and ensuring security best practices.
+- **Enhanced:** Added a pull request template for standardized contribution checks.
 
-## 2.0.0
+## [2.1.0]
 
-- **Breaking Change**: A new message method `justNow` added for displaying the time less than 15 seconds.
-- **Documentation**: Updated the documentation to include breaking changes.
-- **Improvement**: Added comments to the classes, messages, data, and utility functions.
-- **Improvement**: New test cases are added and old test cases are removed or updated.
+- **Added:** Support for Dutch (nl) locale.
+- **Updated:** Dependencies.
+- **Fixed:** All known bugs and issues.
 
-## 1.3.1
+## [2.0.0]
 
-- **Fix**: Lint errors and warnings fixed.
+- **Breaking:** Introduced `justNow` method to display times less than 15 seconds.
+- **Updated:** Documentation for breaking changes.
+- **Improved:** Added comments to classes, messages, data, and utility functions.
+- **Improved:** Updated and added new test cases.
 
-## 1.3.0
+## [1.3.1]
 
-- **Change**: Dependencies updated.
-- **Documentation**: Updated the documentation to show all contributors.
-- **Fix**: All known bugs and issues fixed.
+- **Fixed:** Lint errors and warnings.
 
-## 1.2.5
+## [1.3.0]
 
-- **Change**: LICENSE changed to MIT.
-- **Change**: Added support for `Romanian` (ro) locale.
-- **Change**: Dependencies updated.
-- **Fix**: All known bugs and issues fixed.
+- **Updated:** Dependencies.
+- **Updated:** Documentation to include all contributors.
+- **Fixed:** All known bugs and issues.
 
-## 1.2.4
+## [1.2.5]
 
-- **Change**: Added support for `Persian` (fa) locale.
-- **Fix**: All known bugs and issues fixed.
+- **Changed:** License updated to MIT.
+- **Added:** Support for Romanian (ro) locale.
+- **Updated:** Dependencies.
+- **Fixed:** All known bugs and issues.
 
-## 1.2.3
+## [1.2.4]
 
-- **Change**: `intl` version updated.
-- **Change**: Removed unnecessary dependencies.
-- **Fix**: All known bugs and issues fixed.
+- **Added:** Support for Persian (fa) locale.
+- **Fixed:** All known bugs and issues.
 
-## 1.2.2
+## [1.2.3]
 
-- **Change**: Removed unnecessary dependencies.
-- **Fix**: All known bugs and issues fixed.
+- **Updated:** `intl` package version.
+- **Removed:** Unnecessary dependencies.
+- **Fixed:** All known bugs and issues.
 
-## 1.2.1
+## [1.2.2]
 
-- **Documentation**: Updated documentation.
-- **Fix**: All known bugs and issues fixed.
+- **Removed:** Unnecessary dependencies.
+- **Fixed:** All known bugs and issues.
 
-## 1.2.0
+## [1.2.1]
 
-- `intl` version updated.
-- All known bugs fixed.
+- **Updated:** Documentation.
+- **Fixed:** All known bugs and issues.
 
-## 1.1.8
+## [1.2.0]
 
-- Added support for `Vietnamese` (vi) locale.
-- All known issues have been fixed.
+- **Updated:** `intl` package version.
+- **Fixed:** All known bugs.
 
-## 1.1.7
+## [1.1.8]
 
-- Added Urdu (ur) and Arabic (ar) locales support.
-- Added utility functions to convert English numbers to Urdu and Arabic numbers.
-- Added and updated tests.
-- Documentation improvements.
-- All known bugs fixed.
+- **Added:** Support for Vietnamese (vi) locale.
+- **Fixed:** All known issues.
 
-## 1.1.6
+## [1.1.7]
 
-- Project structure changed/updated.
-- Adding method to override DefaultMessages.
-- Adding method to add your own Locale and Messages.
-- Some unnecessary codes are removed.
-- Documentation updated.
+- **Added:** Urdu (ur) and Arabic (ar) locale support.
+- **Added:** Utility functions to convert English numbers to Urdu and Arabic numbers.
+- **Updated:** Tests and documentation.
+- **Fixed:** All known bugs.
 
-## 1.1.5
+## [1.1.6]
 
-- Added Turkish (tr) locale support.
-- Minor bug fixes.
+- **Updated:** Project structure.
+- **Added:** Method to override `DefaultMessages`.
+- **Added:** Method to add custom locales and messages.
+- **Removed:** Unnecessary code.
+- **Updated:** Documentation.
 
-## 1.1.4
+## [1.1.5]
 
-- Minor bug fixes.
-- Performance improvements.
+- **Added:** Turkish (tr) locale support.
+- **Fixed:** Minor bugs.
 
-## 1.1.3
+## [1.1.4]
 
-- Added Indonesian (id) locale support.
-- Bug fixes.
-- Documentation updated.
+- **Fixed:** Minor bugs.
+- **Improved:** Performance.
 
-## 1.1.2
+## [1.1.3]
 
-- Bug fixes.
-- Documentation updated.
+- **Added:** Indonesian (id) locale support.
+- **Fixed:** Bugs.
+- **Updated:** Documentation.
 
-## 1.1.1
+## [1.1.2]
 
-- Added Traditional Chinese (zh_tr) locale support.
-- Bug fixes.
-- Documentation updated.
+- **Fixed:** Bugs.
+- **Updated:** Documentation.
 
-## 1.1.0
+## [1.1.1]
 
-- Added German (de) locale support.
-- Bug fixes.
-- Documentation updated.
+- **Added:** Traditional Chinese (zh_tr) locale support.
+- **Fixed:** Bugs.
+- **Updated:** Documentation.
 
-## 1.0.9
+## [1.1.0]
 
-- Added Korean (ko) locale support.
-- Bug fixes.
+- **Added:** German (de) locale support.
+- **Fixed:** Bugs.
+- **Updated:** Documentation.
 
-## 1.0.8
+## [1.0.9]
 
-- Bug fixes.
-- Performance improvements.
-- Source code optimization.
+- **Added:** Korean (ko) locale support.
+- **Fixed:** Bugs.
 
-## 1.0.7+1
+## [1.0.8]
 
-- Minor bug fixes.
-- Performance improvements.
+- **Fixed:** Bugs.
+- **Improved:** Performance and source code optimization.
 
-## 1.0.7
+## [1.0.7+1]
 
-- Added Occitan (oc) locale support.
-- Minor correction in French locale.
-- Minor bug fixes.
+- **Fixed:** Minor bugs.
+- **Improved:** Performance.
 
-## 1.0.6
+## [1.0.7]
 
-- Added Japanese (ja) locale support.
-- Added an argument that can change the DateFormat pattern.
-- Documentation updated.
-- Added updated screenshots from Android.
-- Minor bug fixes.
-- Performance improvements.
+- **Added:** Occitan (oc) locale support.
+- **Fixed:** Minor bugs and corrections in French locale.
 
-## 1.0.5
+## [1.0.6]
 
-- Documentation updated.
+- **Added:** Japanese (ja) locale support.
+- **Added:** Customizable `DateFormat` pattern argument.
+- **Updated:** Documentation and screenshots for Android.
+- **Fixed:** Minor bugs.
+- **Improved:** Performance.
 
-## 1.0.4
+## [1.0.5]
 
-- Performance improvements.
-- Time will display with date.
+- **Updated:** Documentation.
 
-## 1.0.3
+## [1.0.4]
 
-- Name of default class changed to `GetTimeAgo`.
-- Method `getTimeAgo` renamed to `parse`.
-- Documentation updated.
+- **Improved:** Performance.
+- **Added:** Time display with date.
 
-## 1.0.2
+## [1.0.3]
 
-- Revamped documentation.
-- Source code optimised.
+- **Renamed:** Default class to `GetTimeAgo` and method `getTimeAgo` to `parse`.
+- **Updated:** Documentation.
 
-## 1.0.1
+## [1.0.2]
 
-- Minor bug fixes.
-- Added Simplified Chinese (zh) locale support.
-- Source code optimised.
-- Revamped documentation.
+- **Optimized:** Source code.
+- **Updated:** Documentation.
 
-## 1.0.0
+## [1.0.1]
 
-- Null Safety support.
-- Minor bug fixes.
-- Performance improvements.
+- **Added:** Simplified Chinese (zh) locale support.
+- **Fixed:** Minor bugs.
+- **Optimized:** Source code.
+- **Updated:** Documentation.
 
-## 0.1.7
+## [1.0.0]
 
-- Bug fixes.
-- Performance improvements.
+- **Added:** Null Safety support.
+- **Fixed:** Minor bugs.
+- **Improved:** Performance.
 
-## 0.1.6
+## [0.1.7]
 
-- Minor bug fixes.
+- **Fixed:** Bugs.
+- **Improved:** Performance.
 
-## 0.1.3
+## [0.1.6]
 
-- Minor bug fixes.
-- Source code optimised.
-- Revamped example for better illustration.
+- **Fixed:** Minor bugs.
 
-## 0.1.2
+## [0.1.3]
 
-- Minor bug fixes.
-- Revamped documentation.
+- **Fixed:** Minor bugs.
+- **Optimized:** Source code.
+- **Updated:** Example for better illustration.
 
-## 0.1.1
+## [0.1.2]
 
-- Minor bug fixes.
-- Revamped documentation.
-- Revamped example for better illustration.
+- **Fixed:** Minor bugs.
+- **Updated:** Documentation.
 
-## 0.1.0
+## [0.1.1]
 
-- Added English (en) locale support.
-- Added Spanish (es) locale support.
-- Added French (fr) locale support.
-- Added Hindi (hi) locale support.
-- Added Portuguese (pt) locale support.
-- Added Brazil (br) locale support.
-- Source code optimised.
-- Minor bug fixes.
-- Revamped documentation.
-- Revaped plugin to support for latest builds.
-- Revamped example for better illustration.
+- **Fixed:** Minor bugs.
+- **Updated:** Documentation and examples.
 
-## 0.0.7
+## [0.1.0]
 
-- Minor bug fixes.
+- **Added:** Support for English (en), Spanish (es), French (fr), Hindi (hi), Portuguese (pt), and Brazilian (br) locales.
+- **Optimized:** Source code.
+- **Fixed:** Minor bugs.
+- **Updated:** Documentation and examples.
 
-## 0.0.6
+## [0.0.7]
 
-- Fixed some bugs.
-- Updated example.
+- **Fixed:** Minor bugs.
 
-## 0.0.5
+## [0.0.6]
 
-- Updated screenshots.
+- **Fixed:** Bugs.
+- **Updated:** Example.
 
-## 0.0.4
+## [0.0.5]
 
-- Added example for implementation.
-- Added some android screenshots.
-- Fixed some bugs.
+- **Updated:** Screenshots.
 
-## 0.0.3
+## [0.0.4]
 
-- Made Function `getTimeAgo()` static.
+- **Added:** Implementation example and Android screenshots.
+- **Fixed:** Bugs.
 
-## 0.0.2
+## [0.0.3]
 
-- Use `TimeAgo.getTimeAgo` to format DateTime.
+- **Made:** `getTimeAgo()` function static.
 
-## 0.0.1
+## [0.0.2]
+
+- **Updated:** Functionality to use `TimeAgo.getTimeAgo` for formatting.
+
+## [0.0.1]
 
 - Initial release.

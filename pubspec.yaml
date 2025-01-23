@@ -1,21 +1,21 @@
 name: get_time_ago
 description: A Dart package to convert and format `DateTime` objects into human-readable 'time ago' strings like '20 seconds ago', 'a minute ago', or '7 hours ago'.
 
-version: 2.1.1
+version: 2.1.2
 
 homepage: https://pub.dev/packages/get_time_ago
-repository: https://github.com/nixrajput/get-time-ago
-issue_tracker: https://github.com/nixrajput/get-time-ago/issues
+repository: https://github.com/nixrajput/get_time_ago
+issue_tracker: https://github.com/nixrajput/get_time_ago/issues
 
 environment:
   sdk: ">=2.18.0 <4.0.0"
 
 dependencies:
-  intl: ">=0.18.0 <0.20.0"
+  intl: ">=0.18.0 <0.21.0"
 
 dev_dependencies:
-  lints: ^5.0.0
-  test: ^1.25.8
+  lints: ^5.1.1
+  test: ^1.25.14
 
 topics:
   - get-time-ago
