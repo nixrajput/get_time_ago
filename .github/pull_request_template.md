@@ -16,11 +16,13 @@
 ## **Checklist**
 
 ### Code Changes
+
 - [ ] I have added new features to the package (e.g., custom time thresholds, new languages, etc.)
 - [ ] I have fixed existing issues (e.g., incorrect formatting, performance bottlenecks)
 - [ ] I have improved the overall structure or optimized the codebase
 
 ### Documentation
+
 - [ ] I have updated the README file or relevant documentation with the changes
 - [ ] I have added code usage examples or updated existing examples to reflect changes
 - [ ] I have updated the package version in the `pubspec.yaml` file
@@ -28,27 +30,33 @@
 ### Testing
 
 **General Tests**
+
 - [ ] The package correctly formats time differences into human-readable strings
 - [ ] The package supports dynamic updates (e.g., changing locales, thresholds)
 
 **Localization**
+
 - [ ] The package supports all documented languages
 - [ ] Custom locales can be added and work as expected
 - [ ] Language fallback works correctly if a specific locale is missing
 
 **Custom Thresholds**
+
 - [ ] Custom time thresholds are applied correctly
 - [ ] The package handles edge cases like just now, future dates, or extreme past dates
 
 **Error Handling**
+
 - [ ] The package handles null or invalid inputs gracefully
 - [ ] Fallback behavior works for unexpected or incorrect configurations
 
 **Responsiveness**
+
 - [ ] The package adapts to time-zone differences accurately
 - [ ] The formatting responds correctly to locale changes in the app
 
 **Performance**
+
 - [ ] The package performs efficiently, even when processing frequent or large updates
 - [ ] Performance tests show no regressions
 

@@ -2,7 +2,7 @@ import 'package:get_time_ago/get_time_ago.dart';
 import 'package:intl/intl.dart';
 import 'package:test/test.dart';
 
-import 'test_message.dart';
+import 'custom_locale_test_message.dart';
 
 void main() {
   // Helper function to get the DateTime relative to now
@@ -85,7 +85,7 @@ void main() {
     });
 
     test('Test custom locale messages', () {
-      GetTimeAgo.setCustomLocaleMessages('test', TestMessages());
+      GetTimeAgo.setCustomLocaleMessages('test', CustomLocaleTestMessages());
       final dateTime = _getRelativeDateTime(const Duration(minutes: 3));
       final result = GetTimeAgo.parse(dateTime, locale: 'test');
       expect(result, equals('3 mins ago'));

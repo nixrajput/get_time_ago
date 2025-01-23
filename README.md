@@ -3,17 +3,17 @@
 A Dart package that converts and formats `DateTime` objects into human-readable 'time ago' strings, such as '20 seconds ago', 'a minute ago', or '7 hours ago'. This package provides an easy way to display relative time differences in your Flutter or Dart applications. It supports various time units (seconds, minutes, hours, days, etc.) and automatically adjusts the format based on how recent the event occurred. Ideal for displaying timestamps in news feeds, social media posts, or chat messages.
 
 [![pub package](https://img.shields.io/pub/v/get_time_ago.svg?label=Version&style=flat)][pub]
-[![Stars](https://img.shields.io/github/stars/nixrajput/get-time-ago?label=Stars&style=flat)][repo]
-[![Forks](https://img.shields.io/github/forks/nixrajput/get-time-ago?label=Forks&style=flat)][repo]
-[![Watchers](https://img.shields.io/github/watchers/nixrajput/get-time-ago?label=Watchers&style=flat)][repo]
-[![Contributors](https://img.shields.io/github/contributors/nixrajput/get-time-ago?label=Contributors&style=flat)][repo]
-[![CI](https://github.com/nixrajput/get-time-ago/workflows/CI/badge.svg?style=flat)][pub]
+[![Stars](https://img.shields.io/github/stars/nixrajput/get_time_ago?label=Stars&style=flat)][repo]
+[![Forks](https://img.shields.io/github/forks/nixrajput/get_time_ago?label=Forks&style=flat)][repo]
+[![Watchers](https://img.shields.io/github/watchers/nixrajput/get_time_ago?label=Watchers&style=flat)][repo]
+[![Contributors](https://img.shields.io/github/contributors/nixrajput/get_time_ago?label=Contributors&style=flat)][repo]
+[![CI](https://github.com/nixrajput/get_time_ago/workflows/CI/badge.svg?style=flat)][pub]
 
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/nixrajput/get-time-ago?label=Latest&style=flat)][releases]
-[![GitHub last commit](https://img.shields.io/github/last-commit/nixrajput/get-time-ago?label=Last+Commit&style=flat)][repo]
-[![GitHub issues](https://img.shields.io/github/issues/nixrajput/get-time-ago?label=Issues&style=flat)][issues]
-[![GitHub pull requests](https://img.shields.io/github/issues-pr/nixrajput/get-time-ago?label=Pull+Requests&style=flat)][pulls]
-[![GitHub License](https://img.shields.io/github/license/nixrajput/get-time-ago?label=Licence&style=flat)][license]
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/nixrajput/get_time_ago?label=Latest&style=flat)][releases]
+[![GitHub last commit](https://img.shields.io/github/last-commit/nixrajput/get_time_ago?label=Last+Commit&style=flat)][repo]
+[![GitHub issues](https://img.shields.io/github/issues/nixrajput/get_time_ago?label=Issues&style=flat)][issues]
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/nixrajput/get_time_ago?label=Pull+Requests&style=flat)][pulls]
+[![GitHub License](https://img.shields.io/github/license/nixrajput/get_time_ago?label=Licence&style=flat)][license]
 
 ## Table of Contents
 
@@ -263,8 +263,8 @@ Your support helps me dedicate more time to developing high-quality, impactful p
 [instagram]: https://instagram.com/nixrajput
 [linkedin]: https://linkedin.com/in/nixrajput
 [gmail]: mailto:nkr.nikhil.nkr@gmail.com
-[releases]: https://github.com/nixrajput/get-time-ago/releases
-[repo]: https://github.com/nixrajput/get-time-ago
-[issues]: https://github.com/nixrajput/get-time-ago/issues
-[license]: https://github.com/nixrajput/get-time-ago/blob/master/LICENSE
-[pulls]: https://github.com/nixrajput/get-time-ago/pulls
+[releases]: https://github.com/nixrajput/get_time_ago/releases
+[repo]: https://github.com/nixrajput/get_time_ago
+[issues]: https://github.com/nixrajput/get_time_ago/issues
+[license]: https://github.com/nixrajput/get_time_ago/blob/master/LICENSE
+[pulls]: https://github.com/nixrajput/get_time_ago/pulls
