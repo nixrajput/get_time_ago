@@ -20,7 +20,7 @@ Here are the steps to contribute to this project:
    command:
 
    ```bash
-   git clone https://github.com/nixrajput/get-time-ago.git
+   git clone https://github.com/nixrajput/get_time_ago.git
    ```
 
 3. Create a Branch: Create a new branch for your contributions. Make sure to choose a descriptive
@@ -69,7 +69,7 @@ Here are the steps to contribute to this project:
 ## Reporting Issues
 
 If you encounter any issues or bugs while using the Get_Time_Ago Package, please report them on
-the [Issues](https://github.com/nixrajput/get-time-ago/issues) page of the repository. Provide as
+the [Issues](https://github.com/nixrajput/get_time_ago/issues) page of the repository. Provide as
 much detail as possible to help us understand and address the problem.
 
 ## Thank You
