@@ -1,3 +1,5 @@
+import 'package:get_time_ago/src/messages/languages/ne_msg.dart';
+
 import '../messages/languages/ar_msg.dart';
 import '../messages/languages/de_msg.dart';
 import '../messages/languages/en_msg.dart';
@@ -53,5 +55,6 @@ class Data {
     'vi': VietnameseMessages(), // Vietnamese
     'ro': RomanianMessages(), // Romanian
     'nl': DutchMessages(), // Dutch
+    "ne": NepaliMessages(), // Nepali
   };
 }
