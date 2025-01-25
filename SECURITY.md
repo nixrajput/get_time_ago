@@ -5,7 +5,7 @@
 The following versions of the `get_time_ago` package are currently being supported with security updates:
 
 | Version | Supported          |
-|---------|--------------------|
+| ------- | ------------------ |
 | 2.x.x   | :white_check_mark: |
 | 1.3.x   | :white_check_mark: |
 | 1.2.x   | :x:                |
@@ -22,10 +22,10 @@ We take security issues seriously. If you discover any security vulnerabilities 
 - **Email:** [`nkr.nikhil.nkr@gmail.com`, `nixlab.in@gmail.com`]
 - **Subject:** Security Issue in `get_time_ago` Package
 - **Information to include:**
-    - A description of the vulnerability
-    - Steps to reproduce (if applicable)
-    - The impact of the vulnerability
-    - Any potential fixes or patches
+  - A description of the vulnerability
+  - Steps to reproduce (if applicable)
+  - The impact of the vulnerability
+  - Any potential fixes or patches
 
 Please **do not** publicly disclose security vulnerabilities until we have confirmed and addressed them. We will work quickly to investigate and fix the issue.
 
