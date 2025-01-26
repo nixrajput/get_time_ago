@@ -223,6 +223,7 @@ GetTimeAgo.setCustomLocaleMessages('en', CustomMessages());
 - Vietnamese
 - Romanian
 - Dutch
+- Nepali
 - Open to accept PR for adding more languages
 
 ## Contributing

@@ -53,6 +53,7 @@ const Map<String, String> languageNames = {
   'vi': 'Vietnamese',
   'ro': 'Romanian',
   'nl': 'Dutch',
+  "ne": 'Nepali'
 };
 
 class _GetTimeAgoExampleScreenState extends State<GetTimeAgoExampleScreen> {
