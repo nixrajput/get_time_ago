@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.2.0]
+
+- **Added:** Support for Nepali (ne) locale.
+- **Updated:** Documentation for new locale.
+- **Improved:** Updated and added new test cases.
+
 ## [2.1.2]
 
 - **Updated:** Dependencies.

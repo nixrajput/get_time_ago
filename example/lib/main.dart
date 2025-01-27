@@ -84,25 +84,44 @@ class _GetTimeAgoExampleScreenState extends State<GetTimeAgoExampleScreen> {
             ),
             child: Column(
               children: [
-                DropdownButton<String>(
-                  borderRadius: const BorderRadius.all(Radius.circular(16.0)),
-                  isExpanded: true,
-                  hint: const Text("Select Locale"),
-                  value: _selectedLanguage,
-                  onChanged: (String? newValue) {
-                    setState(() {
-                      _selectedLanguage = newValue;
-                    });
-                  },
-                  items: languageNames.entries.map((entry) {
-                    var code = entry.key;
-                    var name = entry.value;
-                    return DropdownMenuItem<String>(
-                      value: code,
-                      child: Text('$name ($code)'),
-                    );
-                  }).toList(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text('Select Locale: ',
+                        style: TextStyle(fontSize: 16)),
+                    Expanded(
+                      child: DropdownButton<String>(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(16.0)),
+                        isExpanded: true,
+                        isDense: true,
+                        elevation: 0,
+                        underline: Container(),
+                        focusColor: Colors.transparent,
+                        hint: const Text("Select Locale"),
+                        value: _selectedLanguage,
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            _selectedLanguage = newValue;
+                          });
+                        },
+                        items: languageNames.entries.map((entry) {
+                          var code = entry.key;
+                          var name = entry.value;
+                          return DropdownMenuItem<String>(
+                            value: code,
+                            child: Text('$name ($code)',
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                )),
+                          );
+                        }).toList(),
+                      ),
+                    ),
+                  ],
                 ),
+                const Divider(),
                 Expanded(
                   child: ListView(
                     shrinkWrap: true,
@@ -204,7 +223,13 @@ class _GetTimeAgoExampleScreenState extends State<GetTimeAgoExampleScreen> {
 
   Widget _buildExampleTile(BuildContext context, String title, String timeAgo) {
     return ListTile(
-      title: Text(title),
+      title: Text(
+        title,
+        style: TextStyle(
+          color: Theme.of(context).hintColor,
+          fontSize: 16,
+        ),
+      ),
       subtitle: Text(
         timeAgo,
         style: const TextStyle(
