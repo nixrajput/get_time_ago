@@ -8,6 +8,7 @@ import '../messages/languages/fa_msg.dart';
 import '../messages/languages/fr_msg.dart';
 import '../messages/languages/hi_msg.dart';
 import '../messages/languages/id_msg.dart';
+import '../messages/languages/it_msg.dart';
 import '../messages/languages/ja_msg.dart';
 import '../messages/languages/ko_msg.dart';
 import '../messages/languages/nl_msg.dart';
@@ -56,5 +57,6 @@ class Data {
     'ro': RomanianMessages(), // Romanian
     'nl': DutchMessages(), // Dutch
     "ne": NepaliMessages(), // Nepali
+    "it": ItalianMessages(), // Italian
   };
 }
