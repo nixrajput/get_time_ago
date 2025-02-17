@@ -224,6 +224,7 @@ GetTimeAgo.setCustomLocaleMessages('en', CustomMessages());
 - Romanian
 - Dutch
 - Nepali
+- Italian
 - Open to accept PR for adding more languages
 
 ## Contributing
