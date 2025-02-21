@@ -60,7 +60,7 @@ class GetTimeAgo {
 
     // Format the dateTime using the provided pattern or the default pattern.
     final formattedDate =
-        DateFormat(pattern ?? "dd MMM, yyyy hh:mm aa").format(dateTime);
+        DateFormat(pattern ?? "dd MMM, yyyy hh:mm aa", locale).format(dateTime);
 
     // Get the current time for comparison.
     final currentClock = DateTime.now();
