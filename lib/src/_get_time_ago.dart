@@ -55,7 +55,7 @@ class GetTimeAgo {
     String? locale,
     String? pattern,
   }) {
-    // Make sure Flutter Locale data has been initialized
+    // ensure Flutter Locale data has been initialized
     initializeDateFormatting();
 
     // Get the locale, if not provided, fallback to the default locale.
@@ -65,16 +65,14 @@ class GetTimeAgo {
     final message = _messageMap[selectedLocale] ?? Data.defaultMessages;
 
     // Format the dateTime using the provided pattern or the default pattern.
-
     String formattedDate;
     try {
       formattedDate =
           DateFormat(pattern ?? "dd MMM, yyyy hh:mm aa", selectedLocale)
               .format(dateTime);
     } on ArgumentError catch (e) {
-      // In case locate not support by intl package
+      // In case locale not support by intl package
       dev.log(e.toString());
-
       formattedDate =
           DateFormat(pattern ?? "dd MMM, yyyy hh:mm aa").format(dateTime);
     }
