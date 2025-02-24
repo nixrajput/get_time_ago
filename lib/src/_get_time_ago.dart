@@ -1,4 +1,7 @@
+import 'dart:developer' as dev;
+
 import 'package:get_time_ago/src/utils/data.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 
 import 'messages/messages.dart';
@@ -52,6 +55,9 @@ class GetTimeAgo {
     String? locale,
     String? pattern,
   }) {
+    // Make sure Flutter Locale data has been initialized
+    initializeDateFormatting();
+
     // Get the locale, if not provided, fallback to the default locale.
     final selectedLocale = locale ?? _defaultLocale;
 
@@ -59,8 +65,19 @@ class GetTimeAgo {
     final message = _messageMap[selectedLocale] ?? Data.defaultMessages;
 
     // Format the dateTime using the provided pattern or the default pattern.
-    final formattedDate =
-        DateFormat(pattern ?? "dd MMM, yyyy hh:mm aa", locale).format(dateTime);
+
+    String formattedDate;
+    try {
+      formattedDate =
+          DateFormat(pattern ?? "dd MMM, yyyy hh:mm aa", selectedLocale)
+              .format(dateTime);
+    } on ArgumentError catch (e) {
+      // In case locate not support by intl package
+      dev.log(e.toString());
+
+      formattedDate =
+          DateFormat(pattern ?? "dd MMM, yyyy hh:mm aa").format(dateTime);
+    }
 
     // Get the current time for comparison.
     final currentClock = DateTime.now();
