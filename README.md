@@ -7,9 +7,13 @@ A Dart package that converts and formats `DateTime` objects into human-readable 
 [![Forks](https://img.shields.io/github/forks/nixrajput/get_time_ago?label=Forks&style=flat)][repo]
 [![Watchers](https://img.shields.io/github/watchers/nixrajput/get_time_ago?label=Watchers&style=flat)][repo]
 [![Contributors](https://img.shields.io/github/contributors/nixrajput/get_time_ago?label=Contributors&style=flat)][repo]
-[![CI](https://github.com/nixrajput/get_time_ago/workflows/CI/badge.svg?style=flat)][pub]
 
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/nixrajput/get_time_ago?label=Latest&style=flat)][releases]
+[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/nixrajput/get_time_ago?label=Code+Size&style=flat)][repo]
+[![GitHub repo size](https://img.shields.io/github/repo-size/nixrajput/get_time_ago?label=Repo+Size&style=flat)][repo]
+[![GitHub language count](https://img.shields.io/github/languages/count/nixrajput/get_time_ago?label=Languages&style=flat)][repo]
+[![GitHub top language](https://img.shields.io/github/languages/top/nixrajput/get_time_ago?label=Top+Language&style=flat)][repo]
+
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/nixrajput/get_time_ago?label=Latest+Release&style=flat)][releases]
 [![GitHub last commit](https://img.shields.io/github/last-commit/nixrajput/get_time_ago?label=Last+Commit&style=flat)][repo]
 [![GitHub issues](https://img.shields.io/github/issues/nixrajput/get_time_ago?label=Issues&style=flat)][issues]
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/nixrajput/get_time_ago?label=Pull+Requests&style=flat)][pulls]

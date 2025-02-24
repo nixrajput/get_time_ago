@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.3.0]
+
+- **Added:** Support for Italian (it) locale.
+- **Updated:** Documentation for new locale.
+- **Fixed:** Issue with locale in `DateFormat` method of `intl` package. ([#43](https://github.com/nixrajput/get_time_ago/issues/43))
+
 ## [2.2.0]
 
 - **Added:** Support for Nepali (ne) locale.
