@@ -96,7 +96,7 @@ void main() {
       expect(result, "एक मिनेट अघि");
     });
 
-    test("should return 2 मिनेट अघिn for time 2 minutes ago", () {
+    test("should return 2 मिनेट अघि for time 2 minutes ago", () {
       final result = GetTimeAgo.parse(
         _getRelativeDateTime(const Duration(minutes: 2)),
         locale: "ne",

@@ -12,7 +12,9 @@ A Dart package that converts and formats `DateTime` objects into human-readable 
 [![GitHub repo size](https://img.shields.io/github/repo-size/nixrajput/get_time_ago?label=Repo+Size&style=flat)][repo]
 [![GitHub language count](https://img.shields.io/github/languages/count/nixrajput/get_time_ago?label=Languages&style=flat)][repo]
 [![GitHub top language](https://img.shields.io/github/languages/top/nixrajput/get_time_ago?label=Top+Language&style=flat)][repo]
+[![GitHub Sponsors](https://img.shields.io/github/sponsors/nixrajput?label=Sponsors&style=flat)][repo]
 
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/nixrajput/get_time_ago?label=Latest+Release&style=flat)][releases]
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/nixrajput/get_time_ago?label=Latest+Release&style=flat)][releases]
 [![GitHub last commit](https://img.shields.io/github/last-commit/nixrajput/get_time_ago?label=Last+Commit&style=flat)][repo]
 [![GitHub issues](https://img.shields.io/github/issues/nixrajput/get_time_ago?label=Issues&style=flat)][issues]
@@ -28,7 +30,6 @@ A Dart package that converts and formats `DateTime` objects into human-readable 
     - [Impact on Custom Implementations:](#impact-on-custom-implementations)
     - [Example of Custom Locale Update:](#example-of-custom-locale-update)
   - [Demo](#demo)
-    - [Click here to experience the demo in a Web App](#click-here-to-experience-the-demo-in-a-web-app)
   - [Installation](#installation)
   - [Usage](#usage)
     - [Formatting String as `get_time_ago`](#formatting-string-as-get_time_ago)
@@ -37,6 +38,7 @@ A Dart package that converts and formats `DateTime` objects into human-readable 
   - [Supported Languages](#supported-languages)
   - [Contributing](#contributing)
   - [License](#license)
+  - [Contributors](#contributors)
   - [Support My Work](#support-my-work)
   - [Connect With Me](#connect-with-me)
   - [Activities](#activities)
@@ -88,7 +90,11 @@ This section explains the breaking change, the impact it has on custom implement
 
 ## Demo
 
-### [Click here to experience the demo in a Web App](https://nixrajput.github.io/get_time_ago)
+<h3>
+<a href="https://nixrajput.github.io/get_time_ago" target="_blank">
+  Click here to experience the demo in a Web App
+</a>
+</h3>
 
 ## Installation
 
@@ -239,6 +245,14 @@ If you would like to contribute to this project, feel free to fork the repositor
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+## Contributors
+
+<a href="https://github.com/nixrajput/get_time_ago/graphs/contributors" target="_blank">
+  <img src="https://contrib.rocks/image?repo=nixrajput/get_time_ago" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
+
 ## Support My Work
 
 Your support helps me dedicate more time to developing high-quality, impactful projects in the open-source community. Sponsor me, and together, let’s bring even more innovation to life!
@@ -252,11 +266,11 @@ Your support helps me dedicate more time to developing high-quality, impactful p
 ## Connect With Me
 
 [![GitHub: nixrajput](https://img.shields.io/badge/nixrajput-EFF7F6?logo=GitHub&logoColor=333&link=https://www.github.com/nixrajput)][github]
-[![Linkedin: nixrajput](https://img.shields.io/badge/nixrajput-EFF7F6?logo=LinkedIn&logoColor=blue&link=https://www.linkedin.com/in/nixrajput)][linkedin]
-[![Instagram: nixrajput](https://img.shields.io/badge/nixrajput-EFF7F6?logo=Instagram&link=https://www.instagram.com/nixrajput)][instagram]
+[![Linkedin: nixrajput](https://img.shields.io/badge/nixrajput-EFF7F6?logo=Linkedin&logoColor=333&link=https://www.linkedin.com/in/nixrajput)][linkedin]
+[![Instagram: nixrajput](https://img.shields.io/badge/nixrajput-EFF7F6?logo=Instagram&logoColor=333&link=https://www.instagram.com/nixrajput)][instagram]
 [![Twitter: nixrajput07](https://img.shields.io/badge/nixrajput07-EFF7F6?logo=X&logoColor=333&link=https://x.com/nixrajput07)][twitter]
-[![Telegram: nixrajput](https://img.shields.io/badge/nixrajput-EFF7F6?logo=Telegram&link=https://telegram.me/nixrajput)][telegram]
-[![Gmail: nkr.nikhi.nkr@gmail.com](https://img.shields.io/badge/nkr.nikhil.nkr@gmail.com-EFF7F6?logo=Gmail&link=mailto:nkr.nikhil.nkr@gmail.com)][gmail]
+[![Telegram: nixrajput](https://img.shields.io/badge/nixrajput-EFF7F6?logo=Telegram&logoColor=333&link=https://telegram.me/nixrajput)][telegram]
+[![Gmail: nkr.nikhi.nkr@gmail.com](https://img.shields.io/badge/nkr.nikhil.nkr@gmail.com-EFF7F6?logo=Gmail&logoColor=333&link=mailto:nkr.nikhil.nkr@gmail.com)][gmail]
 
 ## Activities
 
