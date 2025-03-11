@@ -15,6 +15,7 @@ A Dart package that converts and formats `DateTime` objects into human-readable 
 [![GitHub Sponsors](https://img.shields.io/github/sponsors/nixrajput?label=Sponsors&style=flat)][repo]
 
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/nixrajput/get_time_ago?label=Latest+Release&style=flat)][releases]
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/nixrajput/get_time_ago?label=Latest+Release&style=flat)][releases]
 [![GitHub last commit](https://img.shields.io/github/last-commit/nixrajput/get_time_ago?label=Last+Commit&style=flat)][repo]
 [![GitHub issues](https://img.shields.io/github/issues/nixrajput/get_time_ago?label=Issues&style=flat)][issues]
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/nixrajput/get_time_ago?label=Pull+Requests&style=flat)][pulls]
