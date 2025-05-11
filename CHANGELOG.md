@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.3.1]
+
+- **Fixed:** Correction text in zh_tw_msg.dart
+
 ## [2.3.0]
 
 - **Added:** Support for Italian (it) locale.
