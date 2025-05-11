@@ -13,7 +13,6 @@ jobs:
     strategy:
       matrix:
         sdk: [stable]
-        flutter-version: [3.27.x]
 
     steps:
       - name: Checkout Code
@@ -41,7 +40,6 @@ jobs:
     strategy:
       matrix:
         sdk: [stable]
-        flutter-version: [3.27.x]
 
     steps:
       - name: Checkout Code
@@ -56,7 +54,6 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: ${{ matrix.flutter-version }}
 
       - name: Install dependencies
         run: flutter pub get
