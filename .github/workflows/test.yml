@@ -12,8 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        sdk:
-          - 3.27.x
+        sdk: [3.7.2, stable]
 
     steps:
       - name: Checkout Code
@@ -40,8 +39,7 @@ jobs:
     needs: check_up_to_date
     strategy:
       matrix:
-        sdk:
-          - 3.27.x
+        sdk: [3.7.2, stable]
 
     steps:
       - name: Checkout Code
