@@ -10,6 +10,11 @@ jobs:
   check_up_to_date:
     name: Checkout Repository
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        sdk:
+          - 3.27.x
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -30,24 +35,28 @@ jobs:
           fi
 
   setup_and_test:
-    name: Setup Flutter and Run Test Cases
+    name: Setup Dart and Run Test Cases
     runs-on: ubuntu-latest
     needs: check_up_to_date
+    strategy:
+      matrix:
+        sdk:
+          - 3.27.x
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Install Flutter SDK
-        uses: subosito/flutter-action@v2
+      - name: Set up Dart
+        uses: dart-lang/setup-dart@v1
         with:
-          channel: stable
-          flutter-version: 3.27.x
+          sdk: ${{ matrix.sdk }}
 
-      - name: Run Flutter doctor
-        run: flutter doctor -v
+      - name: Run Dart doctor
+        run: dart doctor -v
 
-      - name: Run Flutter Analyzer (Lint)
-        run: flutter analyze
+      - name: Run Dart Analyzer (Lint)
+        run: dart analyze
 
-      - name: Run Flutter Tests
-        run: flutter test
+      - name: Run Dart Tests
+        run: dart test

@@ -1,4 +1,4 @@
-name: Publish and Release
+name: Publish to pub.dev and Create Release
 
 on:
   push:
@@ -11,19 +11,22 @@ jobs:
     permissions:
       id-token: write
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        sdk:
+          - 3.27.x
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Flutter
-        uses: subosito/flutter-action@v2
+      - name: Set up Dart
+        uses: dart-lang/setup-dart@v1
         with:
-          channel: stable
-          flutter-version: 3.27.x
+          sdk: ${{ matrix.sdk }}
 
       - name: Install dependencies
-        run: flutter pub get
+        run: dart pub get
 
       - name: Extract version from pubspec.yaml
         id: get_version
@@ -33,7 +36,7 @@ jobs:
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
 
       - name: Publish to pub.dev
-        run: flutter pub publish --force
+        run: dart pub publish --force
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
