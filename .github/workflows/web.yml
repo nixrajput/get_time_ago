@@ -44,7 +44,7 @@ jobs:
       - name: Check Flutter Version
         run: flutter --version
 
-      - name: Get Flutter Dependencies
+      - name: Install Dependencies
         run: flutter pub get
 
       - name: Run Flutter Analyzer (Lint)
