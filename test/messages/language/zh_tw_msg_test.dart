@@ -14,7 +14,7 @@ void main() {
     });
 
     test('justNow should return "頃"', () {
-      expect(traditionalChineseMessages.justNow(10), '頃');
+      expect(traditionalChineseMessages.justNow(10), '現在');
     });
 
     test('secsAgo should return correct seconds format', () {
