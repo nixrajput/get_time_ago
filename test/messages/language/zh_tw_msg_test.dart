@@ -13,7 +13,7 @@ void main() {
       expect(traditionalChineseMessages.suffixAgo(), '前');
     });
 
-    test('justNow should return "頃"', () {
+    test('justNow should return "現在"', () {
       expect(traditionalChineseMessages.justNow(10), '現在');
     });
 
@@ -56,12 +56,12 @@ void main() {
   }
 
   group('GetTimeAgo Test with Chinese(Traditional) Locale', () {
-    test('should return "頃" for time less than 15 seconds', () {
+    test('should return "現在" for time less than 15 seconds', () {
       final result = GetTimeAgo.parse(
         _getRelativeDateTime(const Duration(seconds: 5)),
         locale: 'zh_tr',
       );
-      expect(result, '頃');
+      expect(result, '現在');
     });
 
     test('should return "30秒前" for 30 seconds ago', () {
