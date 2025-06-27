@@ -14,7 +14,7 @@ class GermanMessages implements Messages {
 
   /// Message when the elapsed time is less than 15 seconds.
   @override
-  String justNow(int seconds) => 'vorhin';
+  String justNow(int seconds) => 'gerade';
 
   /// Message for when the elapsed time is less than a minute.
   @override
