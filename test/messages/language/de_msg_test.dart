@@ -13,8 +13,8 @@ void main() {
       expect(messages.suffixAgo(), '');
     });
 
-    test('justNow should return "gerade"', () {
-      expect(messages.justNow(10), 'gerade');
+    test('justNow should return "gerade eben"', () {
+      expect(messages.justNow(10), 'gerade eben');
     });
 
     test('secsAgo should return correct seconds ago format', () {
