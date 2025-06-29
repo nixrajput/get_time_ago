@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.3.2]
+
+- **Added:** Improved German (de) locale messages.
+
 ## [2.3.1]
 
 - **Fixed:** Correction text in zh_tw_msg.dart
