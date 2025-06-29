@@ -13,8 +13,8 @@ void main() {
       expect(messages.suffixAgo(), '');
     });
 
-    test('justNow should return "vorhin"', () {
-      expect(messages.justNow(10), 'vorhin');
+    test('justNow should return "gerade eben"', () {
+      expect(messages.justNow(10), 'gerade eben');
     });
 
     test('secsAgo should return correct seconds ago format', () {
@@ -56,12 +56,12 @@ void main() {
   }
 
   group('GetTimeAgo Test with German Locale', () {
-    test('should return vorhin for time less than 15 seconds', () {
+    test('should return gerade eben for time less than 15 seconds', () {
       final result = GetTimeAgo.parse(
         _getRelativeDateTime(const Duration(seconds: 0)),
         locale: 'de',
       );
-      expect(result, 'vorhin');
+      expect(result, 'gerade eben');
     });
 
     test('should return correct format for seconds ago', () {
