@@ -39,12 +39,12 @@ String convertToArabicNumbers(int input) {
   // Convert the input number to a string
   var result = input.toString();
 
-  // Replace each English digit with its Urdu counterpart
+  // Replace each English digit with its Arabic counterpart
   for (var i = 0; i < english.length; i++) {
     result = result.replaceAll(english[i], arabic[i]);
   }
 
-  // Return the result with Urdu digits
+  // Return the result with Arabic digits
   return result;
 }
 
@@ -64,3 +64,4 @@ String formatMessage(
           (part) => part.isNotEmpty) // Ensure only non-empty parts are joined
       .join(message.wordSeparator()); // Join parts with the word separator
 }
+
