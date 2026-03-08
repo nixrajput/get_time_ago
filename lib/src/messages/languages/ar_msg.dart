@@ -19,7 +19,7 @@ class ArabicMessages extends Messages {
 
   /// Message for when the elapsed time is less than a minute.
   @override
-  String secsAgo(int seconds) => '${convertToUrduNumbers(seconds)} ثوان';
+  String secsAgo(int seconds) => '${convertToArabicNumbers(seconds)} ثوان';
 
   /// Message for when the elapsed time is about a minute.
   @override
@@ -31,7 +31,7 @@ class ArabicMessages extends Messages {
     if (minutes == 2) {
       return 'دقيقتين';
     }
-    return '${convertToUrduNumbers(minutes)} دقائق';
+    return '${convertToArabicNumbers(minutes)} دقائق';
   }
 
   /// Message for when the elapsed time is about an hour.
@@ -44,7 +44,7 @@ class ArabicMessages extends Messages {
     if (hours == 2) {
       return 'ساعتين';
     }
-    return '${convertToUrduNumbers(hours)} ساعات';
+    return '${convertToArabicNumbers(hours)} ساعات';
   }
 
   /// Message for when the elapsed time is about a day.
@@ -57,7 +57,7 @@ class ArabicMessages extends Messages {
     if (days == 2) {
       return 'يومين';
     }
-    return '${convertToUrduNumbers(days)} أيام';
+    return '${convertToArabicNumbers(days)} أيام';
   }
 
   /// Word separator to be used when joining the parts of the message.
