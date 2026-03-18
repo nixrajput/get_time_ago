@@ -18,7 +18,7 @@ void main() {
     });
 
     test('secsAgo should return correct seconds ago format', () {
-      expect(messages.secsAgo(5), '۵ ثوان');
+      expect(messages.secsAgo(5), '٥ ثوان');
     });
 
     test('minAgo should return "دقيقة واحدة"', () {
@@ -31,7 +31,7 @@ void main() {
 
     test('minsAgo should return correct plural form for more than 2 minutes',
         () {
-      expect(messages.minsAgo(5), '۵ دقائق');
+      expect(messages.minsAgo(5), '٥ دقائق');
     });
 
     test('hourAgo should return "ساعة واحدة"', () {
@@ -44,7 +44,7 @@ void main() {
 
     test('hoursAgo should return correct plural form for more than 2 hours',
         () {
-      expect(messages.hoursAgo(5), '۵ ساعات');
+      expect(messages.hoursAgo(5), '٥ ساعات');
     });
 
     test('dayAgo should return "يوم واحد"', () {
@@ -56,7 +56,7 @@ void main() {
     });
 
     test('daysAgo should return correct plural form for more than 2 days', () {
-      expect(messages.daysAgo(5), '۵ أيام');
+      expect(messages.daysAgo(5), '٥ أيام');
     });
 
     test('wordSeparator should return a space', () {
@@ -83,7 +83,7 @@ void main() {
         _getRelativeDateTime(const Duration(seconds: 30)),
         locale: 'ar',
       );
-      expect(result, 'قبل ۳۰ ثوان');
+      expect(result, 'قبل ٣٠ ثوان');
     });
 
     test('should return دقيقة واحدة for 1 minute ago', () {
@@ -108,7 +108,7 @@ void main() {
         _getRelativeDateTime(const Duration(minutes: 5)),
         locale: 'ar',
       );
-      expect(result, 'قبل ۵ دقائق');
+      expect(result, 'قبل ٥ دقائق');
     });
 
     test('should return ساعة واحدة for 1 hour ago', () {
@@ -132,7 +132,7 @@ void main() {
         _getRelativeDateTime(const Duration(hours: 5)),
         locale: 'ar',
       );
-      expect(result, 'قبل ۵ ساعات');
+      expect(result, 'قبل ٥ ساعات');
     });
 
     test('should return يوم واحد for 1 day ago', () {
@@ -156,7 +156,7 @@ void main() {
         _getRelativeDateTime(const Duration(days: 5)),
         locale: 'ar',
       );
-      expect(result, 'قبل ۵ أيام');
+      expect(result, 'قبل ٥ أيام');
     });
 
     test('should return formatted date for dates beyond 7 days', () {
@@ -164,7 +164,7 @@ void main() {
         _getRelativeDateTime(const Duration(days: 10)),
         locale: 'ar',
       );
-      expect(result, isNot('قبل ۱۰ أيام'));
+      expect(result, isNot('قبل ١٠ أيام'));
     });
   });
 }
