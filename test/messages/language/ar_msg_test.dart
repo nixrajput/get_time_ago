@@ -29,10 +29,12 @@ void main() {
       expect(messages.minsAgo(2), 'دقيقتين');
     });
 
-    test('minsAgo should return correct plural form for more than 2 minutes',
-        () {
-      expect(messages.minsAgo(5), '٥ دقائق');
-    });
+    test(
+      'minsAgo should return correct plural form for more than 2 minutes',
+      () {
+        expect(messages.minsAgo(5), '٥ دقائق');
+      },
+    );
 
     test('hourAgo should return "ساعة واحدة"', () {
       expect(messages.hourAgo(60), 'ساعة واحدة');
@@ -42,10 +44,12 @@ void main() {
       expect(messages.hoursAgo(2), 'ساعتين');
     });
 
-    test('hoursAgo should return correct plural form for more than 2 hours',
-        () {
-      expect(messages.hoursAgo(5), '٥ ساعات');
-    });
+    test(
+      'hoursAgo should return correct plural form for more than 2 hours',
+      () {
+        expect(messages.hoursAgo(5), '٥ ساعات');
+      },
+    );
 
     test('dayAgo should return "يوم واحد"', () {
       expect(messages.dayAgo(24), 'يوم واحد');

@@ -50,11 +50,7 @@ class GetTimeAgo {
   /// - If [pattern] is passed, it will use the custom DateFormat pattern for displaying the date.
   ///
   /// The function computes the time difference between the current time and [dateTime] and returns an appropriate message.
-  static String parse(
-    DateTime dateTime, {
-    String? locale,
-    String? pattern,
-  }) {
+  static String parse(DateTime dateTime, {String? locale, String? pattern}) {
     // ensure Flutter Locale data has been initialized
     initializeDateFormatting();
 
@@ -67,14 +63,16 @@ class GetTimeAgo {
     // Format the dateTime using the provided pattern or the default pattern.
     String formattedDate;
     try {
-      formattedDate =
-          DateFormat(pattern ?? "dd MMM, yyyy hh:mm aa", selectedLocale)
-              .format(dateTime);
+      formattedDate = DateFormat(
+        pattern ?? "dd MMM, yyyy hh:mm aa",
+        selectedLocale,
+      ).format(dateTime);
     } on ArgumentError catch (e) {
       // In case locale not support by intl package
       dev.log(e.toString());
-      formattedDate =
-          DateFormat(pattern ?? "dd MMM, yyyy hh:mm aa").format(dateTime);
+      formattedDate = DateFormat(
+        pattern ?? "dd MMM, yyyy hh:mm aa",
+      ).format(dateTime);
     }
 
     // Get the current time for comparison.

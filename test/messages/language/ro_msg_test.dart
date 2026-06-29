@@ -82,8 +82,9 @@ void main() {
 
     test('should return correct format for 5 minutes ago', () {
       final result = GetTimeAgo.parse(
-          _getRelativeDateTime(const Duration(minutes: 5)),
-          locale: 'ro');
+        _getRelativeDateTime(const Duration(minutes: 5)),
+        locale: 'ro',
+      );
       expect(result, 'acum 5 minute');
     });
 
