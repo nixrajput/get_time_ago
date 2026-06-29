@@ -59,9 +59,7 @@ void main() {
   group("GetTimeAgo with Nepali Locale", () {
     test("should return भर्खरै for time ellapsed less than 15 seconds", () {
       final result = GetTimeAgo.parse(
-        _getRelativeDateTime(
-          const Duration(seconds: 0),
-        ),
+        _getRelativeDateTime(const Duration(seconds: 0)),
         locale: "ne",
       );
       expect(result, "भर्खरै");
@@ -69,24 +67,22 @@ void main() {
 
     test("should return भर्खरै for time ellapsed less than 15 seconds", () {
       final result = GetTimeAgo.parse(
-        _getRelativeDateTime(
-          const Duration(seconds: 13),
-        ),
+        _getRelativeDateTime(const Duration(seconds: 13)),
         locale: "ne",
       );
       expect(result, "भर्खरै");
     });
 
-    test("should return 20 सेकेन्ड अघि for time ellapsed more than 15 seconds",
-        () {
-      final result = GetTimeAgo.parse(
-        _getRelativeDateTime(
-          const Duration(seconds: 25),
-        ),
-        locale: "ne",
-      );
-      expect(result, "25 सेकेन्ड अघि");
-    });
+    test(
+      "should return 20 सेकेन्ड अघि for time ellapsed more than 15 seconds",
+      () {
+        final result = GetTimeAgo.parse(
+          _getRelativeDateTime(const Duration(seconds: 25)),
+          locale: "ne",
+        );
+        expect(result, "25 सेकेन्ड अघि");
+      },
+    );
 
     test("should return एक मिनेट अघि for time 1 min ago", () {
       final result = GetTimeAgo.parse(
@@ -124,9 +120,7 @@ void main() {
 
     test("should return एक दिन अघि for time 24 hours ago", () {
       final result = GetTimeAgo.parse(
-        _getRelativeDateTime(
-          const Duration(hours: 24),
-        ),
+        _getRelativeDateTime(const Duration(hours: 24)),
         locale: "ne",
       );
       expect(result, "एक दिन अघि");
@@ -134,9 +128,7 @@ void main() {
 
     test("should return 3 दिन अघि for time 3 day ago", () {
       final result = GetTimeAgo.parse(
-        _getRelativeDateTime(
-          const Duration(days: 3),
-        ),
+        _getRelativeDateTime(const Duration(days: 3)),
         locale: "ne",
       );
       expect(result, "3 दिन अघि");
@@ -144,9 +136,7 @@ void main() {
 
     test("should return 7 दिन अघि for time 7 day ago", () {
       final result = GetTimeAgo.parse(
-        _getRelativeDateTime(
-          const Duration(days: 7),
-        ),
+        _getRelativeDateTime(const Duration(days: 7)),
         locale: "ne",
       );
       expect(result, "7 दिन अघि");

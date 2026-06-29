@@ -54,7 +54,7 @@ const Map<String, String> languageNames = {
   'ro': 'Romanian',
   'nl': 'Dutch',
   "ne": 'Nepali',
-  'it': 'Italian'
+  'it': 'Italian',
 };
 
 class _GetTimeAgoExampleScreenState extends State<GetTimeAgoExampleScreen> {
@@ -88,12 +88,15 @@ class _GetTimeAgoExampleScreenState extends State<GetTimeAgoExampleScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text('Select Locale: ',
-                        style: TextStyle(fontSize: 16)),
+                    const Text(
+                      'Select Locale: ',
+                      style: TextStyle(fontSize: 16),
+                    ),
                     Expanded(
                       child: DropdownButton<String>(
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(16.0)),
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(16.0),
+                        ),
                         isExpanded: true,
                         isDense: true,
                         elevation: 0,
@@ -111,11 +114,13 @@ class _GetTimeAgoExampleScreenState extends State<GetTimeAgoExampleScreen> {
                           var name = entry.value;
                           return DropdownMenuItem<String>(
                             value: code,
-                            child: Text('$name ($code)',
-                                style: const TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                )),
+                            child: Text(
+                              '$name ($code)',
+                              style: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                           );
                         }).toList(),
                       ),
@@ -204,9 +209,7 @@ class _GetTimeAgoExampleScreenState extends State<GetTimeAgoExampleScreen> {
                         context,
                         'Custom format beyond 7 days',
                         GetTimeAgo.parse(
-                          _getRelativeDateTime(
-                            const Duration(days: 10),
-                          ),
+                          _getRelativeDateTime(const Duration(days: 10)),
                           pattern: 'yyyy-MM-dd',
                           locale: _selectedLanguage,
                         ),
@@ -226,17 +229,11 @@ class _GetTimeAgoExampleScreenState extends State<GetTimeAgoExampleScreen> {
     return ListTile(
       title: Text(
         title,
-        style: TextStyle(
-          color: Theme.of(context).hintColor,
-          fontSize: 16,
-        ),
+        style: TextStyle(color: Theme.of(context).hintColor, fontSize: 16),
       ),
       subtitle: Text(
         timeAgo,
-        style: const TextStyle(
-          color: Colors.blue,
-          fontSize: 16,
-        ),
+        style: const TextStyle(color: Colors.blue, fontSize: 16),
       ),
       isThreeLine: true,
     );

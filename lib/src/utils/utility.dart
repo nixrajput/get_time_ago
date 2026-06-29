@@ -61,7 +61,7 @@ String formatMessage(
   // Combine non-empty parts of the message and join them using the word separator
   return [prefix, msg, suffix]
       .where(
-          (part) => part.isNotEmpty) // Ensure only non-empty parts are joined
+        (part) => part.isNotEmpty,
+      ) // Ensure only non-empty parts are joined
       .join(message.wordSeparator()); // Join parts with the word separator
 }
-
