@@ -1,6 +1,6 @@
 # Changelog
 
-## [2.4.1]
+## [2.4.0]
 
 - **Chore:** Automated release pipeline — merges to `master` tag the version and publish to pub.dev, with CI enforcing (at PR time) a version bump ahead of the latest published release and a matching CHANGELOG entry. No API changes; rolls up the fixes since 2.3.2.
 
