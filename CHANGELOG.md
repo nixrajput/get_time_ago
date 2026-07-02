@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.4.1]
+
+- **Chore:** Automated release pipeline — merges to `master` tag the version and publish to pub.dev, with CI enforcing (at PR time) a version bump ahead of the latest published release and a matching CHANGELOG entry. No API changes; rolls up the fixes since 2.3.2.
+
 ## [2.3.4]
 
 - **Fixed:** Future dates are now formatted as relative future time (e.g. `in 20 seconds`) instead of incorrectly showing as past. ([#52](https://github.com/nixrajput/get_time_ago/issues/52))

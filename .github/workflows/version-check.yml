@@ -69,3 +69,22 @@ jobs:
             exit 1
           fi
           echo "Version $PR is ahead of the highest released ($HIGHEST) ✓"
+
+      - name: Require CHANGELOG entry for this version
+        env:
+          PR: ${{ steps.v.outputs.pr }}
+        run: |
+          # pub.dev rejects a publish whose CHANGELOG doesn't mention the version,
+          # so enforce it here (at the PR gate) instead of failing at publish time.
+          if [ ! -f CHANGELOG.md ]; then
+            echo "::error::CHANGELOG.md is missing — add it with an entry for $PR."
+            exit 1
+          fi
+          # Match the version as a whole token (e.g. "## [2.4.0]", "## 2.4.0"),
+          # not as a substring of a longer version.
+          if grep -qE "(^|[^0-9.])${PR//./\\.}([^0-9.]|$)" CHANGELOG.md; then
+            echo "CHANGELOG.md mentions $PR ✓"
+          else
+            echo "::error::CHANGELOG.md has no entry for $PR. Add a '## $PR' section describing the release."
+            exit 1
+          fi
