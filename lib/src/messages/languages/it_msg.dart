@@ -12,6 +12,12 @@ class ItalianMessages implements Messages {
   @override
   String suffixAgo() => 'fa';
 
+  @override
+  String prefixFromNow() => 'tra';
+
+  @override
+  String suffixFromNow() => '';
+
   /// Message when the elapsed time is less than 15 seconds.
   @override
   String justNow(int seconds) => 'proprio ora';

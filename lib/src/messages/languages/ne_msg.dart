@@ -40,4 +40,10 @@ class NepaliMessages extends Messages {
   /// Suffix added after the time ago message.
   @override
   String suffixAgo() => "अघि";
+
+  @override
+  String prefixFromNow() => "";
+
+  @override
+  String suffixFromNow() => "पछि";
 }

@@ -13,6 +13,12 @@ class ArabicMessages extends Messages {
   @override
   String suffixAgo() => '';
 
+  @override
+  String prefixFromNow() => 'بعد';
+
+  @override
+  String suffixFromNow() => '';
+
   /// Message when the elapsed time is less than 15 seconds.
   @override
   String justNow(int seconds) => 'الآن';

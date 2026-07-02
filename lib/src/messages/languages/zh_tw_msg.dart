@@ -12,6 +12,12 @@ class TraditionalChineseMessages implements Messages {
   @override
   String suffixAgo() => '前';
 
+  @override
+  String prefixFromNow() => '';
+
+  @override
+  String suffixFromNow() => '後';
+
   /// Message when the elapsed time is less than 15 seconds.
   @override
   String justNow(int seconds) => '現在';

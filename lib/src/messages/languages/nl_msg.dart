@@ -12,6 +12,12 @@ class DutchMessages implements Messages {
   @override
   String suffixAgo() => 'geleden';
 
+  @override
+  String prefixFromNow() => 'over';
+
+  @override
+  String suffixFromNow() => '';
+
   /// Message when the elapsed time is less than 15 seconds.
   @override
   String justNow(int seconds) => 'zojuist';

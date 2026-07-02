@@ -12,6 +12,12 @@ class EnglishMessages implements Messages {
   @override
   String suffixAgo() => 'ago';
 
+  @override
+  String prefixFromNow() => 'in';
+
+  @override
+  String suffixFromNow() => '';
+
   /// Message when the elapsed time is less than 15 seconds.
   @override
   String justNow(int seconds) => 'just now';

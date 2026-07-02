@@ -12,6 +12,12 @@ class IndonesianMessages implements Messages {
   @override
   String suffixAgo() => 'lalu';
 
+  @override
+  String prefixFromNow() => '';
+
+  @override
+  String suffixFromNow() => 'lagi';
+
   /// Message when the elapsed time is less than 15 seconds.
   @override
   String justNow(int seconds) => 'baru saja';

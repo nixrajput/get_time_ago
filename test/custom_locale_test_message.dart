@@ -1,6 +1,6 @@
 import 'package:get_time_ago/get_time_ago.dart';
 
-class CustomLocaleTestMessages implements Messages {
+class CustomLocaleTestMessages extends Messages {
   @override
   String prefixAgo() => '';
 

@@ -12,6 +12,12 @@ class GermanMessages implements Messages {
   @override
   String suffixAgo() => '';
 
+  @override
+  String prefixFromNow() => 'in';
+
+  @override
+  String suffixFromNow() => '';
+
   /// Message when the elapsed time is less than 15 seconds.
   @override
   String justNow(int seconds) => 'gerade eben';

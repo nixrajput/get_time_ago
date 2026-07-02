@@ -90,5 +90,27 @@ void main() {
       final result = GetTimeAgo.parse(dateTime, locale: 'test');
       expect(result, equals('3 mins ago'));
     });
+
+    test('Test future date (seconds)', () {
+      GetTimeAgo.setDefaultLocale('en');
+      final dateTime = DateTime.now().add(const Duration(seconds: 45));
+      final result = GetTimeAgo.parse(dateTime);
+      expect(result, matches(RegExp(r'^in \d+ seconds$')));
+      expect(result, isNot(contains('ago')));
+    });
+
+    test('Test future date (minutes)', () {
+      GetTimeAgo.setDefaultLocale('en');
+      final dateTime = DateTime.now().add(const Duration(minutes: 30));
+      final result = GetTimeAgo.parse(dateTime);
+      expect(result, matches(RegExp(r'^in \d+ minutes$')));
+    });
+
+    test('Test future date (French locale)', () {
+      GetTimeAgo.setDefaultLocale('fr');
+      final dateTime = DateTime.now().add(const Duration(minutes: 30));
+      final result = GetTimeAgo.parse(dateTime);
+      expect(result, matches(RegExp(r'^dans \d+ minutes$')));
+    });
   });
 }

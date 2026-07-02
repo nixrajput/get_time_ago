@@ -13,6 +13,12 @@ class UrduMessages extends Messages {
   @override
   String suffixAgo() => 'پہلے';
 
+  @override
+  String prefixFromNow() => '\u202B';
+
+  @override
+  String suffixFromNow() => 'بعد';
+
   /// Message when the elapsed time is less than 15 seconds.
   @override
   String justNow(int seconds) => 'ابھی';

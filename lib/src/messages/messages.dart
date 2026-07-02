@@ -11,6 +11,14 @@ abstract class Messages {
   /// Example: 'ago' or '' (empty).
   String suffixAgo();
 
+  /// Prefix added before a future relative time message.
+  /// Example: 'in' or '' (empty).
+  String prefixFromNow() => 'in';
+
+  /// Suffix added after a future relative time message.
+  /// Example: 'from now' or '' (empty).
+  String suffixFromNow() => '';
+
   /// Message when the elapsed time is less than 15 seconds.
   /// [seconds]: The number of seconds that have passed.
   String justNow(int seconds);

@@ -12,6 +12,12 @@ class TurkishMessages implements Messages {
   @override
   String suffixAgo() => 'önce';
 
+  @override
+  String prefixFromNow() => '';
+
+  @override
+  String suffixFromNow() => 'sonra';
+
   /// Message when the elapsed time is less than 15 seconds.
   @override
   String justNow(int seconds) => 'hemen şimdi';

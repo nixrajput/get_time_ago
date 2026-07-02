@@ -79,20 +79,29 @@ class GetTimeAgo {
     final currentClock = DateTime.now();
 
     // Calculate the time difference between now and the provided dateTime.
-    final elapsed = currentClock.difference(dateTime).abs();
+    final difference = currentClock.difference(dateTime);
+    final elapsed = difference.abs();
+    final isFuture = difference.isNegative;
 
-    // Retrieve the prefix and suffix for the time ago message.
-    final prefix = message.prefixAgo();
-    final suffix = message.suffixAgo();
+    // Retrieve the prefix and suffix for past or future relative time.
+    final prefix = isFuture ? message.prefixFromNow() : message.prefixAgo();
+    final suffix = isFuture ? message.suffixFromNow() : message.suffixAgo();
     String result;
 
     // Determine the appropriate message based on the elapsed time.
-    if (elapsed.inSeconds < 15) {
-      // If the time difference is less than 15 seconds, display "just now".
+    if (elapsed.inSeconds < 15 && !isFuture) {
+      // If the time difference is less than 15 seconds in the past, display "just now".
       result = formatMessage(
         '',
         message.justNow(elapsed.inSeconds),
         '',
+        message,
+      );
+    } else if (elapsed.inSeconds < 15 && isFuture) {
+      result = formatMessage(
+        prefix,
+        message.secsAgo(elapsed.inSeconds),
+        suffix,
         message,
       );
     } else if (elapsed.inSeconds < 60) {

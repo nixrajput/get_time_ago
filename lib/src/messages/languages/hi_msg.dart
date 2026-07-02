@@ -12,6 +12,12 @@ class HindiMessages implements Messages {
   @override
   String suffixAgo() => 'पहले';
 
+  @override
+  String prefixFromNow() => '';
+
+  @override
+  String suffixFromNow() => 'बाद में';
+
   /// Message when the elapsed time is less than 15 seconds.
   @override
   String justNow(int seconds) => 'अभी';

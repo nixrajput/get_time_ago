@@ -12,6 +12,12 @@ class VietnameseMessages implements Messages {
   @override
   String suffixAgo() => 'trước';
 
+  @override
+  String prefixFromNow() => '';
+
+  @override
+  String suffixFromNow() => 'nữa';
+
   /// Message when the elapsed time is less than 15 seconds.
   @override
   String justNow(int seconds) => 'ngay bây giờ';

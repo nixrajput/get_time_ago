@@ -12,6 +12,12 @@ class KoreanMessages implements Messages {
   @override
   String suffixAgo() => '전';
 
+  @override
+  String prefixFromNow() => '';
+
+  @override
+  String suffixFromNow() => '후';
+
   /// Message when the elapsed time is less than 15 seconds.
   @override
   String justNow(int seconds) => '바로 지금';

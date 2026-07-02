@@ -13,6 +13,12 @@ class PersianMessages extends Messages {
   @override
   String suffixAgo() => 'پیش';
 
+  @override
+  String prefixFromNow() => '\u202B';
+
+  @override
+  String suffixFromNow() => 'دیگر';
+
   /// Message when the elapsed time is less than 15 seconds.
   @override
   String justNow(int seconds) => 'همین الان';

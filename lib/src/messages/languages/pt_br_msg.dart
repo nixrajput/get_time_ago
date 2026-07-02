@@ -12,6 +12,12 @@ class PortugueseBrazilMessages implements Messages {
   @override
   String suffixAgo() => '';
 
+  @override
+  String prefixFromNow() => 'daqui a';
+
+  @override
+  String suffixFromNow() => '';
+
   /// Message when the elapsed time is less than 15 seconds.
   @override
   String justNow(int seconds) => 'agora mesmo';
