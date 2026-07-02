@@ -1,5 +1,10 @@
 # Changelog
 
+## [2.3.4]
+
+- **Fixed:** Future dates are now formatted as relative future time (e.g. `in 20 seconds`) instead of incorrectly showing as past. ([#52](https://github.com/nixrajput/get_time_ago/issues/52))
+- **Added:** Optional `FutureTimeMessages` mixin for locale-specific future formatting (`prefixFromNow` / `suffixFromNow`). Bundled locales use this mixin. Custom locales that only `implement Messages` remain compatible and fall back to `in` / empty suffix for future dates.
+
 ## [2.3.2]
 
 - **Added:** Improved German (de) locale messages.

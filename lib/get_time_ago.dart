@@ -26,6 +26,7 @@ export 'package:get_time_ago/src/messages/languages/ur_msg.dart';
 export 'package:get_time_ago/src/messages/languages/vi_msg.dart';
 export 'package:get_time_ago/src/messages/languages/zh_cn_msg.dart';
 export 'package:get_time_ago/src/messages/languages/zh_tw_msg.dart';
+export 'package:get_time_ago/src/messages/future_time_messages.dart';
 export 'package:get_time_ago/src/messages/messages.dart';
 export 'package:get_time_ago/src/utils/data.dart';
 export 'package:get_time_ago/src/utils/utility.dart';

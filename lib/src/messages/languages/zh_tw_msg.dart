@@ -1,9 +1,10 @@
+import '../future_time_messages.dart';
 import '../messages.dart';
 
 /// The [TraditionalChineseMessages] class provides Chinese(Traditional) language-specific
 /// implementations of the [Messages] interface. This class is used to format
 /// the "time ago" strings in Chinese(Traditional).
-class TraditionalChineseMessages implements Messages {
+class TraditionalChineseMessages with FutureTimeMessages implements Messages {
   /// Prefix added before the time message.
   @override
   String prefixAgo() => '';
@@ -11,6 +12,12 @@ class TraditionalChineseMessages implements Messages {
   /// Suffix added after the time message.
   @override
   String suffixAgo() => '前';
+
+  @override
+  String prefixFromNow() => '';
+
+  @override
+  String suffixFromNow() => '後';
 
   /// Message when the elapsed time is less than 15 seconds.
   @override

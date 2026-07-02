@@ -1,9 +1,10 @@
+import '../future_time_messages.dart';
 import '../messages.dart';
 
 /// The [DutchMessages] class provides Dutch language-specific
 /// implementations of the [Messages] interface. This class is used to format
 /// the "time ago" strings in Dutch.
-class DutchMessages implements Messages {
+class DutchMessages with FutureTimeMessages implements Messages {
   /// Prefix added before the time message.
   @override
   String prefixAgo() => '';
@@ -11,6 +12,12 @@ class DutchMessages implements Messages {
   /// Suffix added after the time message.
   @override
   String suffixAgo() => 'geleden';
+
+  @override
+  String prefixFromNow() => 'over';
+
+  @override
+  String suffixFromNow() => '';
 
   /// Message when the elapsed time is less than 15 seconds.
   @override
