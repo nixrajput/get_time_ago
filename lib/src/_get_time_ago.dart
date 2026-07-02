@@ -4,6 +4,7 @@ import 'package:get_time_ago/src/utils/data.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 
+import 'messages/future_time_messages.dart';
 import 'messages/messages.dart';
 import 'utils/utility.dart';
 
@@ -84,8 +85,8 @@ class GetTimeAgo {
     final isFuture = difference.isNegative;
 
     // Retrieve the prefix and suffix for past or future relative time.
-    final prefix = isFuture ? message.prefixFromNow() : message.prefixAgo();
-    final suffix = isFuture ? message.suffixFromNow() : message.suffixAgo();
+    final prefix = isFuture ? _prefixFromNow(message) : message.prefixAgo();
+    final suffix = isFuture ? _suffixFromNow(message) : message.suffixAgo();
     String result;
 
     // Determine the appropriate message based on the elapsed time.
@@ -166,5 +167,19 @@ class GetTimeAgo {
     }
 
     return result;
+  }
+
+  static String _prefixFromNow(Messages message) {
+    if (message is FutureTimeMessages) {
+      return (message as FutureTimeMessages).prefixFromNow();
+    }
+    return 'in';
+  }
+
+  static String _suffixFromNow(Messages message) {
+    if (message is FutureTimeMessages) {
+      return (message as FutureTimeMessages).suffixFromNow();
+    }
+    return '';
   }
 }

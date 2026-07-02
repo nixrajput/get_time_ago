@@ -1,9 +1,10 @@
+import '../future_time_messages.dart';
 import '../messages.dart';
 
 /// The [JapaneseMessages] class provides Japanese language-specific
 /// implementations of the [Messages] interface. This class is used to format
 /// the "time ago" strings in Japanese.
-class JapaneseMessages implements Messages {
+class JapaneseMessages with FutureTimeMessages implements Messages {
   /// Prefix added before the time message.
   @override
   String prefixAgo() => '';

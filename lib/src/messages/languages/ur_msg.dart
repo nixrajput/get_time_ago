@@ -1,10 +1,11 @@
+import '../future_time_messages.dart';
 import '../../utils/utility.dart';
 import '../messages.dart';
 
 /// The [UrduMessages] class provides Urdu language-specific
 /// implementations of the [Messages] interface. This class is used to format
 /// the "time ago" strings in Urdu.
-class UrduMessages extends Messages {
+class UrduMessages with FutureTimeMessages implements Messages {
   /// Prefix added before the time message.
   @override
   String prefixAgo() => '\u202B'; // right to left embedding character

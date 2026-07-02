@@ -1,9 +1,10 @@
+import '../future_time_messages.dart';
 import '../messages.dart';
 
 /// The [GermanMessages] class provides German language-specific
 /// implementations of the [Messages] interface. This class is used to format
 /// the "time ago" strings in German.
-class GermanMessages implements Messages {
+class GermanMessages with FutureTimeMessages implements Messages {
   /// Prefix added before the time message.
   @override
   String prefixAgo() => 'vor';

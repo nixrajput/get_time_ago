@@ -1,9 +1,10 @@
+import '../future_time_messages.dart';
 import '../messages.dart';
 
 /// The [SimplifiedChineseMessages] class provides Chinese(Simplified) language-specific
 /// implementations of the [Messages] interface. This class is used to format
 /// the "time ago" strings in Chinese(Simplified).
-class SimplifiedChineseMessages implements Messages {
+class SimplifiedChineseMessages with FutureTimeMessages implements Messages {
   /// Prefix added before the time message.
   @override
   String prefixAgo() => '';

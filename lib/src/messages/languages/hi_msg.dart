@@ -1,9 +1,10 @@
+import '../future_time_messages.dart';
 import '../messages.dart';
 
 /// The [HindiMessages] class provides Hindi language-specific
 /// implementations of the [Messages] interface. This class is used to format
 /// the "time ago" strings in Hindi.
-class HindiMessages implements Messages {
+class HindiMessages with FutureTimeMessages implements Messages {
   /// Prefix added before the time message.
   @override
   String prefixAgo() => '';

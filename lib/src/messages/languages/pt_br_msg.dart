@@ -1,9 +1,10 @@
+import '../future_time_messages.dart';
 import '../messages.dart';
 
 /// The [PortugueseBrazilMessages] class provides Portuguese(Brazil) language-specific
 /// implementations of the [Messages] interface. This class is used to format
 /// the "time ago" strings in Portuguese(Brazil).
-class PortugueseBrazilMessages implements Messages {
+class PortugueseBrazilMessages with FutureTimeMessages implements Messages {
   /// Prefix added before the time message.
   @override
   String prefixAgo() => 'Há';

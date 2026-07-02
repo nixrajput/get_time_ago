@@ -1,9 +1,10 @@
+import '../future_time_messages.dart';
 import '../messages.dart';
 
 /// The [TurkishMessages] class provides Turkish language-specific
 /// implementations of the [Messages] interface. This class is used to format
 /// the "time ago" strings in Turkish.
-class TurkishMessages implements Messages {
+class TurkishMessages with FutureTimeMessages implements Messages {
   /// Prefix added before the time message.
   @override
   String prefixAgo() => '';

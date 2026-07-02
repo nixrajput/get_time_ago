@@ -112,5 +112,12 @@ void main() {
       final result = GetTimeAgo.parse(dateTime);
       expect(result, matches(RegExp(r'^dans \d+ minutes$')));
     });
+
+    test('Test future date with custom locale without FutureTimeMessages mixin', () {
+      GetTimeAgo.setCustomLocaleMessages('test', CustomLocaleTestMessages());
+      final dateTime = DateTime.now().add(const Duration(seconds: 45));
+      final result = GetTimeAgo.parse(dateTime, locale: 'test');
+      expect(result, matches(RegExp(r'^in \d+ secs$')));
+    });
   });
 }

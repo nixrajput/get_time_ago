@@ -1,6 +1,7 @@
+import '../future_time_messages.dart';
 import 'package:get_time_ago/get_time_ago.dart';
 
-class NepaliMessages extends Messages {
+class NepaliMessages with FutureTimeMessages implements Messages {
   /// Message for approximately 1 day ago. [hours]: The number of hours that have passed (usually 24).
   @override
   String dayAgo(int hours) => "एक दिन";
@@ -46,4 +47,7 @@ class NepaliMessages extends Messages {
 
   @override
   String suffixFromNow() => "पछि";
+
+  @override
+  String wordSeparator() => ' ';
 }

@@ -1,10 +1,11 @@
+import '../future_time_messages.dart';
 import '../../utils/utility.dart';
 import '../messages.dart';
 
 /// The [PersianMessages] class provides Persian language-specific
 /// implementations of the [Messages] interface. This class is used to format
 /// the "time ago" strings in Persian.
-class PersianMessages extends Messages {
+class PersianMessages with FutureTimeMessages implements Messages {
   /// Prefix added before the time message.
   @override
   String prefixAgo() => '\u202B';
