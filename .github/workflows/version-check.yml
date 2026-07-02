@@ -1,9 +1,12 @@
 name: Version Check
 
 # Every PR must set pubspec.yaml to a version STRICTLY GREATER than everything
-# already released: the base branch, the latest version on pub.dev, and the
-# highest git tag. This prevents both "forgot to bump" and "bumped to a version
-# that already exists" (pub.dev rejects a non-incremental publish).
+# actually RELEASED — the latest version on pub.dev and the highest git tag.
+# The base-branch pubspec is deliberately NOT a floor: master's version may be
+# ahead of what's been published/tagged (e.g. a bump whose publish failed), and
+# a version that was never released must remain releasable. This prevents a
+# non-incremental publish (which pub.dev rejects) while still allowing the
+# current master version to ship if it hasn't been released yet.
 on:
   pull_request:
     branches: ["master"]
@@ -31,28 +34,23 @@ jobs:
 
           pr=$(core "$(read_ver pubspec.yaml)")
 
-          # 1) base branch pubspec
-          git fetch --no-tags --depth=1 origin "${{ github.base_ref }}"
-          base=$(core "$(git show "origin/${{ github.base_ref }}:pubspec.yaml" | grep -E '^version:' | head -1 | awk '{print $2}' | tr -d '\r')")
-          base=${base:-0.0.0}
-
-          # 2) latest published version on pub.dev (404 for a new package -> 0.0.0)
+          # 1) latest published version on pub.dev (404 for a new package -> 0.0.0)
           name=$(grep -E '^name:' pubspec.yaml | head -1 | awk '{print $2}' | tr -d '\r')
           pubdev=$(curl -fsSL "https://pub.dev/api/packages/$name" 2>/dev/null \
             | python3 -c "import sys,json;print(json.load(sys.stdin).get('latest',{}).get('version','0.0.0'))" 2>/dev/null || echo "0.0.0")
           pubdev=$(core "${pubdev:-0.0.0}")
 
-          # 3) highest git tag
+          # 2) highest git tag (the last actually-released tag)
           tag=$(git ls-remote --tags origin 2>/dev/null | sed -E 's#.*refs/tags/##' \
             | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+' | sed 's/^v//' | sort -V | tail -n1)
           tag=${tag:-0.0.0}
 
-          # highest already-released version across all three sources
-          highest=$(printf '%s\n%s\n%s\n' "$base" "$pubdev" "$tag" | sort -V | tail -n1)
+          # highest ACTUALLY-RELEASED version (pub.dev + tags only, NOT base pubspec)
+          highest=$(printf '%s\n%s\n' "$pubdev" "$tag" | sort -V | tail -n1)
 
           echo "pr=$pr" >> "$GITHUB_OUTPUT"
           echo "highest=$highest" >> "$GITHUB_OUTPUT"
-          echo "base=$base  pubdev=$pubdev  tag=$tag  -> highest released=$highest ; PR=$pr"
+          echo "pubdev=$pubdev  tag=$tag  -> highest released=$highest ; PR=$pr"
 
       - name: Require PR version to exceed the highest released
         env:
