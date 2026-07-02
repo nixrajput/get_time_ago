@@ -1,15 +1,17 @@
 name: Release
 
 # On push to the default branch (a merged PR): if the pubspec version isn't yet
-# tagged, create the tag v<version> and a GitHub Release. The tag then triggers
-# publish.yml, which publishes to pub.dev FROM A TAG REF (pub.dev's automated
-# publishing only allows the 'tag' refType, not 'branch').
+# tagged, push the tag v<version> and create a GitHub Release. The tag then
+# triggers publish.yml, which publishes to pub.dev FROM A TAG REF (pub.dev's
+# automated publishing only allows the 'tag' refType, not 'branch').
 #
-# The tag is pushed with PUB_RELEASE_TOKEN so it triggers publish.yml — a tag
-# pushed by the default GITHUB_TOKEN does NOT trigger other workflows. If
-# PUB_RELEASE_TOKEN is not set, the tag is still created with the default token
-# (so the GitHub Release is cut), but publish.yml won't fire automatically; push
-# the tag manually once to publish, or add the secret to enable full automation.
+# The tag is PUSHED VIA GIT using PUB_RELEASE_TOKEN, because a tag pushed with
+# the default GITHUB_TOKEN does NOT trigger other workflows — the PAT-attributed
+# push is what makes publish.yml fire. The GitHub Release itself is created with
+# the default GITHUB_TOKEN (reliable release perms in-workflow), so the PAT only
+# needs `contents: write` for the git push, not access to the releases API.
+# If PUB_RELEASE_TOKEN is unset, the tag is pushed with the default token (still
+# tagged + released, but publish.yml won't auto-fire — push the tag manually).
 on:
   push:
     branches: ["master"]
@@ -23,7 +25,7 @@ jobs:
     name: Tag and release
     runs-on: ubuntu-latest
     permissions:
-      contents: write # create the tag + GitHub Release
+      contents: write # create the GitHub Release with GITHUB_TOKEN
     steps:
       - uses: actions/checkout@v6
         with:
@@ -34,17 +36,28 @@ jobs:
         run: |
           version=$(grep -E '^version:' pubspec.yaml | head -1 | awk '{print $2}' | tr -d '\r')
           echo "tag=v$version" >> "$GITHUB_OUTPUT"
-      - name: Create tag + release if new
+      - name: Push tag (triggers pub.dev publish)
+        id: tag
         env:
-          # Prefer PUB_RELEASE_TOKEN so the pushed tag triggers publish.yml; fall
-          # back to GITHUB_TOKEN (tag is created, publish triggered manually).
-          GH_TOKEN: ${{ secrets.PUB_RELEASE_TOKEN || secrets.GITHUB_TOKEN }}
+          # A PAT push is what lets publish.yml trigger; GITHUB_TOKEN falls back.
+          TOKEN: ${{ secrets.PUB_RELEASE_TOKEN || secrets.GITHUB_TOKEN }}
           TAG: ${{ steps.v.outputs.tag }}
         run: |
           if git ls-remote --tags origin "refs/tags/$TAG" | grep -q .; then
             echo "Tag $TAG already exists — skipping."
+            echo "created=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          # gh release create makes the tag AND the GitHub Release in one step.
-          gh release create "$TAG" --target "${{ github.sha }}" --title "$TAG" --generate-notes
-          echo "Released $TAG ✓ (publish.yml handles pub.dev on the tag)"
+          git tag "$TAG" "${{ github.sha }}"
+          # Push over an authenticated URL built from the token; no persisted creds.
+          git push "https://x-access-token:${TOKEN}@github.com/${{ github.repository }}.git" "$TAG"
+          echo "created=true" >> "$GITHUB_OUTPUT"
+          echo "Pushed $TAG ✓ (publish.yml will publish to pub.dev)"
+      - name: Create GitHub Release
+        if: steps.tag.outputs.created == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ steps.v.outputs.tag }}
+        run: |
+          gh release create "$TAG" --title "$TAG" --generate-notes
+          echo "Released $TAG ✓"
