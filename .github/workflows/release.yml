@@ -5,11 +5,11 @@ name: Release
 # publish.yml, which publishes to pub.dev FROM A TAG REF (pub.dev's automated
 # publishing only allows the 'tag' refType, not 'branch').
 #
-# The tag is pushed with RELEASE_PAT so it triggers publish.yml — a tag pushed
-# by the default GITHUB_TOKEN does NOT trigger other workflows. If RELEASE_PAT is
-# not set, the tag is still created with the default token (so the GitHub Release
-# is cut), but publish.yml won't fire automatically; push the tag manually once
-# to publish, or add the RELEASE_PAT secret to enable full automation.
+# The tag is pushed with PUB_RELEASE_TOKEN so it triggers publish.yml — a tag
+# pushed by the default GITHUB_TOKEN does NOT trigger other workflows. If
+# PUB_RELEASE_TOKEN is not set, the tag is still created with the default token
+# (so the GitHub Release is cut), but publish.yml won't fire automatically; push
+# the tag manually once to publish, or add the secret to enable full automation.
 on:
   push:
     branches: ["master"]
@@ -36,9 +36,9 @@ jobs:
           echo "tag=v$version" >> "$GITHUB_OUTPUT"
       - name: Create tag + release if new
         env:
-          # Prefer RELEASE_PAT so the pushed tag triggers publish.yml; fall back
-          # to GITHUB_TOKEN (tag is created, publish must be triggered manually).
-          GH_TOKEN: ${{ secrets.RELEASE_PAT || secrets.GITHUB_TOKEN }}
+          # Prefer PUB_RELEASE_TOKEN so the pushed tag triggers publish.yml; fall
+          # back to GITHUB_TOKEN (tag is created, publish triggered manually).
+          GH_TOKEN: ${{ secrets.PUB_RELEASE_TOKEN || secrets.GITHUB_TOKEN }}
           TAG: ${{ steps.v.outputs.tag }}
         run: |
           if git ls-remote --tags origin "refs/tags/$TAG" | grep -q .; then
