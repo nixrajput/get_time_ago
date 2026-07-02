@@ -1,9 +1,10 @@
+import '../future_time_messages.dart';
 import '../messages.dart';
 
 /// The [IndonesianMessages] class provides Indonesian language-specific
 /// implementations of the [Messages] interface. This class is used to format
 /// the "time ago" strings in Indonesian.
-class IndonesianMessages implements Messages {
+class IndonesianMessages with FutureTimeMessages implements Messages {
   /// Prefix added before the time message.
   @override
   String prefixAgo() => '';
@@ -11,6 +12,12 @@ class IndonesianMessages implements Messages {
   /// Suffix added after the time message.
   @override
   String suffixAgo() => 'lalu';
+
+  @override
+  String prefixFromNow() => '';
+
+  @override
+  String suffixFromNow() => 'lagi';
 
   /// Message when the elapsed time is less than 15 seconds.
   @override

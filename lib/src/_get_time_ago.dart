@@ -4,6 +4,7 @@ import 'package:get_time_ago/src/utils/data.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 
+import 'messages/future_time_messages.dart';
 import 'messages/messages.dart';
 import 'utils/utility.dart';
 
@@ -79,20 +80,29 @@ class GetTimeAgo {
     final currentClock = DateTime.now();
 
     // Calculate the time difference between now and the provided dateTime.
-    final elapsed = currentClock.difference(dateTime).abs();
+    final difference = currentClock.difference(dateTime);
+    final elapsed = difference.abs();
+    final isFuture = difference.isNegative;
 
-    // Retrieve the prefix and suffix for the time ago message.
-    final prefix = message.prefixAgo();
-    final suffix = message.suffixAgo();
+    // Retrieve the prefix and suffix for past or future relative time.
+    final prefix = isFuture ? _prefixFromNow(message) : message.prefixAgo();
+    final suffix = isFuture ? _suffixFromNow(message) : message.suffixAgo();
     String result;
 
     // Determine the appropriate message based on the elapsed time.
-    if (elapsed.inSeconds < 15) {
-      // If the time difference is less than 15 seconds, display "just now".
+    if (elapsed.inSeconds < 15 && !isFuture) {
+      // If the time difference is less than 15 seconds in the past, display "just now".
       result = formatMessage(
         '',
         message.justNow(elapsed.inSeconds),
         '',
+        message,
+      );
+    } else if (elapsed.inSeconds < 15 && isFuture) {
+      result = formatMessage(
+        prefix,
+        message.secsAgo(elapsed.inSeconds),
+        suffix,
         message,
       );
     } else if (elapsed.inSeconds < 60) {
@@ -157,5 +167,19 @@ class GetTimeAgo {
     }
 
     return result;
+  }
+
+  static String _prefixFromNow(Messages message) {
+    if (message is FutureTimeMessages) {
+      return (message as FutureTimeMessages).prefixFromNow();
+    }
+    return 'in';
+  }
+
+  static String _suffixFromNow(Messages message) {
+    if (message is FutureTimeMessages) {
+      return (message as FutureTimeMessages).suffixFromNow();
+    }
+    return '';
   }
 }

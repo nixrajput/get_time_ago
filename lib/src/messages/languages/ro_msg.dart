@@ -1,9 +1,10 @@
+import '../future_time_messages.dart';
 import '../messages.dart';
 
 /// The [RomanianMessages] class provides Romanian language-specific
 /// implementations of the [Messages] interface. This class is used to format
 /// the "time ago" strings in Romanian.
-class RomanianMessages implements Messages {
+class RomanianMessages with FutureTimeMessages implements Messages {
   /// Prefix added before the time message.
   @override
   String prefixAgo() => 'acum';
@@ -11,6 +12,12 @@ class RomanianMessages implements Messages {
   /// Suffix added after the time message.
   @override
   String suffixAgo() => '';
+
+  @override
+  String prefixFromNow() => 'peste';
+
+  @override
+  String suffixFromNow() => '';
 
   /// Message when the elapsed time is less than 15 seconds.
   @override

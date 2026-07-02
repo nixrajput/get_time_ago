@@ -1,9 +1,10 @@
+import '../future_time_messages.dart';
 import '../messages.dart';
 
 /// The [KoreanMessages] class provides Korean language-specific
 /// implementations of the [Messages] interface. This class is used to format
 /// the "time ago" strings in Korean.
-class KoreanMessages implements Messages {
+class KoreanMessages with FutureTimeMessages implements Messages {
   /// Prefix added before the time message.
   @override
   String prefixAgo() => '';
@@ -11,6 +12,12 @@ class KoreanMessages implements Messages {
   /// Suffix added after the time message.
   @override
   String suffixAgo() => '전';
+
+  @override
+  String prefixFromNow() => '';
+
+  @override
+  String suffixFromNow() => '후';
 
   /// Message when the elapsed time is less than 15 seconds.
   @override

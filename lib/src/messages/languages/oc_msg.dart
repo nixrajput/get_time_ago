@@ -1,9 +1,10 @@
+import '../future_time_messages.dart';
 import '../messages.dart';
 
 /// The [OccitanMessages] class provides Occitan language-specific
 /// implementations of the [Messages] interface. This class is used to format
 /// the "time ago" strings in Occitan.
-class OccitanMessages implements Messages {
+class OccitanMessages with FutureTimeMessages implements Messages {
   /// Prefix added before the time message.
   @override
   String prefixAgo() => 'fa';
@@ -11,6 +12,12 @@ class OccitanMessages implements Messages {
   /// Suffix added after the time message.
   @override
   String suffixAgo() => '';
+
+  @override
+  String prefixFromNow() => 'dins';
+
+  @override
+  String suffixFromNow() => '';
 
   /// Message when the elapsed time is less than 15 seconds.
   @override

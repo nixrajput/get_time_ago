@@ -1,9 +1,10 @@
+import '../future_time_messages.dart';
 import '../messages.dart';
 
 /// The [ItalianMessages] class provides Italian language-specific
 /// implementations of the [Messages] interface. This class is used to format
 /// the "time ago" strings in Italian.
-class ItalianMessages implements Messages {
+class ItalianMessages with FutureTimeMessages implements Messages {
   /// Prefix added before the time message.
   @override
   String prefixAgo() => '';
@@ -11,6 +12,12 @@ class ItalianMessages implements Messages {
   /// Suffix added after the time message.
   @override
   String suffixAgo() => 'fa';
+
+  @override
+  String prefixFromNow() => 'tra';
+
+  @override
+  String suffixFromNow() => '';
 
   /// Message when the elapsed time is less than 15 seconds.
   @override
