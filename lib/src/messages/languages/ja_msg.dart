@@ -21,7 +21,7 @@ class JapaneseMessages with FutureTimeMessages implements Messages {
 
   /// Message when the elapsed time is less than 15 seconds.
   @override
-  String justNow(int seconds) => '唯今';
+  String justNow(int seconds) => 'たった今';
 
   /// Message for when the elapsed time is less than a minute.
   @override
