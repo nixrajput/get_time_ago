@@ -13,8 +13,8 @@ void main() {
       expect(japaneseMessages.suffixAgo(), '前');
     });
 
-    test('justNow should return "唯今"', () {
-      expect(japaneseMessages.justNow(20), '唯今');
+    test('justNow should return "たった今"', () {
+      expect(japaneseMessages.justNow(20), 'たった今');
     });
 
     test('secsAgo should return correct seconds ago format', () {
@@ -56,12 +56,12 @@ void main() {
   }
 
   group('GetTimeAgo Test with Japanese Locale', () {
-    test('should return "唯今" for time less than 15 seconds', () {
+    test('should return "たった今" for time less than 15 seconds', () {
       final result = GetTimeAgo.parse(
         _getRelativeDateTime(const Duration(seconds: 5)),
         locale: 'ja',
       );
-      expect(result, '唯今');
+      expect(result, 'たった今');
     });
 
     test('should return "20秒前" for 20 seconds ago', () {
