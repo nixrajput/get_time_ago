@@ -23,6 +23,7 @@
 </p>
 
 <p align="center">
+  <a href="https://nixrajput.github.io/get_time_ago">Live demo</a> &nbsp;·&nbsp;
   <a href="#quick-start">Quick start</a> &nbsp;·&nbsp;
   <a href="#styles">Styles</a> &nbsp;·&nbsp;
   <a href="#units">Units</a> &nbsp;·&nbsp;
@@ -36,6 +37,7 @@
 
 - [Table of Contents](#table-of-contents)
 - [Overview](#overview)
+- [Demo](#demo)
 - [Quick start](#quick-start)
   - [Prerequisites](#prerequisites)
   - [Install](#install)
@@ -61,6 +63,10 @@
 get_time_ago turns a `DateTime` into relative text: "just now", "5 minutes ago", "in 3 days". It is pure Dart with one dependency, `intl`, so the same code runs in a Flutter app, on a server, in a CLI and on the web.
 
 A `GetTimeAgo` is immutable and takes its "now" from a clock you can replace, so tests are deterministic and a server-corrected time is one argument away. Unknown locale codes never throw: they fall back to the nearest language, then to your default, then to English, which is what you want when the code comes straight from a device.
+
+## Demo
+
+Try every option in the [live web demo](https://nixrajput.github.io/get_time_ago): the locale, the style, the largest unit and the date pattern, with a slider that scrubs a moment across four years and a live row refreshed through `nextChange`. It is the [example app](example/README.md) built for the web; the same app runs on Android, iOS, macOS, Windows and Linux.
 
 ## Quick start
 
