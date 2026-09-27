@@ -58,6 +58,7 @@ test/
 - **Unknown locales must never throw at format time.** Apps pass device locales straight in.
 - **Never guard with `assert`.** Release builds strip it.
 - **The golden's `date` keys assume the latest intl 0.20.x.** intl 0.19.0 ships older CLDR date symbols, so a stale `pubspec.lock` makes them fail; run `dart pub upgrade`.
+- **After `dart pub downgrade`, `dart test` cannot load any test on the Dart 3.13 floor.** Every `test_core` allows `frontend_server_client >=3.2.0`, and 3.2.0 looks for `frontend_server.dart.snapshot`, which the 3.13 SDK no longer ships. Analysis still passes, and that is all pana's lower-bound check runs; run `dart pub upgrade` before testing again.
 
 ---
 
