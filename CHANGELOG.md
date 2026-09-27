@@ -1,5 +1,29 @@
 # Changelog
 
+## [3.0.0]
+
+A rewrite around an immutable formatter and locales defined as data. `GetTimeAgo.parse(dateTime, locale:, pattern:)` keeps its signature; see [MIGRATION.md](MIGRATION.md) for everything else.
+
+- **Breaking:** `GetTimeAgo` is now an immutable, const-constructible formatter with `locale`, `style`, `maxUnit`, `datePattern` and `clock`, and a `format` method. `GetTimeAgo.defaults` replaces `setDefaultLocale`, and `registerLocale` replaces `setCustomLocaleMessages`.
+- **Breaking:** `Messages`, `FutureTimeMessages`, `Data`, every `*Messages` class, `formatMessage`, `convertToArabicNumbers` and `convertToUrduNumbers` are removed. Custom locales are a `TimeAgoLocale` table or a `TimeAgoMessages` subclass, and the bundled ones are `TimeAgoLocales.en` and so on.
+- **Breaking:** the SDK floor is now Dart `^3.8.0`, and the `intl` floor rises from `0.18.0` to `0.19.0` (the range still reaches `<0.21.0`).
+- **Added:** `TimeAgoStyle.short` ("5 min. ago") and `TimeAgoStyle.narrow` ("5m ago"), generated from CLDR 48.2.2 for every locale except Occitan, which CLDR does not cover.
+- **Added:** weeks, months and years through `maxUnit`, opt-in. The default still shows the full date after 7 days. ([#20](https://github.com/nixrajput/get_time_ago/issues/20))
+- **Added:** an injectable `clock`. ([#48](https://github.com/nixrajput/get_time_ago/issues/48))
+- **Added:** a global date pattern through `GetTimeAgo.defaults`. ([#49](https://github.com/nixrajput/get_time_ago/issues/49))
+- **Added:** `nextChange`, the time until the text next changes, for refreshing a UI exactly when needed.
+- **Added:** Croatian (`hr`), from CLDR. ([#36](https://github.com/nixrajput/get_time_ago/issues/36))
+- **Added:** loose locale matching. Case and `-`/`_` are ignored, a region or script falls back to its language, `zh_HK`/`zh_MO`/`zh_Hant` resolve to Traditional Chinese, and an unknown code falls back instead of throwing.
+- **Fixed:** unit messages received `1` instead of the count their parameters described; every unit now receives its real count. ([#32](https://github.com/nixrajput/get_time_ago/issues/32))
+- **Fixed:** Arabic plural nouns from 11 up, and for seconds, now follow CLDR ("قبل ١١ دقيقة", not "قبل ١١ دقائق").
+- **Fixed:** Romanian adds "de" from 20 up ("acum 25 de minute").
+- **Fixed:** "in 1 seconds" is now "in 1 second" in `en`, `de`, `es`, `fr`, `it`, `nl`, `pt` and `ro`.
+- **Fixed:** future times lost a unit to truncation ("in 59 seconds" for a minute away); the elapsed time is now rounded to the nearest second.
+- **Fixed:** UTC times past the relative window were shown in UTC wall-clock time; they are now shown in local time. ([#47](https://github.com/nixrajput/get_time_ago/issues/47))
+- **Fixed:** the `br` key formatted dates in Breton; it is now an alias of `pt`.
+- **Fixed:** `ItalianMessages` and `NepaliMessages` were not exported; every bundled locale is now reachable through `TimeAgoLocales`.
+- **Chore:** a golden test pins sampled 2.4.1 outputs for every locale, past and future, to catch any change not listed above, and a parity test keeps the CLDR-generated tables equal to the pinned snapshot.
+
 ## [2.4.1]
 
 - **Fixed**: Improved Japanese (ja) locale messages.

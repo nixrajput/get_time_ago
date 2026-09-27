@@ -1,21 +1,20 @@
-include: package:lints/core.yaml
+include: package:lints/recommended.yaml
 
 analyzer:
   language:
     strict-raw-types: true
-
-errors:
-  dead_code: error
-  missing_required_param: error
-  override_on_non_overriding_method: error
-  unused_element: error
-  unused_import: error
-  unused_local_variable: error
+  errors:
+    dead_code: error
+    missing_required_param: error
+    override_on_non_overriding_member: error
+    unused_element: error
+    unused_import: error
+    unused_local_variable: error
 
 linter:
   rules:
-    - always_declare_return_types
     - avoid_empty_else
+    - avoid_print
     - avoid_function_literals_in_foreach_calls
     - avoid_init_to_null
     - avoid_null_checks_in_equality_operators
@@ -46,11 +45,11 @@ linter:
     - no_duplicate_case_values
     - non_constant_identifier_names
     - null_closures
-    - omit_local_variable_types
     - only_throw_errors
     - overridden_fields
     - package_names
     - package_prefixed_library_names
+    - public_member_api_docs
     - prefer_adjacent_string_concatenation
     - prefer_conditional_assignment
     - prefer_const_constructors

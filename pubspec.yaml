@@ -1,30 +1,30 @@
 name: get_time_ago
-description: A Dart package to convert and format `DateTime` objects into human-readable 'time ago' strings like '20 seconds ago', 'a minute ago', or '7 hours ago'.
+description: Relative time for Dart and Flutter, such as "just now", "5 minutes ago" or "in 3 days", in 22 locales with CLDR plurals, short styles and an injectable clock.
 
-version: 2.4.1
+version: 3.0.0
 
 homepage: https://pub.dev/packages/get_time_ago
 repository: https://github.com/nixrajput/get_time_ago
 issue_tracker: https://github.com/nixrajput/get_time_ago/issues
 
 environment:
-  sdk: ">=2.18.0 <4.0.0"
+  sdk: ^3.8.0
 
 dependencies:
-  intl: ">=0.18.0 <0.21.0"
+  intl: ">=0.19.0 <0.21.0"
 
 dev_dependencies:
-  lints: ^5.1.1
-  test: ^1.25.15
+  lints: ^6.1.0
+  test: ^1.31.0
 
 topics:
-  - get-time-ago
   - time-ago
   - timeago
-  - flutter-timeago
-  - flutter-get-time-ago
+  - relative-time
+  - datetime
+  - i18n
 
 funding:
   - https://ko-fi.com/nixrajput
-  - https://buymeacoffee.com/nixrajput
+  - https://www.buymeacoffee.com/nixrajput
   - https://github.com/sponsors/nixrajput
