@@ -1,0 +1,329 @@
+{
+  "second": {
+    "displayName": "secundă",
+    "relative-type-0": "acum",
+    "relativeTime-type-future": {
+      "relativeTimePattern-count-one": "peste {0} secundă",
+      "relativeTimePattern-count-few": "peste {0} secunde",
+      "relativeTimePattern-count-other": "peste {0} de secunde"
+    },
+    "relativeTime-type-past": {
+      "relativeTimePattern-count-one": "acum {0} secundă",
+      "relativeTimePattern-count-few": "acum {0} secunde",
+      "relativeTimePattern-count-other": "acum {0} de secunde"
+    }
+  },
+  "second-short": {
+    "displayName": "sec.",
+    "relative-type-0": "acum",
+    "relativeTime-type-future": {
+      "relativeTimePattern-count-one": "peste {0} sec.",
+      "relativeTimePattern-count-few": "peste {0} sec.",
+      "relativeTimePattern-count-other": "peste {0} sec."
+    },
+    "relativeTime-type-past": {
+      "relativeTimePattern-count-one": "acum {0} sec.",
+      "relativeTimePattern-count-few": "acum {0} sec.",
+      "relativeTimePattern-count-other": "acum {0} sec."
+    }
+  },
+  "second-narrow": {
+    "displayName": "s",
+    "relative-type-0": "acum",
+    "relativeTime-type-future": {
+      "relativeTimePattern-count-one": "+{0} s",
+      "relativeTimePattern-count-few": "+{0} s",
+      "relativeTimePattern-count-other": "+{0} s"
+    },
+    "relativeTime-type-past": {
+      "relativeTimePattern-count-one": "-{0} s",
+      "relativeTimePattern-count-few": "-{0} s",
+      "relativeTimePattern-count-other": "-{0} s"
+    }
+  },
+  "minute": {
+    "displayName": "minut",
+    "relative-type-0": "minutul acesta",
+    "relativeTime-type-future": {
+      "relativeTimePattern-count-one": "peste {0} minut",
+      "relativeTimePattern-count-few": "peste {0} minute",
+      "relativeTimePattern-count-other": "peste {0} de minute"
+    },
+    "relativeTime-type-past": {
+      "relativeTimePattern-count-one": "acum {0} minut",
+      "relativeTimePattern-count-few": "acum {0} minute",
+      "relativeTimePattern-count-other": "acum {0} de minute"
+    }
+  },
+  "minute-short": {
+    "displayName": "min.",
+    "relative-type-0": "minutul acesta",
+    "relativeTime-type-future": {
+      "relativeTimePattern-count-one": "peste {0} min.",
+      "relativeTimePattern-count-few": "peste {0} min.",
+      "relativeTimePattern-count-other": "peste {0} min."
+    },
+    "relativeTime-type-past": {
+      "relativeTimePattern-count-one": "acum {0} min.",
+      "relativeTimePattern-count-few": "acum {0} min.",
+      "relativeTimePattern-count-other": "acum {0} min."
+    }
+  },
+  "minute-narrow": {
+    "displayName": "m",
+    "relative-type-0": "minutul acesta",
+    "relativeTime-type-future": {
+      "relativeTimePattern-count-one": "+{0} m",
+      "relativeTimePattern-count-few": "+{0} m",
+      "relativeTimePattern-count-other": "+{0} m"
+    },
+    "relativeTime-type-past": {
+      "relativeTimePattern-count-one": "-{0} m",
+      "relativeTimePattern-count-few": "-{0} m",
+      "relativeTimePattern-count-other": "-{0} m"
+    }
+  },
+  "hour": {
+    "displayName": "oră",
+    "relative-type-0": "ora aceasta",
+    "relativeTime-type-future": {
+      "relativeTimePattern-count-one": "peste {0} oră",
+      "relativeTimePattern-count-few": "peste {0} ore",
+      "relativeTimePattern-count-other": "peste {0} de ore"
+    },
+    "relativeTime-type-past": {
+      "relativeTimePattern-count-one": "acum {0} oră",
+      "relativeTimePattern-count-few": "acum {0} ore",
+      "relativeTimePattern-count-other": "acum {0} de ore"
+    }
+  },
+  "hour-short": {
+    "displayName": "h",
+    "relative-type-0": "ora aceasta",
+    "relativeTime-type-future": {
+      "relativeTimePattern-count-one": "peste {0} h",
+      "relativeTimePattern-count-few": "peste {0} h",
+      "relativeTimePattern-count-other": "peste {0} h"
+    },
+    "relativeTime-type-past": {
+      "relativeTimePattern-count-one": "acum {0} h",
+      "relativeTimePattern-count-few": "acum {0} h",
+      "relativeTimePattern-count-other": "acum {0} h"
+    }
+  },
+  "hour-narrow": {
+    "displayName": "h",
+    "relative-type-0": "ora aceasta",
+    "relativeTime-type-future": {
+      "relativeTimePattern-count-one": "+{0} h",
+      "relativeTimePattern-count-few": "+{0} h",
+      "relativeTimePattern-count-other": "+{0} h"
+    },
+    "relativeTime-type-past": {
+      "relativeTimePattern-count-one": "-{0} h",
+      "relativeTimePattern-count-few": "-{0} h",
+      "relativeTimePattern-count-other": "-{0} h"
+    }
+  },
+  "day": {
+    "displayName": "zi",
+    "relative-type--2": "alaltăieri",
+    "relative-type--1": "ieri",
+    "relative-type-0": "azi",
+    "relative-type-1": "mâine",
+    "relative-type-2": "poimâine",
+    "relativeTime-type-future": {
+      "relativeTimePattern-count-one": "peste {0} zi",
+      "relativeTimePattern-count-few": "peste {0} zile",
+      "relativeTimePattern-count-other": "peste {0} de zile"
+    },
+    "relativeTime-type-past": {
+      "relativeTimePattern-count-one": "acum {0} zi",
+      "relativeTimePattern-count-few": "acum {0} zile",
+      "relativeTimePattern-count-other": "acum {0} de zile"
+    }
+  },
+  "day-short": {
+    "displayName": "zi",
+    "relative-type--2": "alaltăieri",
+    "relative-type--1": "ieri",
+    "relative-type-0": "azi",
+    "relative-type-1": "mâine",
+    "relative-type-2": "poimâine",
+    "relativeTime-type-future": {
+      "relativeTimePattern-count-one": "peste {0} zi",
+      "relativeTimePattern-count-few": "peste {0} zile",
+      "relativeTimePattern-count-other": "peste {0} de zile"
+    },
+    "relativeTime-type-past": {
+      "relativeTimePattern-count-one": "acum {0} zi",
+      "relativeTimePattern-count-few": "acum {0} zile",
+      "relativeTimePattern-count-other": "acum {0} de zile"
+    }
+  },
+  "day-narrow": {
+    "displayName": "zi",
+    "relative-type--2": "alaltăieri",
+    "relative-type--1": "ieri",
+    "relative-type-0": "azi",
+    "relative-type-1": "mâine",
+    "relative-type-2": "poimâine",
+    "relativeTime-type-future": {
+      "relativeTimePattern-count-one": "+{0} zi",
+      "relativeTimePattern-count-few": "+{0} zile",
+      "relativeTimePattern-count-other": "+{0} zile"
+    },
+    "relativeTime-type-past": {
+      "relativeTimePattern-count-one": "-{0} zi",
+      "relativeTimePattern-count-few": "-{0} zile",
+      "relativeTimePattern-count-other": "-{0} zile"
+    }
+  },
+  "week": {
+    "displayName": "săptămână",
+    "relative-type--1": "săptămâna trecută",
+    "relative-type-0": "săptămâna aceasta",
+    "relative-type-1": "săptămâna viitoare",
+    "relativeTime-type-future": {
+      "relativeTimePattern-count-one": "peste {0} săptămână",
+      "relativeTimePattern-count-few": "peste {0} săptămâni",
+      "relativeTimePattern-count-other": "peste {0} de săptămâni"
+    },
+    "relativeTime-type-past": {
+      "relativeTimePattern-count-one": "acum {0} săptămână",
+      "relativeTimePattern-count-few": "acum {0} săptămâni",
+      "relativeTimePattern-count-other": "acum {0} de săptămâni"
+    },
+    "relativePeriod": "săptămâna cu {0}"
+  },
+  "week-short": {
+    "displayName": "săpt.",
+    "relative-type--1": "săpt. trecută",
+    "relative-type-0": "săpt. aceasta",
+    "relative-type-1": "săpt. viitoare",
+    "relativeTime-type-future": {
+      "relativeTimePattern-count-one": "peste {0} săpt.",
+      "relativeTimePattern-count-few": "peste {0} săpt.",
+      "relativeTimePattern-count-other": "peste {0} săpt."
+    },
+    "relativeTime-type-past": {
+      "relativeTimePattern-count-one": "acum {0} săpt.",
+      "relativeTimePattern-count-few": "acum {0} săpt.",
+      "relativeTimePattern-count-other": "acum {0} săpt."
+    },
+    "relativePeriod": "săpt. cu {0}"
+  },
+  "week-narrow": {
+    "displayName": "săpt.",
+    "relative-type--1": "săpt. trecută",
+    "relative-type-0": "săpt. aceasta",
+    "relative-type-1": "săpt. viitoare",
+    "relativeTime-type-future": {
+      "relativeTimePattern-count-one": "+{0} săpt.",
+      "relativeTimePattern-count-few": "+{0} săpt.",
+      "relativeTimePattern-count-other": "+{0} săpt."
+    },
+    "relativeTime-type-past": {
+      "relativeTimePattern-count-one": "-{0} săpt.",
+      "relativeTimePattern-count-few": "-{0} săpt.",
+      "relativeTimePattern-count-other": "-{0} săpt."
+    },
+    "relativePeriod": "săpt. cu {0}"
+  },
+  "month": {
+    "displayName": "lună",
+    "relative-type--1": "luna trecută",
+    "relative-type-0": "luna aceasta",
+    "relative-type-1": "luna viitoare",
+    "relativeTime-type-future": {
+      "relativeTimePattern-count-one": "peste {0} lună",
+      "relativeTimePattern-count-few": "peste {0} luni",
+      "relativeTimePattern-count-other": "peste {0} de luni"
+    },
+    "relativeTime-type-past": {
+      "relativeTimePattern-count-one": "acum {0} lună",
+      "relativeTimePattern-count-few": "acum {0} luni",
+      "relativeTimePattern-count-other": "acum {0} de luni"
+    }
+  },
+  "month-short": {
+    "displayName": "lună",
+    "relative-type--1": "luna trecută",
+    "relative-type-0": "luna aceasta",
+    "relative-type-1": "luna viitoare",
+    "relativeTime-type-future": {
+      "relativeTimePattern-count-one": "peste {0} lună",
+      "relativeTimePattern-count-few": "peste {0} luni",
+      "relativeTimePattern-count-other": "peste {0} de luni"
+    },
+    "relativeTime-type-past": {
+      "relativeTimePattern-count-one": "acum {0} lună",
+      "relativeTimePattern-count-few": "acum {0} luni",
+      "relativeTimePattern-count-other": "acum {0} de luni"
+    }
+  },
+  "month-narrow": {
+    "displayName": "lună",
+    "relative-type--1": "luna trecută",
+    "relative-type-0": "luna aceasta",
+    "relative-type-1": "luna viitoare",
+    "relativeTime-type-future": {
+      "relativeTimePattern-count-one": "+{0} lună",
+      "relativeTimePattern-count-few": "+{0} luni",
+      "relativeTimePattern-count-other": "+{0} luni"
+    },
+    "relativeTime-type-past": {
+      "relativeTimePattern-count-one": "-{0} lună",
+      "relativeTimePattern-count-few": "-{0} luni",
+      "relativeTimePattern-count-other": "-{0} luni"
+    }
+  },
+  "year": {
+    "displayName": "an",
+    "relative-type--1": "anul trecut",
+    "relative-type-0": "anul acesta",
+    "relative-type-1": "anul viitor",
+    "relativeTime-type-future": {
+      "relativeTimePattern-count-one": "peste {0} an",
+      "relativeTimePattern-count-few": "peste {0} ani",
+      "relativeTimePattern-count-other": "peste {0} de ani"
+    },
+    "relativeTime-type-past": {
+      "relativeTimePattern-count-one": "acum {0} an",
+      "relativeTimePattern-count-few": "acum {0} ani",
+      "relativeTimePattern-count-other": "acum {0} de ani"
+    }
+  },
+  "year-short": {
+    "displayName": "an",
+    "relative-type--1": "anul trecut",
+    "relative-type-0": "anul acesta",
+    "relative-type-1": "anul viitor",
+    "relativeTime-type-future": {
+      "relativeTimePattern-count-one": "peste {0} an",
+      "relativeTimePattern-count-few": "peste {0} ani",
+      "relativeTimePattern-count-other": "peste {0} de ani"
+    },
+    "relativeTime-type-past": {
+      "relativeTimePattern-count-one": "acum {0} an",
+      "relativeTimePattern-count-few": "acum {0} ani",
+      "relativeTimePattern-count-other": "acum {0} de ani"
+    }
+  },
+  "year-narrow": {
+    "displayName": "an",
+    "relative-type--1": "anul trecut",
+    "relative-type-0": "anul acesta",
+    "relative-type-1": "anul viitor",
+    "relativeTime-type-future": {
+      "relativeTimePattern-count-one": "+{0} an",
+      "relativeTimePattern-count-few": "+{0} ani",
+      "relativeTimePattern-count-other": "+{0} ani"
+    },
+    "relativeTime-type-past": {
+      "relativeTimePattern-count-one": "-{0} an",
+      "relativeTimePattern-count-few": "-{0} ani",
+      "relativeTimePattern-count-other": "-{0} ani"
+    }
+  }
+}

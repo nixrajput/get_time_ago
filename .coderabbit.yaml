@@ -1,0 +1,7 @@
+# Generated and vendored data, pinned by test/cldr_parity_test.dart and the
+# golden test. Reviews read the generator and its errata instead.
+reviews:
+  path_filters:
+    - "!lib/src/locales/cldr/*.g.dart"
+    - "!tool/cldr/*/*.json"
+    - "!test/golden/*.json"
