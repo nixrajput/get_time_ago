@@ -29,7 +29,7 @@ Closes #<!-- issue number -->
 - [ ] `dart test` - all tests pass
 - [ ] `dart pub publish --dry-run` - no warnings
 - [ ] `pubspec.yaml` version bumped (required to merge)
-- [ ] `CHANGELOG.md` has an entry for that version (pub.dev rejects a publish without one)
+- [ ] `CHANGELOG.md` has an entry for that version (`dart pub publish --dry-run` fails without one, so the release workflow stops)
 - [ ] Docs updated where applicable (README, dartdoc comments)
 - [ ] Locale text changed? Golden fixture or CLDR snapshot updated, never hand-edited
 - [ ] `SECURITY.md` supported-versions table still correct
