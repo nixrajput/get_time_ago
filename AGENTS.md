@@ -10,8 +10,8 @@ Last updated: 2026-09-27
 
 | Area          | Detail                                                                                         |
 | ------------- | ---------------------------------------------------------------------------------------------- |
-| Language      | Dart 3, pure Dart, SDK `^3.8.0`                                                                |
-| Runtime deps  | one: `intl`, kept at `>=0.19.0 <0.21.0` because `flutter_localizations` pins it exactly        |
+| Language      | Dart 3, pure Dart, SDK `^3.13.0`                                                               |
+| Runtime deps  | one: `intl` at `>=0.19.0 <0.21.0`, covering Flutter 3.47's `intl ^0.20.3` requirement          |
 | Tests         | `package:test` on an injected clock; a golden against 2.4.1; a parity test against pinned CLDR |
 | Lint / format | `package:lints` recommended, plus `avoid_print` and `public_member_api_docs`                   |
 | Publishing    | pub.dev, tag-triggered via the `PUB_RELEASE_TOKEN` secret                                      |
