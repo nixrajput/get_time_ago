@@ -66,6 +66,16 @@ Here are the steps to contribute to this project:
 - Keep Pull Requests focused on a single feature or bug fix.
 - Be responsive to feedback and be willing to make improvements as requested.
 
+## Adding or fixing a locale
+
+Each locale is a table in `lib/src/locales/<code>.dart`, registered in `lib/src/locales/registry.dart`. Long-style wording for the second, minute, hour and day of the 2.x locales lives in those files; every short and narrow string, and every week, month and year string, is generated from CLDR.
+
+- To pick up a newer CLDR release, bump `version` in `tool/cldr/generate.dart` and run `dart run tool/cldr/generate.dart --fetch`, then read what `test/cldr_parity_test.dart` reports. Never edit `lib/src/locales/cldr/*.g.dart` by hand.
+- If a CLDR string itself is wrong, add the correction to `errata` in the generator and regenerate. The parity test flags it for removal once CLDR fixes it.
+- To add a locale CLDR covers, add it to `cldrIds` in the generator, write a `lib/src/locales/<code>.dart` that uses the generated tables, and register it.
+- Every change to wording needs a test in `test/get_time_ago_test.dart`, and a change to a 2.x string must also update `changed` in `test/golden/v2_parity_test.dart` with the reason.
+- Occitan contributions are especially welcome: CLDR has no Occitan relative-time data, so Occitan has no weeks, months, years or short styles yet.
+
 ## Reporting Issues
 
 If you encounter any issues or bugs while using the Get_Time_Ago Package, please report them on

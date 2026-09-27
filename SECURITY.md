@@ -6,10 +6,8 @@ The following versions of the `get_time_ago` package are currently being support
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 2.x.x   | :white_check_mark: |
-| 1.3.x   | :white_check_mark: |
-| 1.2.x   | :x:                |
-| 0.x.x   | :x:                |
+| 3.x.x   | :white_check_mark: |
+| < 3.0   | :x:                |
 
 If you are using an older, unsupported version, we recommend upgrading to the latest version to benefit from security fixes.
 

@@ -33,9 +33,18 @@ jobs:
       - name: Analyze
         run: dart analyze
       - name: Test
+        # UTC dates must render in local time, which a UTC runner cannot show.
+        run: TZ=Asia/Kolkata dart test
+      - name: Test on the web (dart2js and dart2wasm)
+        # Tests that read repository files are @TestOn('vm') and skip here.
         run: |
-          if [ -d test ] && grep -rqlE 'test\(|testWidgets\(' test; then
-            dart test
-          else
-            echo "no test cases found — skipping"
-          fi
+          dart test -p chrome
+          dart test -p chrome -c dart2wasm
+      - name: Coverage
+        run: |
+          dart pub global activate coverage
+          dart test --coverage=coverage
+          dart pub global run coverage:format_coverage \
+            --lcov --in=coverage --out=coverage/lcov.info \
+            --report-on=lib --check-ignore
+          scripts/coverage.sh 90
