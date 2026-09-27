@@ -22,7 +22,7 @@ A rewrite around an immutable formatter and locales defined as data. `GetTimeAgo
 - **Fixed:** UTC times past the relative window were shown in UTC wall-clock time; they are now shown in local time. ([#47](https://github.com/nixrajput/get_time_ago/issues/47))
 - **Fixed:** the `br` key formatted dates in Breton; it is now an alias of `pt`.
 - **Fixed:** `ItalianMessages` and `NepaliMessages` were not exported; every bundled locale is now reachable through `TimeAgoLocales`.
-- **Chore:** a golden test pins sampled 2.4.1 outputs for every locale, past and future, to catch any change not listed above, and a parity test keeps the CLDR-generated tables equal to the pinned snapshot.
+- **Chore:** a golden test pins sampled 2.4.1 outputs for every locale, past and future, to catch any change not listed above, and a parity test keeps the CLDR-generated tables equal to the pinned snapshot, apart from two Arabic short-style strings that CLDR gets wrong.
 
 ## [2.4.1]
 
