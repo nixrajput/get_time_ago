@@ -19,9 +19,8 @@ void main() {
 
   test('a past date never changes again', () {
     expect(
-      GetTimeAgo(
-        clock: () => now,
-      ).nextChange(now.subtract(const Duration(days: 30))),
+      GetTimeAgo(clock: () => now)
+          .nextChange(now.subtract(const Duration(days: 30))),
       isNull,
     );
   });

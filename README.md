@@ -66,7 +66,7 @@ A `GetTimeAgo` is immutable and takes its "now" from a clock you can replace, so
 
 ### Prerequisites
 
-- Dart SDK `^3.8.0`. Flutter 3.32 or newer bundles a compatible SDK.
+- Dart SDK `^3.13.0`. Flutter 3.47 or newer bundles a compatible SDK.
 
 ### Install
 
