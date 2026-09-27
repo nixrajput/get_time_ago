@@ -225,9 +225,17 @@ When a grammar needs logic a table cannot express, extend `TimeAgoMessages` and 
 
 ```dart
 Timer? timer;
+
 void schedule() {
+  timer?.cancel();
   final wait = timeAgo.nextChange(postedAt);
   if (wait != null) timer = Timer(wait, () => setState(schedule));
+}
+
+@override
+void dispose() {
+  timer?.cancel();
+  super.dispose();
 }
 ```
 

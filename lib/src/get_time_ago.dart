@@ -41,7 +41,8 @@ class GetTimeAgo {
   /// The largest unit to use before showing the full date.
   ///
   /// [TimeUnit.day] shows up to "7 days ago" and then the date, as 2.x did.
-  /// [TimeUnit.year] never shows the date.
+  /// [TimeUnit.year] never shows the date. Units below [TimeUnit.day] behave
+  /// like [TimeUnit.day].
   final TimeUnit maxUnit;
 
   /// The `intl` date pattern for times beyond [maxUnit]. `null` uses
