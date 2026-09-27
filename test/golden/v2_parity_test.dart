@@ -58,9 +58,9 @@ const changed = <String, Set<String>>{
 };
 
 void main() {
-  final fixture =
-      jsonDecode(File('test/golden/v2_outputs.json').readAsStringSync())
-          as Map<String, dynamic>;
+  final fixture = jsonDecode(
+    File('test/golden/v2_outputs.json').readAsStringSync(),
+  ) as Map<String, dynamic>;
   final now = DateTime(2026, 9, 27, 12);
   final old = DateTime(2020, 1, 1, 9, 5);
 
