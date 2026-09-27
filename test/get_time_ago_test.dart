@@ -208,6 +208,16 @@ void main() {
       expect(hr.format(ahead(const Duration(minutes: 5))), 'za 5 minuta');
       expect(hr.format(ago(const Duration(seconds: 2))), 'sad');
     });
+
+    test('Arabic short style corrects two CLDR mistakes', () {
+      final ar = at(
+        locale: 'ar',
+        style: TimeAgoStyle.short,
+        maxUnit: TimeUnit.year,
+      );
+      expect(ar.format(ago(const Duration(days: 90))), 'قبل ٣ أشهر');
+      expect(ar.format(ahead(const Duration(days: 14))), 'خلال أسبوعين');
+    });
   });
 
   group('configuration', () {

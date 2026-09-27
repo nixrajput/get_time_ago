@@ -81,12 +81,15 @@ void expectPlural(
     'many': plural.many,
     'other': plural.other,
   }..removeWhere((_, value) => value == null);
-  final expected = {
-    for (final MapEntry(:key, :value) in forms.entries)
-      key.replaceFirst('relativeTimePattern-count-', ''): wording == null
-          ? value as String
-          : (value as String).replaceAll(wording.$1, wording.$2),
-  };
+  final expected = <String, String>{};
+  for (final MapEntry(:key, :value) in forms.entries) {
+    final category = key.replaceFirst('relativeTimePattern-count-', '');
+    expected[category] =
+        gen.errata['$where $category'] ??
+        (wording == null
+            ? value as String
+            : (value as String).replaceAll(wording.$1, wording.$2));
+  }
   expect(actual, expected, reason: where);
 }
 
@@ -156,6 +159,16 @@ void main() {
       }
     });
   }
+
+  test('every erratum still corrects CLDR', () {
+    // Fails once CLDR fixes one, which is the cue to drop it from the list.
+    for (final MapEntry(:key, :value) in gen.errata.entries) {
+      final [code, field, direction, category] = key.split(' ');
+      final forms = snapshot(code)[field]['relativeTime-type-$direction'];
+      final cldr = forms['relativeTimePattern-count-$category'];
+      expect(cldr, allOf(isNotNull, isNot(value)), reason: key);
+    }
+  });
 
   test('Occitan is still CLDR root placeholders, so it stays skipped', () {
     // Fails the day CLDR ships real Occitan data, which is the cue to generate it.

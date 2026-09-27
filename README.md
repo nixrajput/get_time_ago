@@ -15,7 +15,7 @@
 </p>
 
 <p align="center">
-  <b>22 locales</b> &nbsp;·&nbsp; <b>3 styles</b> &nbsp;·&nbsp; <b>71 tests</b> &nbsp;·&nbsp; <b>1 runtime dependency</b> &nbsp;·&nbsp; <b>0 Flutter dependencies</b>
+  <b>22 locales</b> &nbsp;·&nbsp; <b>3 styles</b> &nbsp;·&nbsp; <b>73 tests</b> &nbsp;·&nbsp; <b>1 runtime dependency</b> &nbsp;·&nbsp; <b>0 Flutter dependencies</b>
 </p>
 
 <p align="center">

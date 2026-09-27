@@ -54,6 +54,15 @@ List<String> longUnitsFor(String code) => switch (code) {
 /// were fixed.
 const futureWording = {'ar': ('خلال', 'بعد')};
 
+/// CLDR mistakes, fixed here so regeneration keeps the fix. Keyed like the
+/// parity test's reasons; 49.0.0-BETA1 still has both.
+const errata = {
+  // "Within 3 months" for a past time: every other past form uses قبل.
+  'ar month-short past few': 'قبل {0} أشهر',
+  // The dual already says two; the long and narrow forms drop the count.
+  'ar week-short future two': 'خلال أسبوعين',
+};
+
 Future<void> main(List<String> args) async {
   final snapshot = Directory('tool/cldr/$version');
   if (args.contains('--fetch')) await _fetch(snapshot);
@@ -145,14 +154,21 @@ String _units(
 ) => [
   for (final unit in which)
     'TimeUnit.$unit: RelativePatterns('
-        'past: ${_plural(data['$unit$suffix']['relativeTime-type-past'] as Map<String, dynamic>, null)}, '
-        'future: ${_plural(data['$unit$suffix']['relativeTime-type-future'] as Map<String, dynamic>, suffix.isEmpty ? futureWording[code] : null)}),',
+        'past: ${_plural('$code $unit$suffix past', data['$unit$suffix']['relativeTime-type-past'] as Map<String, dynamic>, null)}, '
+        'future: ${_plural('$code $unit$suffix future', data['$unit$suffix']['relativeTime-type-future'] as Map<String, dynamic>, suffix.isEmpty ? futureWording[code] : null)}),',
 ].join();
 
-String _plural(Map<String, dynamic> forms, (String, String)? wording) {
+String _plural(
+  String where,
+  Map<String, dynamic> forms,
+  (String, String)? wording,
+) {
   String pattern(String category) {
     final raw = forms['relativeTimePattern-count-$category'] as String;
-    return _lit(wording == null ? raw : raw.replaceAll(wording.$1, wording.$2));
+    return _lit(
+      errata['$where $category'] ??
+          (wording == null ? raw : raw.replaceAll(wording.$1, wording.$2)),
+    );
   }
 
   final fields = [

@@ -222,7 +222,7 @@ const arShort = TimeAgoPatterns(
       future: Plural(
         zero: 'خلال {0} أسبوع',
         one: 'خلال أسبوع واحد',
-        two: 'خلال {0} أسبوعين',
+        two: 'خلال أسبوعين',
         few: 'خلال {0} أسابيع',
         many: 'خلال {0} أسبوعًا',
         other: 'خلال {0} أسبوع',
@@ -233,7 +233,7 @@ const arShort = TimeAgoPatterns(
         zero: 'قبل {0} شهر',
         one: 'قبل شهر واحد',
         two: 'قبل شهرين',
-        few: 'خلال {0} أشهر',
+        few: 'قبل {0} أشهر',
         many: 'قبل {0} شهرًا',
         other: 'قبل {0} شهر',
       ),
