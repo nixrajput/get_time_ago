@@ -9,8 +9,14 @@ import 'package:get_time_ago_example/main.dart';
 /// The test font's glyphs are wider than Roboto's, which would report
 /// overflows no user sees; load the fonts the app really renders with.
 Future<void> loadRealFonts() async {
-  final fonts =
-      '${Platform.environment['FLUTTER_ROOT']}/bin/cache/artifacts/material_fonts';
+  final root = Platform.environment['FLUTTER_ROOT'];
+  if (root == null) {
+    throw StateError(
+      'FLUTTER_ROOT is not set. Run these tests with `flutter test`, which '
+      'sets it, so the real fonts can be found.',
+    );
+  }
+  final fonts = '$root/bin/cache/artifacts/material_fonts';
   Future<ByteData> read(String name) async =>
       ByteData.sublistView(await File('$fonts/$name').readAsBytes());
   await (FontLoader('Roboto')
