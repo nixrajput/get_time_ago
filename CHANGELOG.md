@@ -6,7 +6,7 @@ A rewrite around an immutable formatter and locales defined as data. `GetTimeAgo
 
 - **Breaking:** `GetTimeAgo` is now an immutable, const-constructible formatter with `locale`, `style`, `maxUnit`, `datePattern` and `clock`, and a `format` method. `GetTimeAgo.defaults` replaces `setDefaultLocale`, and `registerLocale` replaces `setCustomLocaleMessages`.
 - **Breaking:** `Messages`, `FutureTimeMessages`, `Data`, every `*Messages` class, `formatMessage`, `convertToArabicNumbers` and `convertToUrduNumbers` are removed. Custom locales are a `TimeAgoLocale` table or a `TimeAgoMessages` subclass, and the bundled ones are `TimeAgoLocales.en` and so on.
-- **Breaking:** the SDK floor is now Dart `^3.8.0`, and the `intl` floor rises from `0.18.0` to `0.19.0` (the range still reaches `<0.21.0`).
+- **Breaking:** the SDK floor is now Dart `^3.13.0` (Flutter 3.47 or newer), and the `intl` floor rises from `0.18.0` to `0.19.0` (the range still reaches `<0.21.0`).
 - **Added:** `TimeAgoStyle.short` ("5 min. ago") and `TimeAgoStyle.narrow` ("5m ago"), generated from CLDR 48.2.2 for every locale except Occitan, which CLDR does not cover.
 - **Added:** weeks, months and years through `maxUnit`, opt-in. The default still shows the full date after 7 days. ([#20](https://github.com/nixrajput/get_time_ago/issues/20))
 - **Added:** an injectable `clock`. ([#48](https://github.com/nixrajput/get_time_ago/issues/48))

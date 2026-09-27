@@ -18,7 +18,7 @@
 
 `setDefaultLocale` threw an `ArgumentError` for an unknown code. `GetTimeAgo.defaults` accepts any code, and formatting never throws. An unknown code falls back to its language part, then to `GetTimeAgo.defaults.locale`, then to English. Use `GetTimeAgo.isSupported(code)` if you want the check.
 
-3.0 also raises two floors: the Dart SDK to `^3.8.0` (Flutter 3.32 or newer), and `intl` from `0.18.0` to `0.19.0`. The `intl` range still reaches `<0.21.0`, so apps whose `flutter_localizations` pins `intl` exactly keep resolving.
+3.0 also raises two floors: the Dart SDK to `^3.13.0` (Flutter 3.47 or newer), and `intl` from `0.18.0` to `0.19.0`. The `intl` range still reaches `<0.21.0`, so it resolves alongside Flutter 3.47's `flutter_localizations`, which requires `intl ^0.20.3`.
 
 ## Converting a custom locale
 

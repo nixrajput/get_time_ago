@@ -68,12 +68,11 @@ Future<void> main(List<String> args) async {
   if (args.contains('--fetch')) await _fetch(snapshot);
   final out = Directory('lib/src/locales/cldr')..createSync(recursive: true);
   for (final code in cldrIds.keys.where((code) => !skipped.contains(code))) {
-    final data =
-        jsonDecode(File('${snapshot.path}/$code.json').readAsStringSync())
-            as Map<String, dynamic>;
-    File(
-      '${out.path}/${code.toLowerCase()}.g.dart',
-    ).writeAsStringSync(_library(code, data));
+    final data = jsonDecode(
+      File('${snapshot.path}/$code.json').readAsStringSync(),
+    ) as Map<String, dynamic>;
+    File('${out.path}/${code.toLowerCase()}.g.dart')
+        .writeAsStringSync(_library(code, data));
   }
   final format = Process.runSync('dart', ['format', out.path]);
   if (format.exitCode != 0) {
@@ -94,9 +93,9 @@ Future<void> _fetch(Directory snapshot) async {
       if (response.statusCode != 200) {
         throw HttpException('${response.statusCode}', uri: uri);
       }
-      final json =
-          jsonDecode(await response.transform(utf8.decoder).join())
-              as Map<String, dynamic>;
+      final json = jsonDecode(
+        await response.transform(utf8.decoder).join(),
+      ) as Map<String, dynamic>;
       final fields =
           json['main'][id]['dates']['fields'] as Map<String, dynamic>;
       final subset = {

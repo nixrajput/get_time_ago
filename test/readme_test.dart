@@ -51,9 +51,10 @@ void main() {
       r'^\[([^\]]+)\]:',
       multiLine: true,
     ).allMatches(raw).map((m) => m.group(1)!).toSet();
-    final used = RegExp(
-      r'\]\[([^\]]+)\]',
-    ).allMatches(raw).map((m) => m.group(1)!).toSet();
+    final used = RegExp(r'\]\[([^\]]+)\]')
+        .allMatches(raw)
+        .map((m) => m.group(1)!)
+        .toSet();
 
     expect(used.difference(defined), isEmpty, reason: 'undefined references');
     expect(defined.difference(used), isEmpty, reason: 'unused references');
