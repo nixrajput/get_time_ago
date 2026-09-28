@@ -35,7 +35,7 @@ test/
 
 ### The checks
 
-`dart format --output=none --set-exit-if-changed .`, `dart analyze`, `TZ=Asia/Kolkata dart test`, `dart pub publish --dry-run`. CI runs the first three plus a 90% coverage gate in the `build` job; the test step runs in a non-UTC zone because UTC dates must render in local time. `.githooks/pre-push` runs them too (`git config core.hooksPath .githooks`). `example.yml` builds the example app for Android, iOS, macOS, Windows, Linux and web (JS and Wasm) on every PR to `master`; the example's native icons come from `example/assets/icon` via `dart run flutter_launcher_icons`.
+`dart format --output=none --set-exit-if-changed .`, `dart analyze`, `TZ=Asia/Kolkata dart test`, `(cd example && flutter test)`, `dart pub publish --dry-run`. CI's `build` job runs the first four, the tests again in a browser (`dart test -p chrome`, then with `-c dart2wasm`) and a 90% coverage gate (`scripts/coverage.sh 90`); the tests run in a non-UTC zone because UTC dates must render in local time. `.githooks/pre-push` runs them too (`git config core.hooksPath .githooks`). `example.yml` builds the example app for Android, iOS, macOS, Windows, Linux and web (JS and Wasm) on every PR to `master`; the example's native icons come from `example/assets/icon` via `dart run flutter_launcher_icons`.
 
 ### Conventions
 
