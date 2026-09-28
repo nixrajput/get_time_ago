@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Runs the same four checks CI runs, before anything leaves this machine.
+# Runs the checks CI runs, before anything leaves this machine.
 # Enable with: git config core.hooksPath .githooks
 set -euo pipefail
 
@@ -11,6 +11,9 @@ dart analyze
 
 echo "==> dart test"
 dart test
+
+echo "==> example tests"
+(cd example && flutter test)
 
 echo "==> dart pub publish --dry-run"
 dart pub publish --dry-run
