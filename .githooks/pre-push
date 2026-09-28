@@ -10,7 +10,8 @@ echo "==> dart analyze"
 dart analyze
 
 echo "==> dart test"
-dart test
+# UTC dates must render in local time, which a UTC clock cannot show.
+TZ=Asia/Kolkata dart test
 
 echo "==> example tests"
 (cd example && flutter test)
