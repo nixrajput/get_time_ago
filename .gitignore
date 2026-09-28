@@ -54,3 +54,7 @@ ui-debug.log
 
 .playwright-mcp/
 coverage/
+
+# Local agent state
+.superpowers/
+.claude/settings.local.json
