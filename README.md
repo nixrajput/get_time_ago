@@ -30,12 +30,13 @@
   <a href="#locales">Locales</a> &nbsp;·&nbsp;
   <a href="#custom-locales">Custom locales</a> &nbsp;·&nbsp;
   <a href="#is-this-for-you">Is this for you</a> &nbsp;·&nbsp;
-  <a href="MIGRATION.md">Migrating from 2.x</a>
+  <a href="MIGRATION.md">Migrating from 2.x</a> &nbsp;·&nbsp;
+  <a href="https://pub.dev/documentation/get_time_ago/latest/">API reference</a>
 </p>
 
-## Table of Contents
+## Table of contents
 
-- [Table of Contents](#table-of-contents)
+- [Table of contents](#table-of-contents)
 - [Overview](#overview)
 - [Demo](#demo)
 - [Quick start](#quick-start)
@@ -53,6 +54,7 @@
 - [Is this for you](#is-this-for-you)
 - [Compared to](#compared-to)
 - [FAQ](#faq)
+- [Migrating from 2.x](#migrating-from-2x)
 - [Contributing](#contributing)
 - [License](#license)
 - [Support the project](#support-the-project)
@@ -312,6 +314,10 @@ It falls back to the language part of the code, then to `GetTimeAgo.defaults.loc
 
 **What do the numbers in the header mean?**
 They are the things this package controls and can check: how many languages it speaks, how many styles, and how many tests pin that text down. Formatting a string is too fast to be worth a benchmark.
+
+## Migrating from 2.x
+
+3.0 replaces the global, method-per-string API with an immutable formatter and locales defined as data. The call most apps make, `GetTimeAgo.parse(dateTime, locale:, pattern:)`, keeps its exact signature and compiles unchanged. [MIGRATION.md](MIGRATION.md) maps every 2.x symbol and lists every output change.
 
 ## Contributing
 
