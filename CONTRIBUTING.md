@@ -1,45 +1,37 @@
 # Contributing to the Get_Time_Ago Package
 
-We appreciate your interest in contributing to the Get_Time_Ago Package built with Dart. By
-contributing, you help make this project better and more accessible for others. Please take a moment
-to review the following guidelines to ensure a smooth and collaborative development process.
+We appreciate your interest in contributing to the Get_Time_Ago Package built with Dart. By contributing, you help make this project better and more accessible for others. Please take a moment to review the following guidelines to ensure a smooth and collaborative development process.
 
 ## Code of Conduct
 
-Please review and adhere to our [Code of Conduct](CODE_OF_CONDUCT.md). We expect all contributors to
-be respectful, considerate, and inclusive when interacting with the project and its community.
+Please review and adhere to our [Code of Conduct](CODE_OF_CONDUCT.md). We expect all contributors to be respectful, considerate, and inclusive when interacting with the project and its community.
 
 ## How to Contribute
 
 Here are the steps to contribute to this project:
 
-1. Fork the Repository: Click the "Fork" button at the top right of this repository to create a copy
-   in your GitHub account.
+1. Fork the Repository: Click the "Fork" button at the top right of this repository to create a copy in your GitHub account.
 
-2. Clone the Repository: Clone your forked repository to your local machine using the following
-   command:
+2. Clone the Repository: Clone your forked repository to your local machine using the following command:
 
    ```bash
    git clone https://github.com/nixrajput/get_time_ago.git
    ```
 
-3. Create a Branch: Create a new branch for your contributions. Make sure to choose a descriptive
-   branch name that reflects the changes you intend to make.
+3. Create a Branch: Create a new branch for your contributions. Make sure to choose a descriptive branch name that reflects the changes you intend to make.
 
    ```bash
    git checkout -b feature/your-feature-name
    ```
 
-4. Make Changes: Implement your changes and improvements in your local repository. Follow the coding
-   style and best practices of the project.
+4. Make Changes: Implement your changes and improvements in your local repository. Follow the coding style and best practices of the project.
 
-5. Test Your Changes: Ensure that your changes do not introduce any errors or regressions. Test the
-   website locally to verify that it functions as expected.
+5. Test Your Changes: Ensure that your changes do not introduce any errors or regressions. Run the checks listed in [AGENTS.md](AGENTS.md#the-checks) locally before you push.
 
-6. Commit Changes: Commit your changes with a clear and descriptive commit message.
+6. Commit Changes: Commit your changes with a [Conventional Commits](https://www.conventionalcommits.org) message (`feat:`, `fix:`, `docs:` and so on).
 
    ```bash
-   git commit -m "Add feature/fix: Describe your changes here"
+   git commit -m "feat: describe your change"
    ```
 
 7. Push Changes: Push your changes to your forked repository on GitHub.
@@ -48,15 +40,11 @@ Here are the steps to contribute to this project:
    git push origin feature/your-feature-name
    ```
 
-8. Create a Pull Request: Go to the original repository on GitHub and click the "New Pull Request"
-   button. Provide a concise description of your changes, why they are necessary, and any relevant
-   information.
+8. Create a Pull Request: Go to the original repository on GitHub and click the "New Pull Request" button. Provide a concise description of your changes, why they are necessary, and any relevant information.
 
-9. Review and Collaboration: Contributors and maintainers will review your Pull Request. Be prepared
-   to address any feedback or make additional changes as necessary.
+9. Review and Collaboration: Contributors and maintainers will review your Pull Request. Be prepared to address any feedback or make additional changes as necessary.
 
-10. Merge: Once your Pull Request is approved and passes all checks, a maintainer will merge it into
-    the main branch. Congratulations, your contribution is now part of the project!
+10. Merge: Once your Pull Request is approved and passes all checks, a maintainer will merge it into the main branch. Congratulations, your contribution is now part of the project!
 
 ## Development Guidelines
 
@@ -78,12 +66,8 @@ Each locale is a table in `lib/src/locales/<code>.dart`, registered in `lib/src/
 
 ## Reporting Issues
 
-If you encounter any issues or bugs while using the Get_Time_Ago Package, please report them on
-the [Issues](https://github.com/nixrajput/get_time_ago/issues) page of the repository. Provide as
-much detail as possible to help us understand and address the problem.
+If you encounter any issues or bugs while using the Get_Time_Ago Package, please report them on the [Issues](https://github.com/nixrajput/get_time_ago/issues) page of the repository. Provide as much detail as possible to help us understand and address the problem.
 
 ## Thank You
 
-Thank you for contributing to the Get_Time_Ago Package project. Your contributions help make this
-project better and more valuable to its users. We appreciate your time and effort in making this
-project a success!
+Thank you for contributing to the Get_Time_Ago Package project. Your contributions help make this project better and more valuable to its users. We appreciate your time and effort in making this project a success!
