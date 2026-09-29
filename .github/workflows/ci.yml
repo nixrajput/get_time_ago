@@ -40,6 +40,9 @@ jobs:
         run: |
           dart test -p chrome
           dart test -p chrome -c dart2wasm
+      - name: Example layout tests
+        # Every card reachable and the preview never cut off, at phone to desktop sizes.
+        run: cd example && flutter test
       - name: Coverage
         run: |
           dart pub global activate coverage

@@ -1,16 +1,32 @@
-# get_time_ago_example
+# get_time_ago example
 
-Demonstrates how to use the get_time_ago plugin.
+## Usage
 
-## Getting Started
+```dart
+import 'package:get_time_ago/get_time_ago.dart';
 
-This project is a starting point for a Flutter application.
+void main() {
+  final posted = DateTime.now().subtract(const Duration(minutes: 5));
 
-A few resources to get you started if this is your first Flutter project:
+  print(GetTimeAgo.parse(posted)); // 5 minutes ago
+  print(GetTimeAgo.parse(posted, locale: 'fr')); // il y a 5 minutes
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+  const narrow = GetTimeAgo(style: TimeAgoStyle.narrow, maxUnit: TimeUnit.year);
+  print(narrow.format(posted)); // 5m ago
+  print(narrow.nextChange(posted)); // how long until the text changes
+}
+```
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## The demo app
+
+This directory is also a Flutter demo of every `GetTimeAgo` option: locale, style, largest unit and date pattern. It has three parts:
+
+- **Try it:** a slider that scrubs a moment across four years, showing the text in all three styles at once.
+- **Samples:** fixed offsets, formatted against a frozen clock so each row stays exact.
+- **Live:** a row refreshed through `nextChange` instead of a ticking timer.
+
+The preview never scrolls away. On wide or landscape screens the options and preview are both pinned side by side, whenever the options fit whole, with the rest in one list beneath. On a portrait phone the preview is pinned above that list, and the options lead it. A mouse wheel anywhere on the page scrolls the list. The app follows the device theme, and the switch in the app bar forces light or dark.
+
+`flutter test` checks the layout at phone to desktop sizes, including a large text scale and a phone's bottom inset.
+
+Run it from this directory with `flutter run -d chrome`, or open the live demo at https://nixrajput.github.io/get_time_ago.
