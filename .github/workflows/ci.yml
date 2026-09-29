@@ -50,7 +50,7 @@ jobs:
           dart pub global run coverage:format_coverage \
             --lcov --in=coverage --out=coverage/lcov.info \
             --report-on=lib --check-ignore
-          scripts/coverage.sh 90
+          scripts/coverage.sh 100
 
   floor:
     name: floor (Dart 3.13.0)

@@ -310,6 +310,54 @@ void main() {
       );
     });
 
+    test(
+      'an unknown locale falls back to the default locale before English',
+      () {
+        GetTimeAgo.defaults = const GetTimeAgo(locale: 'fr', clock: clock);
+        expect(
+          at(locale: 'sv').format(ago(const Duration(minutes: 5))),
+          'il y a 5 minutes',
+        );
+      },
+    );
+
+    test('isSupported is loose, and says no to a language it lacks', () {
+      for (final code in ['EN-us', 'pt_PT', 'zh-Hant', 'HR']) {
+        expect(GetTimeAgo.isSupported(code), isTrue, reason: code);
+      }
+      for (final code in ['sv', '', 'xx_YY']) {
+        expect(GetTimeAgo.isSupported(code), isFalse, reason: code);
+      }
+    });
+
+    test('a future time past the largest unit shows the date', () {
+      final later = ahead(const Duration(days: 10));
+      expect(at().format(later), fullDate(later));
+      expect(at(maxUnit: TimeUnit.week).format(later), 'in a week');
+    });
+
+    test('a pattern for one parse call leaves the defaults alone', () {
+      GetTimeAgo.defaults = const GetTimeAgo(datePattern: 'yyyy', clock: clock);
+      final old = ago(const Duration(days: 400));
+      expect(
+        GetTimeAgo.parse(old, pattern: 'MM'),
+        DateFormat('MM').format(old),
+      );
+      expect(GetTimeAgo.parse(old), DateFormat('yyyy').format(old));
+      expect(GetTimeAgo.defaults.datePattern, 'yyyy');
+    });
+
+    test('Persian and Urdu short and narrow styles write their own digits', () {
+      final five = ago(const Duration(minutes: 5));
+      for (final locale in ['fa', 'ur']) {
+        for (final style in [TimeAgoStyle.short, TimeAgoStyle.narrow]) {
+          final text = at(locale: locale, style: style).format(five);
+          expect(text, contains('۵'), reason: '$locale ${style.name}: $text');
+          expect(text, isNot(contains('5')), reason: '$locale ${style.name}');
+        }
+      }
+    });
+
     test('an unknown default locale still formats, in English', () {
       GetTimeAgo.defaults = const GetTimeAgo(locale: 'xx', clock: clock);
       expect(

@@ -32,7 +32,7 @@ dart test -p chrome                  # and again with -c dart2wasm
 dart pub publish --dry-run
 ```
 
-The tests run in a non-UTC zone because UTC dates must render in local time. CI also holds line coverage at 90% (`scripts/coverage.sh 90`), repeats analyze and test on Dart 3.13.0, the SDK floor, and builds the example app for Android, iOS, macOS, Windows, Linux, web and WebAssembly.
+The tests run in a non-UTC zone because UTC dates must render in local time. CI also holds line coverage at 100% (`scripts/coverage.sh 100`), repeats analyze and test on Dart 3.13.0, the SDK floor, and builds the example app for Android, iOS, macOS, Windows, Linux, web and WebAssembly.
 
 ## Workflow
 
