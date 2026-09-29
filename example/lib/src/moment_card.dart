@@ -45,13 +45,15 @@ class _MomentCardState extends State<MomentCard> {
 
   @override
   Widget build(BuildContext context) => LayoutBuilder(
-    // A narrow card wraps its three styles over more lines, so it takes the
-    // tighter form too.
-    builder: (context, constraints) =>
-        _card(compact: widget.compact || constraints.maxWidth < 320),
+    // Three styles side by side need about 100 px each, so a narrow card
+    // leaves them out and takes the tighter form.
+    builder: (context, constraints) => _card(
+      compact: widget.compact || constraints.maxWidth < 320,
+      styles: !widget.minimal && constraints.maxWidth >= 320,
+    ),
   );
 
-  Widget _card({required bool compact}) {
+  Widget _card({required bool compact, required bool styles}) {
     final theme = Theme.of(context);
     final at = widget.timeAgo.copyWith(clock: () => _anchor);
     final moment = _moment;
@@ -103,19 +105,27 @@ class _MomentCardState extends State<MomentCard> {
                 ],
               ),
             ),
-          if (!widget.minimal) ...[
+          if (styles) ...[
             Divider(height: compact ? Gaps.l : Gaps.l * 2),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                for (final style in TimeAgoStyle.values)
-                  Expanded(
-                    child: Reading(
-                      caption: style.name,
-                      value: at.copyWith(style: style).format(moment),
+            // A date in a narrow column would take any number of lines, so at
+            // the usual text size two is the most; larger text wraps freely.
+            DefaultTextStyle.merge(
+              maxLines: MediaQuery.textScalerOf(context).scale(1) > 1
+                  ? null
+                  : 2,
+              overflow: TextOverflow.ellipsis,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  for (final style in TimeAgoStyle.values)
+                    Expanded(
+                      child: Reading(
+                        caption: style.name,
+                        value: at.copyWith(style: style).format(moment),
+                      ),
                     ),
-                  ),
-              ],
+                ],
+              ),
             ),
           ],
         ],

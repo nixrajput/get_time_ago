@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get_time_ago/get_time_ago.dart';
@@ -41,6 +42,7 @@ Future<void> loadRealFonts() async {
 const screens = <(String, Size, double, double)>[
   ('smallest phone', Size(320, 568), 0, 1),
   ('small phone', Size(360, 640), 0, 1),
+  ('narrow tall phone', Size(360, 740), 0, 1),
   ('phone portrait', Size(390, 844), 34, 1),
   ('short phone, large text', Size(390, 600), 0, 1.3),
   ('android, large text', Size(412, 915), 48, 1.3),
@@ -251,7 +253,30 @@ void main() {
               .descendant(of: previewArea(), matching: find.byType(Scrollable))
               .first,
         );
-        expect(area.position.maxScrollExtent, 0, reason: '$name: preview');
+        // The readings are longest at the track's ends, where they turn into
+        // dates, and none of them may end in an ellipsis.
+        final slider = find.descendant(
+          of: previewArea(),
+          matching: find.byType(Slider),
+        );
+        for (final end in [null, -1.0, 1.0]) {
+          if (end != null) {
+            await tester.drag(slider, Offset(end * size.width, 0));
+            await tester.pumpAndSettle();
+            expect(tester.widget<Slider>(slider).value, end, reason: name);
+          }
+          final at = '$name at ${end ?? 'the start'}';
+          expect(area.position.maxScrollExtent, 0, reason: at);
+          final cut = tester
+              .renderObjectList<RenderParagraph>(
+                find.descendant(
+                  of: previewArea(),
+                  matching: find.byType(RichText),
+                ),
+              )
+              .where((p) => p.didExceedMaxLines);
+          expect(cut, isEmpty, reason: '$at: a reading is cut short');
+        }
       }
       expect(preview.top, greaterThanOrEqualTo(0));
       expect(

@@ -26,9 +26,10 @@ class DemoPage extends StatefulWidget {
 
 class _DemoPageState extends State<DemoPage> {
   /// Below these heights the preview drops its subtitle and some spacing,
-  /// then its date and the three styles too.
-  static const _roomyPreview = 320.0;
-  static const _shortPreview = 250.0;
+  /// then its date and the three styles too. Each is the taller form's
+  /// height with its styles on two lines, the most they take.
+  static const _roomyPreview = 328.0;
+  static const _shortPreview = 276.0;
 
   final _openedAt = DateTime.now();
   final _pattern = TextEditingController();
