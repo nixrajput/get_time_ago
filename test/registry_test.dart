@@ -57,6 +57,15 @@ void main() {
     expect(custom.justNow(TimeAgoStyle.long), 'now-ish');
   });
 
+  test('an override lists its code once; a new code keeps its spelling', () {
+    registerMessages('vi', TimeAgoLocales.vi.copyWith());
+    registerMessages('test-list', TimeAgoLocales.en);
+    registerMessages('Test-List', TimeAgoLocales.en);
+    final codes = localeCodes().toList();
+    expect(codes.where((c) => c == 'vi'), hasLength(1));
+    expect(codes.where((c) => c.toLowerCase() == 'test-list'), ['Test-List']);
+  });
+
   test(
     'registering under an alias code overrides what the alias resolves to',
     () {

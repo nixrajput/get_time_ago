@@ -1,9 +1,9 @@
 name: get_time_ago
 description: Relative time for Dart and Flutter, such as "just now", "5 minutes ago" or "in 3 days", in 22 locales with CLDR plurals, short styles and an injectable clock.
 
-version: 3.0.0
+version: 3.0.1
 
-homepage: https://pub.dev/packages/get_time_ago
+homepage: https://nixrajput.github.io/get_time_ago
 repository: https://github.com/nixrajput/get_time_ago
 issue_tracker: https://github.com/nixrajput/get_time_ago/issues
 

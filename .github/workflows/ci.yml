@@ -50,4 +50,23 @@ jobs:
           dart pub global run coverage:format_coverage \
             --lcov --in=coverage --out=coverage/lcov.info \
             --report-on=lib --check-ignore
-          scripts/coverage.sh 90
+          scripts/coverage.sh 100
+
+  floor:
+    name: floor (Dart 3.13.0)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      # Flutter 3.47.0 bundles Dart 3.13.0, the SDK floor in pubspec.yaml.
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.47.0
+          cache: true
+      - name: Install dependencies
+        run: flutter pub get
+      - name: Analyze
+        run: dart analyze
+      - name: Test
+        run: TZ=Asia/Kolkata dart test

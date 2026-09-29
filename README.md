@@ -11,11 +11,12 @@
   <a href="https://github.com/nixrajput/get_time_ago/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/nixrajput/get_time_ago/ci.yml?branch=master&label=CI" alt="CI" /></a>
   <a href="https://pub.dev/packages/get_time_ago/score"><img src="https://img.shields.io/pub/likes/get_time_ago?label=Likes" alt="pub likes" /></a>
   <a href="https://pub.dev/packages/get_time_ago/score"><img src="https://img.shields.io/pub/points/get_time_ago?label=Points" alt="pub points" /></a>
+  <a href="https://github.com/nixrajput/get_time_ago/graphs/contributors"><img src="https://img.shields.io/github/contributors/nixrajput/get_time_ago?label=Contributors" alt="contributors" /></a>
   <a href="https://github.com/nixrajput/get_time_ago/blob/master/LICENSE"><img src="https://img.shields.io/github/license/nixrajput/get_time_ago?label=Licence" alt="licence" /></a>
 </p>
 
 <p align="center">
-  <b>22 locales</b> &nbsp;·&nbsp; <b>3 styles</b> &nbsp;·&nbsp; <b>73 tests</b> &nbsp;·&nbsp; <b>1 runtime dependency</b> &nbsp;·&nbsp; <b>0 Flutter dependencies</b>
+  <b>22 locales</b> &nbsp;·&nbsp; <b>3 styles</b> &nbsp;·&nbsp; <b>80 tests</b> &nbsp;·&nbsp; <b>1 runtime dependency</b> &nbsp;·&nbsp; <b>0 Flutter dependencies</b>
 </p>
 
 <p align="center">
@@ -30,7 +31,7 @@
   <a href="#locales">Locales</a> &nbsp;·&nbsp;
   <a href="#custom-locales">Custom locales</a> &nbsp;·&nbsp;
   <a href="#is-this-for-you">Is this for you</a> &nbsp;·&nbsp;
-  <a href="MIGRATION.md">Migrating from 2.x</a> &nbsp;·&nbsp;
+  <a href="https://github.com/nixrajput/get_time_ago/blob/master/MIGRATION.md">Migrating from 2.x</a> &nbsp;·&nbsp;
   <a href="https://pub.dev/documentation/get_time_ago/latest/">API reference</a>
 </p>
 
@@ -56,6 +57,7 @@
 - [FAQ](#faq)
 - [Migrating from 2.x](#migrating-from-2x)
 - [Contributing](#contributing)
+- [Contributors](#contributors)
 - [License](#license)
 - [Support the project](#support-the-project)
 - [Connect](#connect)
@@ -68,7 +70,7 @@ A `GetTimeAgo` is immutable and takes its "now" from a clock you can replace, so
 
 ## Demo
 
-Try every option in the [live web demo](https://nixrajput.github.io/get_time_ago): the locale, the style, the largest unit and the date pattern, with a slider that scrubs a moment across four years and a live row refreshed through `nextChange`. It is the [example app](example/README.md) built for the web; the same app runs on Android, iOS, macOS, Windows and Linux.
+Try every option in the [live web demo](https://nixrajput.github.io/get_time_ago): the locale, the style, the largest unit and the date pattern, with a slider that scrubs a moment across four years and a live row refreshed through `nextChange`. It is the [example app](https://github.com/nixrajput/get_time_ago/blob/master/example/README.md) built for the web; the same app runs on Android, iOS, macOS, Windows and Linux.
 
 ## Quick start
 
@@ -153,7 +155,7 @@ Months are 30 days and years are 365 days, so a 31-day month reads as "a month" 
 `clock` replaces `DateTime.now`. Pass a server-corrected clock when device time cannot be trusted, or a fixed one in tests:
 
 ```dart
-final timeAgo = GetTimeAgo(clock: () => serverNow());
+final timeAgo = GetTimeAgo(clock: serverNow);
 ```
 
 The relative text compares instants, so a UTC `DateTime` and a local one give the same answer. When the full date is shown, it is converted to local time first, so `2020-03-06T20:46:17Z` reads in the reader's time zone.
@@ -247,7 +249,7 @@ void dispose() {
 }
 ```
 
-It returns `null` for a past time already shown as a date, because that text never changes again. A ready-made Flutter widget built on this is planned as a separate package.
+It returns `null` for a past time already shown as a date, because that text never changes again.
 
 ## Before and after
 
@@ -278,7 +280,7 @@ GetTimeAgo.defaults = const GetTimeAgo(locale: 'fr');
 GetTimeAgo.registerLocale('en', TimeAgoLocales.en.copyWith(/* ... */));
 ```
 
-[MIGRATION.md](MIGRATION.md) maps every 2.x call to its 3.0 equivalent and lists every output that changed.
+[MIGRATION.md](https://github.com/nixrajput/get_time_ago/blob/master/MIGRATION.md) maps every 2.x call to its 3.0 equivalent and lists every output that changed.
 
 ## Is this for you
 
@@ -310,22 +312,30 @@ CLDR, which the new units and styles come from, has no Occitan relative-time dat
 It falls back to the language part of the code, then to `GetTimeAgo.defaults.locale`, then to English. It never throws while formatting.
 
 **Why did my Arabic or Romanian text change in 3.0?**
-2.x used one plural form for every count. Arabic needs a different noun form from 11 up, and Romanian adds "de" from 20 up, so 3.0 follows CLDR, the Unicode data that ICU and web browsers format with. [MIGRATION.md](MIGRATION.md) lists every change.
+2.x used one plural form for every count. Arabic needs a different noun form from 11 up, and Romanian adds "de" from 20 up, so 3.0 follows CLDR, the Unicode data that ICU and web browsers format with. [MIGRATION.md](https://github.com/nixrajput/get_time_ago/blob/master/MIGRATION.md) lists every change.
 
 **What do the numbers in the header mean?**
 They are the things this package controls and can check: how many languages it speaks, how many styles, and how many tests pin that text down. Formatting a string is too fast to be worth a benchmark.
 
 ## Migrating from 2.x
 
-3.0 replaces the global, method-per-string API with an immutable formatter and locales defined as data. The call most apps make, `GetTimeAgo.parse(dateTime, locale:, pattern:)`, keeps its exact signature and compiles unchanged. [MIGRATION.md](MIGRATION.md) maps every 2.x symbol and lists every output change.
+3.0 replaces the global, method-per-string API with an immutable formatter and locales defined as data. The call most apps make, `GetTimeAgo.parse(dateTime, locale:, pattern:)`, keeps its exact signature and compiles unchanged. [MIGRATION.md](https://github.com/nixrajput/get_time_ago/blob/master/MIGRATION.md) maps every 2.x symbol and lists every output change.
 
 ## Contributing
 
-Fork the repository, make your changes and open a pull request. Please read [CONTRIBUTING.md](CONTRIBUTING.md) first, and note that every PR must bump the version in `pubspec.yaml` and add a matching `CHANGELOG.md` entry.
+Contributions are welcome. Fork, branch and open a pull request - see [CONTRIBUTING.md](https://github.com/nixrajput/get_time_ago/blob/master/CONTRIBUTING.md) for the checks a PR has to pass, and note that every PR must bump the version in `pubspec.yaml` and add a matching `CHANGELOG.md` entry. Bugs and ideas go to [Issues](https://github.com/nixrajput/get_time_ago/issues), questions to [Discussions](https://github.com/nixrajput/get_time_ago/discussions), and vulnerabilities follow [SECURITY.md](https://github.com/nixrajput/get_time_ago/blob/master/SECURITY.md).
+
+## Contributors
+
+Thanks to everyone who has contributed to get_time_ago.
+
+<a href="https://github.com/nixrajput/get_time_ago/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=nixrajput/get_time_ago" alt="Contributors" />
+</a>
 
 ## License
 
-MIT. See [LICENSE](LICENSE).
+MIT. See [LICENSE](https://github.com/nixrajput/get_time_ago/blob/master/LICENSE).
 
 ## Support the project
 
