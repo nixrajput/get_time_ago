@@ -1,68 +1,107 @@
 name: Bug Report
-description: File a bug report
+description: File a bug report for get_time_ago
 title: "[Bug]: "
-labels: ["bug", "triage"]
+labels: ["bug"]
 assignees: ["nixrajput"]
 body:
-  - type: input
-    id: contact
+  - type: markdown
     attributes:
-      label: Contact Details
-      description: How can we get in touch with you if we need more info?
-      placeholder: ex. email@example.com
+      value: |
+        Thanks for taking the time to fill out this bug report.
+        Before submitting, please check the [existing issues](https://github.com/nixrajput/get_time_ago/issues) to avoid duplicates. Upgrading from 2.x? [MIGRATION.md](https://github.com/nixrajput/get_time_ago/blob/master/MIGRATION.md) covers every change.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected area
+      description: Which part of get_time_ago is affected?
+      multiple: false
+      options:
+        - Wrong text in a built-in locale
+        - Custom locales (registerLocale, TimeAgoMessages)
+        - Styles and units (TimeAgoStyle, TimeUnit)
+        - The full date (datePattern)
+        - Clock and time zones
+        - Refreshing the text (nextChange)
+        - Types / API
+        - Other
     validations:
-      required: false
+      required: true
+
   - type: textarea
     id: what-happened
     attributes:
       label: What happened?
-      description: Also tell us, what did you expect to happen?
-      placeholder: Tell us what you see!
+      description: Describe the bug clearly. What did you see, and what did you expect?
+      placeholder: "Expected: 5 minutes ago. Actual: ..."
     validations:
       required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: A minimal snippet, with the exact DateTime you passed. Smaller repros get fixed faster.
+      placeholder: |
+        1. `GetTimeAgo.parse(DateTime.now().subtract(const Duration(minutes: 5)), locale: 'fr')`
+        2. See the wrong text
+    validations:
+      required: true
+
+  - type: input
+    id: locale
+    attributes:
+      label: Locale
+      description: The locale code you passed, if any.
+      placeholder: "e.g. fr, zh_tw"
+
   - type: input
     id: version
     attributes:
-      label: Version
-      description: What version of our app are you running?
-      placeholder: ^0.0.1
+      label: get_time_ago version
+      description: The version you are running.
+      placeholder: "e.g. 3.0.0"
     validations:
       required: true
-  - type: dropdown
-    id: devices
+
+  - type: textarea
+    id: sdk
     attributes:
-      label: What devices are you seeing the problem on?
+      label: Dart or Flutter version
+      description: Output of `dart --version`, or `flutter --version` in a Flutter app.
+      render: shell
+    validations:
+      required: true
+
+  - type: dropdown
+    id: platforms
+    attributes:
+      label: Platforms
+      description: Where do you see the bug?
       multiple: true
       options:
         - Android
-        - iPhone
+        - iOS
+        - Web
+        - macOS
         - Windows
-        - Mac
         - Linux
+        - Server / CLI (Dart VM)
     validations:
       required: true
-  - type: input
-    id: os
-    attributes:
-      label: OS
-      description: On what version of OS is your device running?
-      placeholder: Android 12
-    validations:
-      required: true
+
   - type: textarea
     id: logs
     attributes:
-      label: Relevant log output
-      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      label: Relevant logs or error output
+      description: Paste the error or stack trace. Formatted as code.
       render: shell
+
   - type: checkboxes
-    id: terms
+    id: conduct
     attributes:
       label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/nixrajput/get_time_ago/blob/master/CODE_OF_CONDUCT.md).
+      description: By submitting this issue you agree to follow our [Code of Conduct](https://github.com/nixrajput/get_time_ago/blob/master/CODE_OF_CONDUCT.md).
       options:
         - label: I agree to follow this project's Code of Conduct
           required: true
-  - type: markdown
-    attributes:
-      value: "## Thanks for taking the time to fill out this bug report!"

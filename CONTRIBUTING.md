@@ -1,79 +1,70 @@
-# Contributing to the Get_Time_Ago Package
+# Contributing to get_time_ago
 
-We appreciate your interest in contributing to the Get_Time_Ago Package built with Dart. By
-contributing, you help make this project better and more accessible for others. Please take a moment
-to review the following guidelines to ensure a smooth and collaborative development process.
+Thanks for your interest in contributing. get_time_ago turns a moment into relative time, such as "5 minutes ago", in 22 locales, and contributions that make that text more correct in more languages are very welcome.
 
 ## Code of Conduct
 
-Please review and adhere to our [Code of Conduct](CODE_OF_CONDUCT.md). We expect all contributors to
-be respectful, considerate, and inclusive when interacting with the project and its community.
+Please review and adhere to our [Code of Conduct](CODE_OF_CONDUCT.md). We expect all contributors to be respectful, considerate, and inclusive when interacting with the project and its community.
 
-## How to Contribute
+## Getting set up
 
-Here are the steps to contribute to this project:
+Requires Dart 3.13 or newer (Flutter 3.47 or newer bundles it), and Flutter for the example app.
 
-1. Fork the Repository: Click the "Fork" button at the top right of this repository to create a copy
-   in your GitHub account.
+```bash
+git clone https://github.com/nixrajput/get_time_ago.git
+cd get_time_ago
+flutter pub get
+git config core.hooksPath .githooks   # optional: runs the checks below before each push
+```
 
-2. Clone the Repository: Clone your forked repository to your local machine using the following
-   command:
+`flutter pub get` resolves the example app too.
 
-   ```bash
-   git clone https://github.com/nixrajput/get_time_ago.git
-   ```
+## The checks
 
-3. Create a Branch: Create a new branch for your contributions. Make sure to choose a descriptive
-   branch name that reflects the changes you intend to make.
+Every one of these must pass before a PR can merge. CI runs all of them but the publish dry run, which the release workflow runs before every publish:
 
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
+```bash
+dart format --output=none --set-exit-if-changed .
+dart analyze
+TZ=Asia/Kolkata dart test
+dart test -p chrome                  # and again with -c dart2wasm
+(cd example && flutter test)
+dart pub publish --dry-run
+```
 
-4. Make Changes: Implement your changes and improvements in your local repository. Follow the coding
-   style and best practices of the project.
+The tests run in a non-UTC zone because UTC dates must render in local time. CI also holds line coverage at 90% (`scripts/coverage.sh 90`).
 
-5. Test Your Changes: Ensure that your changes do not introduce any errors or regressions. Test the
-   website locally to verify that it functions as expected.
+## Workflow
 
-6. Commit Changes: Commit your changes with a clear and descriptive commit message.
+1. **Fork and branch.** Branch off `master` with a descriptive name (`feat/locale-sw`, `fix/ja-plural`).
+2. **Write the test first.** Every feature and bugfix lands with a test. Bugs get a test that reproduces them before the fix.
+3. **Keep the diff surgical.** Every changed line should trace to the change you are making. No drive-by refactors, no speculative abstractions.
+4. **Bump the version.** `pubspec.yaml` must move in every PR, with a matching `CHANGELOG.md` entry - CI enforces both (`version bumped`). Patch for fixes, minor for features.
+5. **Update the docs.** If behaviour a user can see changes, the README changes in the same PR.
+6. **Open the PR.** Fill in the template. The PR title becomes the squash commit message on merge, so write it in Conventional Commit form (`feat: add Swahili`) and keep it under ~50 characters.
 
-   ```bash
-   git commit -m "Add feature/fix: Describe your changes here"
-   ```
+## Adding or fixing a locale
 
-7. Push Changes: Push your changes to your forked repository on GitHub.
+Each locale is a table in `lib/src/locales/<code>.dart`, registered in `lib/src/locales/registry.dart`. Long-style wording for the second, minute, hour and day of the 2.x locales lives in those files; every short and narrow string, and every week, month and year string, is generated from CLDR.
 
-   ```bash
-   git push origin feature/your-feature-name
-   ```
+- To pick up a newer CLDR release, bump `version` in `tool/cldr/generate.dart` and run `dart run tool/cldr/generate.dart --fetch`, then read what `test/cldr_parity_test.dart` reports. Never edit `lib/src/locales/cldr/*.g.dart` by hand.
+- If a CLDR string itself is wrong, add the correction to `errata` in the generator and regenerate. The parity test flags it for removal once CLDR fixes it.
+- To add a locale CLDR covers, add it to `cldrIds` in the generator, write a `lib/src/locales/<code>.dart` that uses the generated tables, and register it.
+- Every change to wording needs a test in `test/get_time_ago_test.dart`, and a change to a 2.x string must also update `changed` in `test/golden/v2_parity_test.dart` with the reason.
+- Occitan contributions are especially welcome: CLDR has no Occitan relative-time data, so Occitan has no weeks, months, years or short styles yet.
 
-8. Create a Pull Request: Go to the original repository on GitHub and click the "New Pull Request"
-   button. Provide a concise description of your changes, why they are necessary, and any relevant
-   information.
+## Conventions
 
-9. Review and Collaboration: Contributors and maintainers will review your Pull Request. Be prepared
-   to address any feedback or make additional changes as necessary.
+- **Commits:** Conventional Commits (`feat:`, `fix:`, `docs:`, `ci:`, `chore:`, `refactor:`), imperative subject, no trailing period.
+- **Style:** `dart format` and the lints in `analysis_options.yaml`, including `public_member_api_docs`: every public API element carries a doc comment.
+- **Language:** Dart `^3.13.0`, pure Dart. No Flutter dependency, so the package runs on the VM, in Flutter apps and on the web.
+- **Dependencies:** one runtime dependency, `intl`, for the full date. Please do not add another without discussing it in an issue first.
+- **Comments:** explain why, not what. Most code needs none.
 
-10. Merge: Once your Pull Request is approved and passes all checks, a maintainer will merge it into
-    the main branch. Congratulations, your contribution is now part of the project!
+## Reporting issues
 
-## Development Guidelines
+Bugs and feature requests go to [Issues](https://github.com/nixrajput/get_time_ago/issues) - the templates ask for the locale, the versions and a minimal repro, which is usually enough to act on. Questions and open-ended ideas belong in [Discussions](https://github.com/nixrajput/get_time_ago/discussions). Security issues follow [SECURITY.md](SECURITY.md) instead - never a public issue.
 
-- Follow the project's coding style and guidelines.
-- Write clear and concise code with comments where necessary.
-- Test your changes thoroughly before submitting a Pull Request.
-- Keep Pull Requests focused on a single feature or bug fix.
-- Be responsive to feedback and be willing to make improvements as requested.
+## Thank you
 
-## Reporting Issues
-
-If you encounter any issues or bugs while using the Get_Time_Ago Package, please report them on
-the [Issues](https://github.com/nixrajput/get_time_ago/issues) page of the repository. Provide as
-much detail as possible to help us understand and address the problem.
-
-## Thank You
-
-Thank you for contributing to the Get_Time_Ago Package project. Your contributions help make this
-project better and more valuable to its users. We appreciate your time and effort in making this
-project a success!
+Every issue, repro, and PR makes this project more useful. Thanks for taking the time.

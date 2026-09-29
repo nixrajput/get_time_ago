@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Runs the same four checks CI runs, before anything leaves this machine.
+# Enable with: git config core.hooksPath .githooks
+set -euo pipefail
+
+echo "==> dart format"
+dart format --output=none --set-exit-if-changed .
+
+echo "==> dart analyze"
+dart analyze
+
+echo "==> dart test"
+dart test
+
+echo "==> dart pub publish --dry-run"
+dart pub publish --dry-run
+
+echo "All pre-push checks passed."
