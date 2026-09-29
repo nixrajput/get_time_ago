@@ -8,13 +8,13 @@ Last updated: 2026-09-27
 
 **get_time_ago** formats a `DateTime` as relative time ("just now", "5 minutes ago", "in 3 days") in 22 locales. It is pure Dart on purpose: no Flutter dependency, so the same package serves a Flutter app, a Dart backend and a CLI. A Flutter widget is planned as a separate package, `get_time_ago_widget`; never add one here.
 
-| Area          | Detail                                                                                         |
-| ------------- | ---------------------------------------------------------------------------------------------- |
-| Language      | Dart 3, pure Dart, SDK `^3.13.0`                                                               |
-| Runtime deps  | one: `intl` at `>=0.19.0 <0.21.0`, covering Flutter 3.47's `intl ^0.20.3` requirement          |
-| Tests         | `package:test` on an injected clock; a golden against 2.4.1; a parity test against pinned CLDR |
-| Lint / format | `package:lints` recommended, plus `avoid_print` and `public_member_api_docs`                   |
-| Publishing    | pub.dev, tag-triggered via the `PUB_RELEASE_TOKEN` secret                                      |
+| Area          | Detail                                                                                                                 |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Language      | Dart 3, pure Dart, SDK `^3.13.0`                                                                                       |
+| Runtime deps  | one: `intl` at `>=0.19.0 <0.21.0`, covering Flutter 3.47's `intl ^0.20.3` requirement                                  |
+| Tests         | `package:test` on an injected clock; a golden against 2.4.1; a parity test against pinned CLDR; a README snippet guard |
+| Lint / format | `package:lints` recommended, plus `avoid_print` and `public_member_api_docs`                                           |
+| Publishing    | pub.dev, tag-triggered via the `PUB_RELEASE_TOKEN` secret                                                              |
 
 ### Layout
 
@@ -31,11 +31,12 @@ lib/
 tool/cldr/                         the generator and the vendored CLDR 48.2.2 snapshot (dev-only)
 test/
   golden/                          2.4.1 outputs and the parity test that pins them
+  readme_test.dart                 README TOC, links, claim counts, and every Dart block found in readme_snippets.dart
 ```
 
 ### The checks
 
-`dart format --output=none --set-exit-if-changed .`, `dart analyze`, `TZ=Asia/Kolkata dart test`, `(cd example && flutter test)`, `dart pub publish --dry-run`. CI's `build` job runs the first four, the tests again in a browser (`dart test -p chrome`, then with `-c dart2wasm`) and a 90% coverage gate (`scripts/coverage.sh 90`); the tests run in a non-UTC zone because UTC dates must render in local time. `.githooks/pre-push` runs them too (`git config core.hooksPath .githooks`). `example.yml` builds the example app for Android, iOS, macOS, Windows, Linux and web (JS and Wasm) on every PR to `master`; the example's native icons come from `example/assets/icon` via `cd example && dart run flutter_launcher_icons`.
+`dart format --output=none --set-exit-if-changed .`, `dart analyze`, `TZ=Asia/Kolkata dart test`, `(cd example && flutter test)`, `dart pub publish --dry-run`. CI's `build` job runs the first four, the tests again in a browser (`dart test -p chrome`, then with `-c dart2wasm`) and a 90% coverage gate (`scripts/coverage.sh 90`); the `floor` job repeats analyze and test on Dart 3.13.0, the SDK floor; the tests run in a non-UTC zone because UTC dates must render in local time. `.githooks/pre-push` runs them too (`git config core.hooksPath .githooks`). `example.yml` builds the example app for Android, iOS, macOS, Windows, Linux and web (JS and Wasm) on every PR to `master`; the example's native icons come from `example/assets/icon` via `cd example && dart run flutter_launcher_icons`.
 
 ### Conventions
 
@@ -43,7 +44,7 @@ test/
 - Every PR that changes anything users receive bumps `pubspec.yaml` and adds a matching `CHANGELOG.md` entry. CI gate `version bumped` enforces both, and without the entry `dart pub publish --dry-run` fails, which stops the release workflow before it publishes.
 - The PR title becomes the squash commit message.
 - `master` is protected: PR required, squash-only merges.
-- The README documents **shipped features only** - no roadmap, no plans.
+- The README documents **shipped features only** - no roadmap, no plans. Every Dart block in it must also be in `test/readme_snippets.dart`, verbatim, or `readme_test.dart` fails. Repository files are linked by absolute GitHub URL, because pub.dev drops relative links; `readme_test.dart` checks it.
 - Markdown prose is never hard-wrapped: one line per paragraph and per list item. Do not re-wrap these files to a column.
 - Never use an em-dash. Use a hyphen.
 

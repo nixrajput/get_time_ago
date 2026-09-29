@@ -91,7 +91,40 @@ void main() {
     expect(int.parse(claimed!.group(1)!), declared);
   });
 
-  test('the migration guide it links to exists', () {
-    expect(File('MIGRATION.md').existsSync(), isTrue);
+  test('every Dart block compiles: it appears in readme_snippets.dart', () {
+    final snippets = File('test/readme_snippets.dart').readAsStringSync();
+    final blocks = RegExp(r'```dart\n([\s\S]*?)```')
+        .allMatches(raw)
+        .map((m) => m.group(1)!)
+        .where((b) => !b.startsWith('// 2.x'));
+    expect(blocks, isNotEmpty);
+    for (final block in blocks) {
+      expect(snippets.contains(block.trimRight()), isTrue, reason: block);
+    }
+  });
+
+  test('every link to a repository file is absolute and exists', () {
+    // pub.dev drops relative links, so repository files are linked by URL.
+    const blob = 'https://github.com/nixrajput/get_time_ago/blob/master/';
+    for (final path in ['README.md', 'CHANGELOG.md', 'example/README.md']) {
+      final text = File(path)
+          .readAsStringSync()
+          .replaceAll(RegExp(r'```[\s\S]*?```'), '');
+      final targets = RegExp(r'\]\(([^)\s]+)\)|href="([^"]+)"')
+          .allMatches(text)
+          .map((m) => (m.group(1) ?? m.group(2))!)
+          .where((t) => !t.startsWith('#') && !t.startsWith('mailto:'));
+      for (final target in targets) {
+        expect(target, contains('://'), reason: '$path links $target');
+        if (target.startsWith(blob)) {
+          final file = target.substring(blob.length).split('#').first;
+          expect(
+            File(file).existsSync(),
+            isTrue,
+            reason: '$path links $target',
+          );
+        }
+      }
+    }
   });
 }

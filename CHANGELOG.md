@@ -2,11 +2,14 @@
 
 ## 3.0.1
 
-- **Docs:** the README has its Contributors section back, with a contributors badge.
+- **Docs:** the README has its Contributors section back, with a contributors badge, and its Contributing section points to Issues, Discussions and SECURITY.md.
+- **Docs:** links to MIGRATION.md, CONTRIBUTING.md and the other repository files are absolute, so they work on pub.dev, which drops relative ones.
+- **Docs:** every Dart block in the README is compiled by the test suite, and the clock example passes `serverNow` as a tear-off.
+- **Chore:** the pubspec homepage is the live demo, and CI tests the Dart 3.13.0 floor.
 
 ## 3.0.0
 
-A rewrite around an immutable formatter and locales defined as data. `GetTimeAgo.parse(dateTime, locale:, pattern:)` keeps its signature; see [MIGRATION.md](MIGRATION.md) for everything else.
+A rewrite around an immutable formatter and locales defined as data. `GetTimeAgo.parse(dateTime, locale:, pattern:)` keeps its signature; see [MIGRATION.md](https://github.com/nixrajput/get_time_ago/blob/master/MIGRATION.md) for everything else.
 
 - **Breaking:** `GetTimeAgo` is now an immutable, const-constructible formatter with `locale`, `style`, `maxUnit`, `datePattern` and `clock`, and a `format` method. `GetTimeAgo.defaults` replaces `setDefaultLocale`, and `registerLocale` replaces `setCustomLocaleMessages`.
 - **Breaking:** `Messages`, `FutureTimeMessages`, `Data`, every `*Messages` class, `formatMessage`, `convertToArabicNumbers` and `convertToUrduNumbers` are removed. Custom locales are a `TimeAgoLocale` table or a `TimeAgoMessages` subclass, and the bundled ones are `TimeAgoLocales.en` and so on.
@@ -34,7 +37,7 @@ A rewrite around an immutable formatter and locales defined as data. `GetTimeAgo
 
 ## 2.4.0
 
-- **Chore:** Automated release pipeline — merges to `master` tag the version and publish to pub.dev, with CI enforcing (at PR time) a version bump ahead of the latest published release and a matching CHANGELOG entry. No API changes; rolls up the fixes since 2.3.2.
+- **Chore:** Automated release pipeline - merges to `master` tag the version and publish to pub.dev, with CI enforcing (at PR time) a version bump ahead of the latest published release and a matching CHANGELOG entry. No API changes; rolls up the fixes since 2.3.2.
 
 ## 2.3.4
 
