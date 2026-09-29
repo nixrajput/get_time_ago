@@ -12,13 +12,21 @@ const _range = 2 * 365 * 86400;
 /// A slider that scrubs a moment across four years, and the text for it in
 /// the chosen style plus all three side by side.
 class MomentCard extends StatefulWidget {
-  const MomentCard({super.key, required this.timeAgo, this.compact = false});
+  const MomentCard({
+    super.key,
+    required this.timeAgo,
+    this.compact = false,
+    this.minimal = false,
+  });
 
   final GetTimeAgo timeAgo;
 
-  /// Tighter spacing and no subtitle, for when the card is pinned above the
-  /// options on a phone.
+  /// Tighter spacing and no subtitle, for when the preview has little height.
   final bool compact;
+
+  /// Also drops the date, the track's labels and the three styles, for the
+  /// shortest screens.
+  final bool minimal;
 
   @override
   State<MomentCard> createState() => _MomentCardState();
@@ -36,7 +44,14 @@ class _MomentCardState extends State<MomentCard> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) => LayoutBuilder(
+    // A narrow card wraps its three styles over more lines, so it takes the
+    // tighter form too.
+    builder: (context, constraints) =>
+        _card(compact: widget.compact || constraints.maxWidth < 320),
+  );
+
+  Widget _card({required bool compact}) {
     final theme = Theme.of(context);
     final at = widget.timeAgo.copyWith(clock: () => _anchor);
     final moment = _moment;
@@ -46,7 +61,7 @@ class _MomentCardState extends State<MomentCard> {
     );
     return Section(
       title: 'Try it',
-      subtitle: widget.compact
+      subtitle: compact
           ? null
           : 'Drag to move the moment. Now is in the middle.',
       child: Column(
@@ -59,14 +74,16 @@ class _MomentCardState extends State<MomentCard> {
               color: theme.colorScheme.onSurface,
             ),
           ),
-          const SizedBox(height: Gaps.s / 2),
-          Text(
-            '${localizations.formatMediumDate(moment)}, '
-            '${localizations.formatTimeOfDay(TimeOfDay.fromDateTime(moment))}',
-            textAlign: TextAlign.center,
-            style: caption,
-          ),
-          SizedBox(height: widget.compact ? 0 : Gaps.s),
+          if (!widget.minimal) ...[
+            const SizedBox(height: Gaps.s / 2),
+            Text(
+              '${localizations.formatMediumDate(moment)}, '
+              '${localizations.formatTimeOfDay(TimeOfDay.fromDateTime(moment))}',
+              textAlign: TextAlign.center,
+              style: caption,
+            ),
+          ],
+          SizedBox(height: compact ? 0 : Gaps.s),
           Slider(
             value: _position,
             min: -1,
@@ -74,30 +91,33 @@ class _MomentCardState extends State<MomentCard> {
             onChanged: (v) => setState(() => _position = v),
             semanticFormatterCallback: (_) => at.format(moment),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: Gaps.m),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          if (!widget.minimal)
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: Gaps.m),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('2 years ago', style: caption),
+                  Text('now', style: caption),
+                  Text('in 2 years', style: caption),
+                ],
+              ),
+            ),
+          if (!widget.minimal) ...[
+            Divider(height: compact ? Gaps.l : Gaps.l * 2),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('2 years ago', style: caption),
-                Text('now', style: caption),
-                Text('in 2 years', style: caption),
+                for (final style in TimeAgoStyle.values)
+                  Expanded(
+                    child: Reading(
+                      caption: style.name,
+                      value: at.copyWith(style: style).format(moment),
+                    ),
+                  ),
               ],
             ),
-          ),
-          Divider(height: widget.compact ? Gaps.l : Gaps.l * 2),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              for (final style in TimeAgoStyle.values)
-                Expanded(
-                  child: Reading(
-                    caption: style.name,
-                    value: at.copyWith(style: style).format(moment),
-                  ),
-                ),
-            ],
-          ),
+          ],
         ],
       ),
     );
