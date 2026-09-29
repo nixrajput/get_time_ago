@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.0.1
+
+- **Docs:** the README has its Contributors section back, with a contributors badge.
+
 ## 3.0.0
 
 A rewrite around an immutable formatter and locales defined as data. `GetTimeAgo.parse(dateTime, locale:, pattern:)` keeps its signature; see [MIGRATION.md](MIGRATION.md) for everything else.

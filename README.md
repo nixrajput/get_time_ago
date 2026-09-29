@@ -11,6 +11,7 @@
   <a href="https://github.com/nixrajput/get_time_ago/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/nixrajput/get_time_ago/ci.yml?branch=master&label=CI" alt="CI" /></a>
   <a href="https://pub.dev/packages/get_time_ago/score"><img src="https://img.shields.io/pub/likes/get_time_ago?label=Likes" alt="pub likes" /></a>
   <a href="https://pub.dev/packages/get_time_ago/score"><img src="https://img.shields.io/pub/points/get_time_ago?label=Points" alt="pub points" /></a>
+  <a href="https://github.com/nixrajput/get_time_ago/graphs/contributors"><img src="https://img.shields.io/github/contributors/nixrajput/get_time_ago?label=Contributors" alt="contributors" /></a>
   <a href="https://github.com/nixrajput/get_time_ago/blob/master/LICENSE"><img src="https://img.shields.io/github/license/nixrajput/get_time_ago?label=Licence" alt="licence" /></a>
 </p>
 
@@ -56,6 +57,7 @@
 - [FAQ](#faq)
 - [Migrating from 2.x](#migrating-from-2x)
 - [Contributing](#contributing)
+- [Contributors](#contributors)
 - [License](#license)
 - [Support the project](#support-the-project)
 - [Connect](#connect)
@@ -322,6 +324,14 @@ They are the things this package controls and can check: how many languages it s
 ## Contributing
 
 Fork the repository, make your changes and open a pull request. Please read [CONTRIBUTING.md](CONTRIBUTING.md) first, and note that every PR must bump the version in `pubspec.yaml` and add a matching `CHANGELOG.md` entry.
+
+## Contributors
+
+Thanks to everyone who has contributed to get_time_ago.
+
+<a href="https://github.com/nixrajput/get_time_ago/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=nixrajput/get_time_ago" alt="Contributors" />
+</a>
 
 ## License
 
