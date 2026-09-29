@@ -64,7 +64,7 @@ class _GetTimeAgoExampleScreenState extends State<GetTimeAgoExampleScreen> {
   }
 
   // Variable to hold the selected language code
-  String? _selectedLanguage = Data.defaultLocale;
+  String? _selectedLanguage = GetTimeAgo.defaults.locale;
 
   @override
   Widget build(BuildContext context) {

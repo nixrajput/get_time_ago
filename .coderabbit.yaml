@@ -1,0 +1,6 @@
+# Vendored CLDR data and the 2.4.1 golden fixture, pinned by the parity and
+# golden tests. The generated locale tables stay in review.
+reviews:
+  path_filters:
+    - "!tool/cldr/*/*.json"
+    - "!test/golden/*.json"

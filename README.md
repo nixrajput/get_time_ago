@@ -1,290 +1,363 @@
-# get_time_ago
+<p align="center">
+  <img src="https://raw.githubusercontent.com/nixrajput/get_time_ago/master/assets/logo.svg" width="96" alt="get_time_ago" />
+</p>
 
-A Dart package that converts and formats `DateTime` objects into human-readable 'time ago' strings, such as '20 seconds ago', 'a minute ago', or '7 hours ago'. This package provides an easy way to display relative time differences in your Flutter or Dart applications. It supports various time units (seconds, minutes, hours, days, etc.) and automatically adjusts the format based on how recent the event occurred. Ideal for displaying timestamps in news feeds, social media posts, or chat messages.
+<h1 align="center">get_time_ago</h1>
 
-[![pub package](https://img.shields.io/pub/v/get_time_ago.svg?label=Version&style=flat)][pub]
-[![Stars](https://img.shields.io/github/stars/nixrajput/get_time_ago?label=Stars&style=flat)][repo]
-[![Forks](https://img.shields.io/github/forks/nixrajput/get_time_ago?label=Forks&style=flat)][repo]
-[![Watchers](https://img.shields.io/github/watchers/nixrajput/get_time_ago?label=Watchers&style=flat)][repo]
-[![Contributors](https://img.shields.io/github/contributors/nixrajput/get_time_ago?label=Contributors&style=flat)][repo]
+<p align="center">"5 minutes ago" in 22 languages, with the plurals right and the clock in your hands.</p>
 
-[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/nixrajput/get_time_ago?label=Code+Size&style=flat)][repo]
-[![GitHub repo size](https://img.shields.io/github/repo-size/nixrajput/get_time_ago?label=Repo+Size&style=flat)][repo]
-[![GitHub language count](https://img.shields.io/github/languages/count/nixrajput/get_time_ago?label=Languages&style=flat)][repo]
-[![GitHub top language](https://img.shields.io/github/languages/top/nixrajput/get_time_ago?label=Top+Language&style=flat)][repo]
-[![GitHub Sponsors](https://img.shields.io/github/sponsors/nixrajput?label=Sponsors&style=flat)][repo]
+<p align="center">
+  <a href="https://pub.dev/packages/get_time_ago"><img src="https://img.shields.io/pub/v/get_time_ago.svg?label=Version" alt="pub package" /></a>
+  <a href="https://github.com/nixrajput/get_time_ago/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/nixrajput/get_time_ago/ci.yml?branch=master&label=CI" alt="CI" /></a>
+  <a href="https://pub.dev/packages/get_time_ago/score"><img src="https://img.shields.io/pub/likes/get_time_ago?label=Likes" alt="pub likes" /></a>
+  <a href="https://pub.dev/packages/get_time_ago/score"><img src="https://img.shields.io/pub/points/get_time_ago?label=Points" alt="pub points" /></a>
+  <a href="https://github.com/nixrajput/get_time_ago/blob/master/LICENSE"><img src="https://img.shields.io/github/license/nixrajput/get_time_ago?label=Licence" alt="licence" /></a>
+</p>
 
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/nixrajput/get_time_ago?label=Latest+Release&style=flat)][releases]
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/nixrajput/get_time_ago?label=Latest+Release&style=flat)][releases]
-[![GitHub last commit](https://img.shields.io/github/last-commit/nixrajput/get_time_ago?label=Last+Commit&style=flat)][repo]
-[![GitHub issues](https://img.shields.io/github/issues/nixrajput/get_time_ago?label=Issues&style=flat)][issues]
-[![GitHub pull requests](https://img.shields.io/github/issues-pr/nixrajput/get_time_ago?label=Pull+Requests&style=flat)][pulls]
-[![GitHub License](https://img.shields.io/github/license/nixrajput/get_time_ago?label=Licence&style=flat)][license]
+<p align="center">
+  <b>22 locales</b> &nbsp;·&nbsp; <b>3 styles</b> &nbsp;·&nbsp; <b>73 tests</b> &nbsp;·&nbsp; <b>1 runtime dependency</b> &nbsp;·&nbsp; <b>0 Flutter dependencies</b>
+</p>
 
-## Table of Contents
+<p align="center">
+  <sub>Sampled 2.4.1 outputs for every locale are pinned by a golden test, and every new string is checked against a pinned CLDR snapshot, so the text here is sourced rather than guessed. There is no benchmark: formatting a string is not a speed story.</sub>
+</p>
 
-- [get\_time\_ago](#get_time_ago)
-  - [Table of Contents](#table-of-contents)
-  - [Breaking Changes for the Version ^2.0.0](#breaking-changes-for-the-version-200)
-    - [1. Added `justNow` Method in `Messages` Interface](#1-added-justnow-method-in-messages-interface)
-    - [Impact on Custom Implementations:](#impact-on-custom-implementations)
-    - [Example of Custom Locale Update:](#example-of-custom-locale-update)
-  - [Demo](#demo)
-  - [Installation](#installation)
-  - [Usage](#usage)
-    - [Formatting String as `get_time_ago`](#formatting-string-as-get_time_ago)
-    - [Setting default locale](#setting-default-locale)
-    - [Setting Custom Locale \& Messages](#setting-custom-locale--messages)
-  - [Supported Languages](#supported-languages)
-  - [Contributing](#contributing)
-  - [License](#license)
-  - [Contributors](#contributors)
-  - [Support My Work](#support-my-work)
-  - [Connect With Me](#connect-with-me)
-  - [Activities](#activities)
+<p align="center">
+  <a href="https://nixrajput.github.io/get_time_ago">Live demo</a> &nbsp;·&nbsp;
+  <a href="#quick-start">Quick start</a> &nbsp;·&nbsp;
+  <a href="#styles">Styles</a> &nbsp;·&nbsp;
+  <a href="#units">Units</a> &nbsp;·&nbsp;
+  <a href="#locales">Locales</a> &nbsp;·&nbsp;
+  <a href="#custom-locales">Custom locales</a> &nbsp;·&nbsp;
+  <a href="#is-this-for-you">Is this for you</a> &nbsp;·&nbsp;
+  <a href="MIGRATION.md">Migrating from 2.x</a> &nbsp;·&nbsp;
+  <a href="https://pub.dev/documentation/get_time_ago/latest/">API reference</a>
+</p>
 
-## Breaking Changes for the Version ^2.0.0
+## Table of contents
 
-### 1. Added `justNow` Method in `Messages` Interface
+- [Table of contents](#table-of-contents)
+- [Overview](#overview)
+- [Demo](#demo)
+- [Quick start](#quick-start)
+  - [Prerequisites](#prerequisites)
+  - [Install](#install)
+  - [Format a time](#format-a-time)
+- [Styles](#styles)
+- [Units](#units)
+- [Clock and time zones](#clock-and-time-zones)
+- [The full date](#the-full-date)
+- [Locales](#locales)
+- [Custom locales](#custom-locales)
+- [Refreshing the text](#refreshing-the-text)
+- [Before and after](#before-and-after)
+- [Is this for you](#is-this-for-you)
+- [Compared to](#compared-to)
+- [FAQ](#faq)
+- [Migrating from 2.x](#migrating-from-2x)
+- [Contributing](#contributing)
+- [License](#license)
+- [Support the project](#support-the-project)
+- [Connect](#connect)
 
-In version 2.0.0, a new method `justNow(int seconds)` has been added to the `Messages` interface. This method is responsible for providing a custom message when the elapsed time is less than 15 seconds.
+## Overview
 
-### Impact on Custom Implementations:
+get_time_ago turns a `DateTime` into relative text: "just now", "5 minutes ago", "in 3 days". It is pure Dart with one dependency, `intl`, so the same code runs in a Flutter app, on a server, in a CLI and on the web.
 
-If you have implemented any custom locales by extending the `Messages` interface, you will need to update your implementation to include the new `justNow` method. Failing to implement this method will result in compilation errors.
-
-### Example of Custom Locale Update:
-
-Before:
-
-```dart
-class MyCustomMessages implements Messages {
-  @override
-  String prefixAgo() => '';
-
-  @override
-  String suffixAgo() => 'ago';
-
-  // Implement the other methods here...
-}
-```
-
-After (Version 2.0.0):
-
-```dart
-class MyCustomMessages implements Messages {
-  @override
-  String prefixAgo() => '';
-
-  @override
-  String suffixAgo() => 'ago';
-
-  @override
-  String justNow(int seconds) => 'just now';  // New method
-
-  // Implement the other methods here...
-}
-```
-
-This section explains the breaking change, the impact it has on custom implementations, and provides an example of how to update existing code to comply with the new changes in version ^2.0.0.
+A `GetTimeAgo` is immutable and takes its "now" from a clock you can replace, so tests are deterministic and a server-corrected time is one argument away. Unknown locale codes never throw: they fall back to the nearest language, then to your default, then to English, which is what you want when the code comes straight from a device.
 
 ## Demo
 
-<h3>
-<a href="https://nixrajput.github.io/get_time_ago" target="_blank">
-  Click here to experience the demo in a Web App
-</a>
-</h3>
+Try every option in the [live web demo](https://nixrajput.github.io/get_time_ago): the locale, the style, the largest unit and the date pattern, with a slider that scrubs a moment across four years and a live row refreshed through `nextChange`. It is the [example app](example/README.md) built for the web; the same app runs on Android, iOS, macOS, Windows and Linux.
 
-## Installation
+## Quick start
 
-Add `get_time_ago` as a dependency in your `pubspec.yaml` file.
+### Prerequisites
+
+- Dart SDK `^3.13.0`. Flutter 3.47 or newer bundles a compatible SDK.
+
+### Install
 
 ```yaml
 dependencies:
-  get_time_ago: ^latest_version
+  get_time_ago: ^3.0.0
 ```
 
-## Usage
-
-Format any `DateTime` object into `get_time_ago` format by following steps:
+Then `dart pub get` or `flutter pub get`, and import it:
 
 ```dart
-// Import the plugin
 import 'package:get_time_ago/get_time_ago.dart';
-
-// Pass DateTime object as argument in the method
-var _dateTime = DateTime.now().subtract(const Duration(minutes: 10)); // [DateTime] object
-print(GetTimeAgo.parse(_dateTime)); // 10 minutes ago
-
-// Formatting with locale
-print(GetTimeAgo.parse(_dateTime, locale:'es')); // hace 10 minutos
 ```
 
-### Formatting String as `get_time_ago`
+### Format a time
 
-If you have saved a `DateTime` object as a String into a variable, database or cloud, then you have
-to first convert the String into `DateTime` object and then pass it as argument in `parse` method
-of `get_time_ago` plugin to format it into `get_time_ago` format by following steps:
+The one-liner uses the app-wide defaults:
 
 ```dart
-// Import the plugin
-import 'package:get_time_ago/get_time_ago.dart';
+GetTimeAgo.parse(DateTime.now().subtract(const Duration(minutes: 5)));
+// 5 minutes ago
 
-var _timestamp = '2021-05-10 05:21:37.712498'; // [DateTime] formatted as String.
-var _convertedTimestamp = DateTime.parse(_timestamp); // Converting into [DateTime] object
-var result = GetTimeAgo.parse(_convertedTimestamp);
-print(result);
+GetTimeAgo.parse(someDate, locale: 'fr');
+// il y a 5 minutes
 ```
 
-### Setting default locale
-
-If you want to change your default `locale`, then call `setDefaultLocale` method and pass
-the `locale` code as the argument.
+Build a formatter when you want to choose more than the locale. It is const, so it can live in a widget or a constant:
 
 ```dart
-// Import the plugin
-import 'package:get_time_ago/get_time_ago.dart';
+const timeAgo = GetTimeAgo(
+  locale: 'hr',
+  style: TimeAgoStyle.narrow,
+  maxUnit: TimeUnit.year,
+);
+
+timeAgo.format(someDate);
+```
+
+Change the defaults once, at startup, and every `parse` call follows:
+
+```dart
+GetTimeAgo.defaults = const GetTimeAgo(locale: 'de', datePattern: 'd MMM yyyy');
+```
+
+## Styles
+
+| Style                         | English       | Source                    |
+| ----------------------------- | ------------- | ------------------------- |
+| `TimeAgoStyle.long` (default) | 5 minutes ago | 2.x wording, kept exactly |
+| `TimeAgoStyle.short`          | 5 min. ago    | CLDR 48.2.2               |
+| `TimeAgoStyle.narrow`         | 5m ago        | CLDR 48.2.2               |
+
+"Just now" follows the style too: short and narrow use CLDR's word for now. Occitan has long style only, because CLDR has no Occitan relative-time data yet; asking it for short or narrow gives long.
+
+## Units
+
+By default, times older than 7 days show the full date, as they did in 2.x. `maxUnit` lets the relative text go further:
+
+| `maxUnit`                | Relative text up to  | Then           |
+| ------------------------ | -------------------- | -------------- |
+| `TimeUnit.day` (default) | 7 days               | the full date  |
+| `TimeUnit.week`          | 4 weeks (29 days)    | the full date  |
+| `TimeUnit.month`         | 11 months (364 days) | the full date  |
+| `TimeUnit.year`          | any age              | never the date |
+
+```dart
+const GetTimeAgo(maxUnit: TimeUnit.year)
+    .format(DateTime.now().subtract(const Duration(days: 800)));
+// 2 years ago
+```
+
+Months are 30 days and years are 365 days, so a 31-day month reads as "a month" one day early. The count is always rounded to the nearest second first, so a time that is 60 seconds away reads "in a minute" rather than "in 59 seconds".
+
+## Clock and time zones
+
+`clock` replaces `DateTime.now`. Pass a server-corrected clock when device time cannot be trusted, or a fixed one in tests:
+
+```dart
+final timeAgo = GetTimeAgo(clock: () => serverNow());
+```
+
+The relative text compares instants, so a UTC `DateTime` and a local one give the same answer. When the full date is shown, it is converted to local time first, so `2020-03-06T20:46:17Z` reads in the reader's time zone.
+
+## The full date
+
+Times beyond `maxUnit` show a date formatted with `intl`'s `DateFormat`, in the formatter's locale:
+
+```dart
+const GetTimeAgo(datePattern: 'd MMM yyyy').format(DateTime(2024, 1, 1));
+// 1 Jan 2024
+```
+
+`GetTimeAgo.defaultDatePattern` is `dd MMM, yyyy hh:mm aa`, the 2.x default. `GetTimeAgo.parse` also takes a `pattern:` for a single call. Where `intl` has no date symbols for a locale, as with Occitan, the date is formatted in English.
+
+## Locales
+
+| Code | Language            | Code    | Language                  |
+| ---- | ------------------- | ------- | ------------------------- |
+| `ar` | Arabic              | `ja`    | Japanese                  |
+| `de` | German              | `ko`    | Korean                    |
+| `en` | English             | `ne`    | Nepali                    |
+| `es` | Spanish             | `nl`    | Dutch                     |
+| `fa` | Persian             | `oc`    | Occitan (long style only) |
+| `fr` | French              | `pt`    | Portuguese (Brazil)       |
+| `hi` | Hindi               | `ro`    | Romanian                  |
+| `hr` | Croatian            | `tr`    | Turkish                   |
+| `id` | Indonesian          | `ur`    | Urdu                      |
+| `it` | Italian             | `vi`    | Vietnamese                |
+| `zh` | Chinese, Simplified | `zh_TW` | Chinese, Traditional      |
+
+Codes are matched loosely. Case and `-` or `_` do not matter, and a region or script falls back to its language, so `en_US`, `pt-PT` and `pt_BR` all work. `zh_HK`, `zh_MO` and `zh_Hant` resolve to Traditional Chinese, following CLDR. The 2.x keys `br` and `zh_tr` still work as aliases.
+
+A code with no match falls back to `GetTimeAgo.defaults.locale`, then to English. Check a code with `GetTimeAgo.isSupported('sv')`, and list them all with `GetTimeAgo.supportedLocales`.
+
+## Custom locales
+
+A locale is a table of patterns, one per unit, direction and CLDR plural category, with `{0}` where the count goes. This Swedish sketch is illustrative, not a vetted translation:
+
+```dart
+GetTimeAgo.registerLocale(
+  'sv',
+  const TimeAgoLocale(
+    intlLocale: 'sv',
+    long: TimeAgoPatterns(
+      justNow: 'just nu',
+      units: {
+        TimeUnit.minute: RelativePatterns(
+          past: Plural(one: 'för {0} minut sedan', other: 'för {0} minuter sedan'),
+          future: Plural(one: 'om {0} minut', other: 'om {0} minuter'),
+        ),
+        // ...the other units
+      },
+    ),
+  ),
+);
+```
+
+Give only the plural categories the language uses; the rest fall back to `other`. A unit a locale leaves out shows the full date.
+
+To change one string of a bundled locale, copy it:
+
+```dart
+GetTimeAgo.registerLocale(
+  'en',
+  TimeAgoLocales.en.copyWith(
+    long: TimeAgoLocales.en.long.copyWith(justNow: 'now'),
+  ),
+);
+```
+
+When a grammar needs logic a table cannot express, extend `TimeAgoMessages` and implement `justNow` and `relative` yourself.
+
+## Refreshing the text
+
+`nextChange` says how long until the text for a time will change, so a UI can refresh exactly then instead of ticking every second:
+
+```dart
+Timer? timer;
+
+void schedule() {
+  timer?.cancel();
+  final wait = timeAgo.nextChange(postedAt);
+  if (wait != null) timer = Timer(wait, () => setState(schedule));
+}
 
 @override
-void initState() {
-  super.initState();
-  GetTimeAgo.setDefaultLocale('fr'); // Sets the default locale to French
+void dispose() {
+  timer?.cancel();
+  super.dispose();
 }
 ```
 
-### Setting Custom Locale & Messages
+It returns `null` for a past time already shown as a date, because that text never changes again. A ready-made Flutter widget built on this is planned as a separate package.
 
-Implementing and Adding Custom Messages
+## Before and after
+
+In 2.x, the default locale was global state and a custom locale implemented every method of `Messages`:
 
 ```dart
+// 2.x
+GetTimeAgo.setDefaultLocale('fr');
+
 class CustomMessages implements Messages {
-  /// Prefix added before the time message.
   @override
   String prefixAgo() => '';
-
-  /// Suffix added after the time message.
   @override
   String suffixAgo() => 'ago';
-
-  /// Message when the elapsed time is less than 15 seconds.
-  @override
-  String justNow(int seconds) => 'just now';
-
-  /// Message for when the elapsed time is less than a minute.
-  @override
-  String secsAgo(int seconds) => '$seconds seconds';
-
-  /// Message for when the elapsed time is about a minute.
-  @override
-  String minAgo(int minutes) => 'a minute';
-
-  /// Message for when the elapsed time is in minutes.
   @override
   String minsAgo(int minutes) => '$minutes minutes';
-
-  /// Message for when the elapsed time is about an hour.
-  @override
-  String hourAgo(int minutes) => 'an hour';
-
-  /// Message for when the elapsed time is in hours.
-  @override
-  String hoursAgo(int hours) => '$hours hours';
-
-  /// Message for when the elapsed time is about a day.
-  @override
-  String dayAgo(int hours) => 'a day';
-
-  /// Message for when the elapsed time is in days.
-  @override
-  String daysAgo(int days) => '$days days';
-
-  /// Word separator to be used when joining the parts of the message.
-  @override
-  String wordSeparator() => ' ';
+  // ...ten more methods
 }
-```
-
-Overriding `en` Locale Messages with Custom Messages
-
-```dart
 GetTimeAgo.setCustomLocaleMessages('en', CustomMessages());
 ```
 
-## Supported Languages
+In 3.0, the defaults are one immutable value and a locale is data:
 
-- Arabic
-- English
-- Spanish
-- Persian (Farsi)
-- French
-- Hindi
-- Portuguese (Brazil)
-- Portuguese (Brazil alternate)
-- Simplified Chinese
-- Traditional Chinese
-- Japanese
-- Occitan
-- Korean
-- German
-- Indonesian
-- Turkish
-- Urdu
-- Vietnamese
-- Romanian
-- Dutch
-- Nepali
-- Italian
-- Open to accept PR for adding more languages
+```dart
+// 3.0
+GetTimeAgo.defaults = const GetTimeAgo(locale: 'fr');
+
+GetTimeAgo.registerLocale('en', TimeAgoLocales.en.copyWith(/* ... */));
+```
+
+[MIGRATION.md](MIGRATION.md) maps every 2.x call to its 3.0 equivalent and lists every output that changed.
+
+## Is this for you
+
+Use it for relative timestamps in feeds, chats, notifications, logs and server responses, in any of the 22 languages, in Flutter or plain Dart.
+
+It fits particularly well if you need correct plurals (Arabic, Croatian and Romanian all change their nouns with the count), deterministic tests, or a clock you do not trust.
+
+**Skip it if** you want calendar phrasing such as "yesterday" or "last week"; [`relative_time`](https://pub.dev/packages/relative_time) and [`jiffy`](https://pub.dev/packages/jiffy) do that. Skip it too if you need multi-unit durations such as "2 hours 5 minutes", which [`moment_dart`](https://pub.dev/packages/moment_dart) formats.
+
+## Compared to
+
+**[`timeago`](https://pub.dev/packages/timeago)** is the most used package in this space. It ships message files for many languages but registers only English and Spanish by default, takes a fixed `clock` value rather than a function, and uses fixed thresholds with plural helpers written by hand per locale. It is a good fit when you want the widest set of message files and are happy to register them yourself.
+
+**[`jiffy`](https://pub.dev/packages/jiffy)** is a date library for parsing, manipulating, querying and formatting, and **[`moment_dart`](https://pub.dev/packages/moment_dart)** is an immutable `DateTime` subclass that also formats durations. In both, relative time is one feature among many; reach for them when you need the rest too.
+
+**[`relative_time`](https://pub.dev/packages/relative_time)** generates its locales from CLDR and supports "yesterday"-style phrasing, but it formats through a Flutter `BuildContext`, so it does not run in plain Dart.
+
+**This package** does one thing: relative time, in pure Dart, with CLDR plurals, three styles, an injectable clock and a `nextChange` hook for refreshing UIs.
+
+## FAQ
+
+**Does it work on the web?**
+Yes. It is pure Dart with no `dart:io`, and it compiles to JavaScript.
+
+**Why does Occitan show a date where other languages show weeks?**
+CLDR, which the new units and styles come from, has no Occitan relative-time data yet, so Occitan has only the four units it had in 2.x. Contributions are welcome.
+
+**What happens with a locale code the package does not know?**
+It falls back to the language part of the code, then to `GetTimeAgo.defaults.locale`, then to English. It never throws while formatting.
+
+**Why did my Arabic or Romanian text change in 3.0?**
+2.x used one plural form for every count. Arabic needs a different noun form from 11 up, and Romanian adds "de" from 20 up, so 3.0 follows CLDR, the Unicode data that ICU and web browsers format with. [MIGRATION.md](MIGRATION.md) lists every change.
+
+**What do the numbers in the header mean?**
+They are the things this package controls and can check: how many languages it speaks, how many styles, and how many tests pin that text down. Formatting a string is too fast to be worth a benchmark.
+
+## Migrating from 2.x
+
+3.0 replaces the global, method-per-string API with an immutable formatter and locales defined as data. The call most apps make, `GetTimeAgo.parse(dateTime, locale:, pattern:)`, keeps its exact signature and compiles unchanged. [MIGRATION.md](MIGRATION.md) maps every 2.x symbol and lists every output change.
 
 ## Contributing
 
-If you would like to contribute to this project, feel free to fork the repository, make your changes, and submit a pull request. Please follow the guidelines in the [CONTRIBUTING.md](CONTRIBUTING.md) file.
+Fork the repository, make your changes and open a pull request. Please read [CONTRIBUTING.md](CONTRIBUTING.md) first, and note that every PR must bump the version in `pubspec.yaml` and add a matching `CHANGELOG.md` entry.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+MIT. See [LICENSE](LICENSE).
 
-## Contributors
+## Support the project
 
-<a href="https://github.com/nixrajput/get_time_ago/graphs/contributors" target="_blank">
-  <img src="https://contrib.rocks/image?repo=nixrajput/get_time_ago" />
+<div align="center">
+
+get_time_ago is MIT licensed and free to use, always. If it saves you writing plural rules for another language, sponsorship is welcome.
+
+<br />
+
+<a href="https://github.com/sponsors/nixrajput">
+  <img src="https://img.shields.io/badge/Sponsor_on_GitHub-EA4AAA?style=for-the-badge&logo=githubsponsors&logoColor=white" alt="GitHub Sponsors" />
+</a>
+<a href="https://ko-fi.com/nixrajput">
+  <img src="https://img.shields.io/badge/Ko--fi-FF5E5B?style=for-the-badge&logo=kofi&logoColor=white" alt="Ko-fi" />
+</a>
+<a href="https://www.buymeacoffee.com/nixrajput">
+  <img src="https://img.shields.io/badge/Buy_Me_a_Coffee-FFDD00?style=for-the-badge&logo=buymeacoffee&logoColor=black" alt="Buy Me a Coffee" />
 </a>
 
-Made with [contrib.rocks](https://contrib.rocks).
+</div>
 
-## Support My Work
+## Connect
 
-Your support helps me dedicate more time to developing high-quality, impactful projects in the open-source community. Sponsor me, and together, let’s bring even more innovation to life!
+<div align="center">
 
-[![Sponsor](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/nixrajput)
+**Nikhil Rajput**
 
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/nixrajput)
+<a href="https://github.com/nixrajput"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" /></a>
+<a href="https://linkedin.com/in/nixrajput"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
+<a href="https://x.com/nixrajput"><img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white" alt="X" /></a>
+<a href="https://instagram.com/nixrajput"><img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram" /></a>
+<a href="https://telegram.me/nixrajput"><img src="https://img.shields.io/badge/Telegram-26A5E4?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram" /></a>
+<a href="mailto:nkr.nikhil.nkr@gmail.com"><img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
 
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/nixrajput)
-
-## Connect With Me
-
-[![GitHub: nixrajput](https://img.shields.io/badge/nixrajput-EFF7F6?logo=GitHub&logoColor=333&link=https://www.github.com/nixrajput)][github]
-[![Linkedin: nixrajput](https://img.shields.io/badge/nixrajput-EFF7F6?logo=Linkedin&logoColor=333&link=https://www.linkedin.com/in/nixrajput)][linkedin]
-[![Instagram: nixrajput](https://img.shields.io/badge/nixrajput-EFF7F6?logo=Instagram&logoColor=333&link=https://www.instagram.com/nixrajput)][instagram]
-[![Twitter: nixrajput07](https://img.shields.io/badge/nixrajput07-EFF7F6?logo=X&logoColor=333&link=https://x.com/nixrajput07)][twitter]
-[![Telegram: nixrajput](https://img.shields.io/badge/nixrajput-EFF7F6?logo=Telegram&logoColor=333&link=https://telegram.me/nixrajput)][telegram]
-[![Gmail: nkr.nikhi.nkr@gmail.com](https://img.shields.io/badge/nkr.nikhil.nkr@gmail.com-EFF7F6?logo=Gmail&logoColor=333&link=mailto:nkr.nikhil.nkr@gmail.com)][gmail]
-
-## Activities
-
-![Alt](https://repobeats.axiom.co/api/embed/cbde7baa03c95d2e3261af1fa679d94570341b08.svg "Repobeats analytics image")
-
-[pub]: https://pub.dev/packages/get_time_ago
-[github]: https://github.com/nixrajput
-[telegram]: https://telegram.me/nixrajput
-[twitter]: https://twitter.com/nixrajput07
-[instagram]: https://instagram.com/nixrajput
-[linkedin]: https://linkedin.com/in/nixrajput
-[gmail]: mailto:nkr.nikhil.nkr@gmail.com
-[releases]: https://github.com/nixrajput/get_time_ago/releases
-[repo]: https://github.com/nixrajput/get_time_ago
-[issues]: https://github.com/nixrajput/get_time_ago/issues
-[license]: https://github.com/nixrajput/get_time_ago/blob/master/LICENSE
-[pulls]: https://github.com/nixrajput/get_time_ago/pulls
+</div>

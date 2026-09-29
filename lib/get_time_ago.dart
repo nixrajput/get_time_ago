@@ -1,32 +1,13 @@
-library get_time_ago;
-
-/// Export statements to expose internal files and classes
-/// from the [get_time_ago] package.
+/// Relative time for Dart and Flutter: "just now", "5 minutes ago",
+/// "in 3 days".
 ///
-/// These exports allow other files or packages to access and
-/// use the classes, messages, data, and utility functions.
+/// Use [GetTimeAgo.parse] for a one-liner, or build a [GetTimeAgo] to choose
+/// the locale, style, largest unit, date pattern and clock.
+library;
 
-export 'package:get_time_ago/src/_get_time_ago.dart';
-export 'package:get_time_ago/src/messages/languages/ar_msg.dart';
-export 'package:get_time_ago/src/messages/languages/de_msg.dart';
-export 'package:get_time_ago/src/messages/languages/en_msg.dart';
-export 'package:get_time_ago/src/messages/languages/es_msg.dart';
-export 'package:get_time_ago/src/messages/languages/fa_msg.dart';
-export 'package:get_time_ago/src/messages/languages/fr_msg.dart';
-export 'package:get_time_ago/src/messages/languages/hi_msg.dart';
-export 'package:get_time_ago/src/messages/languages/id_msg.dart';
-export 'package:get_time_ago/src/messages/languages/ja_msg.dart';
-export 'package:get_time_ago/src/messages/languages/ko_msg.dart';
-export 'package:get_time_ago/src/messages/languages/nl_msg.dart';
-export 'package:get_time_ago/src/messages/languages/oc_msg.dart';
-export 'package:get_time_ago/src/messages/languages/pt_br_msg.dart';
-export 'package:get_time_ago/src/messages/languages/ro_msg.dart';
-export 'package:get_time_ago/src/messages/languages/tr_msg.dart';
-export 'package:get_time_ago/src/messages/languages/ur_msg.dart';
-export 'package:get_time_ago/src/messages/languages/vi_msg.dart';
-export 'package:get_time_ago/src/messages/languages/zh_cn_msg.dart';
-export 'package:get_time_ago/src/messages/languages/zh_tw_msg.dart';
-export 'package:get_time_ago/src/messages/future_time_messages.dart';
-export 'package:get_time_ago/src/messages/messages.dart';
-export 'package:get_time_ago/src/utils/data.dart';
-export 'package:get_time_ago/src/utils/utility.dart';
+export 'src/get_time_ago.dart' show GetTimeAgo;
+export 'src/locales/registry.dart' show TimeAgoLocales;
+export 'src/messages/time_ago_locale.dart'
+    show Numerals, Plural, RelativePatterns, TimeAgoLocale, TimeAgoPatterns;
+export 'src/messages/time_ago_messages.dart' show TimeAgoMessages;
+export 'src/time_unit.dart' show TimeAgoStyle, TimeUnit;
