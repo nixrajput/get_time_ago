@@ -58,6 +58,7 @@ class _MomentCardState extends State<MomentCard> {
     final at = widget.timeAgo.copyWith(clock: () => _anchor);
     final moment = _moment;
     final localizations = MaterialLocalizations.of(context);
+    final largeText = MediaQuery.textScalerOf(context).scale(1) > 1;
     final caption = theme.textTheme.labelSmall?.copyWith(
       color: theme.colorScheme.onSurfaceVariant,
     );
@@ -108,12 +109,11 @@ class _MomentCardState extends State<MomentCard> {
           if (styles) ...[
             Divider(height: compact ? Gaps.l : Gaps.l * 2),
             // A date in a narrow column would take any number of lines, so at
-            // the usual text size two is the most; larger text wraps freely.
+            // the usual text size two is the most. Larger text wraps freely:
+            // an ellipsis without maxLines would cut it after one line.
             DefaultTextStyle.merge(
-              maxLines: MediaQuery.textScalerOf(context).scale(1) > 1
-                  ? null
-                  : 2,
-              overflow: TextOverflow.ellipsis,
+              maxLines: largeText ? null : 2,
+              overflow: largeText ? null : TextOverflow.ellipsis,
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

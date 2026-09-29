@@ -92,6 +92,13 @@ Finder previewArea() => find
 
 Rect previewRect(WidgetTester tester) => tester.getRect(previewArea());
 
+/// The preview's texts that end in an ellipsis.
+Iterable<RenderParagraph> cutShort(WidgetTester tester) => tester
+    .renderObjectList<RenderParagraph>(
+      find.descendant(of: previewArea(), matching: find.byType(RichText)),
+    )
+    .where((p) => p.didExceedMaxLines);
+
 /// The page's own lists, one per pane, without the scroll views inside
 /// their cards.
 List<ScrollableState> lists(WidgetTester tester) => [
@@ -267,16 +274,11 @@ void main() {
           }
           final at = '$name at ${end ?? 'the start'}';
           expect(area.position.maxScrollExtent, 0, reason: at);
-          final cut = tester
-              .renderObjectList<RenderParagraph>(
-                find.descendant(
-                  of: previewArea(),
-                  matching: find.byType(RichText),
-                ),
-              )
-              .where((p) => p.didExceedMaxLines);
-          expect(cut, isEmpty, reason: '$at: a reading is cut short');
+          expect(cutShort(tester), isEmpty, reason: '$at: a reading is cut');
         }
+      } else {
+        // Larger text wraps freely instead of keeping to two lines.
+        expect(cutShort(tester), isEmpty, reason: '$name: a reading is cut');
       }
       expect(preview.top, greaterThanOrEqualTo(0));
       expect(
