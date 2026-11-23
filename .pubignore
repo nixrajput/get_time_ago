@@ -20,9 +20,13 @@ pubspec.lock
 *.pfx
 *.jks
 *.keystore
+id_rsa
+id_dsa
+id_ecdsa
+id_ed25519
 *.db
-*.sqlite
-*.sqlite3
+*.db-*
+*.sqlite*
 
 # Development-only; useful in the repo, noise in the package.
 AGENTS.md

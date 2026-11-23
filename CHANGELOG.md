@@ -4,7 +4,7 @@
 
 - **Chore:** CI pins every GitHub Action to the full commit SHA of its latest release, and each workflow gets only the permissions it uses.
 - **Chore:** dev dependencies are pinned exactly, at `lints` 6.1.0 and `test` 1.33.0. The `intl` range is unchanged.
-- **Chore:** `.gitignore` and `.pubignore` exclude `.env` files, keys and local databases, so a local publish cannot ship them.
+- **Chore:** `.gitignore` and `.pubignore` exclude `.env` files, key, keystore and SSH key files, and SQLite databases, so a local publish cannot ship them.
 - **Example:** the Android build moves to Gradle 9.5.0 (checksum-verified), AGP 9.3.1 and Kotlin 2.4.20, as in Flutter 3.50's template. Flutter 3.50 rejects the old versions.
 
 ## 3.0.1
