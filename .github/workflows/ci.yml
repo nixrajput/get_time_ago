@@ -18,12 +18,12 @@ jobs:
     name: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
       # Use Flutter (it bundles the Dart SDK) so packages whose example/ depends
       # on flutter_test resolve correctly; dart-only packages still work.
-      - uses: subosito/flutter-action@v2
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2.23.0
         with:
           channel: stable
       - name: Install dependencies
@@ -45,7 +45,7 @@ jobs:
         run: cd example && flutter test
       - name: Coverage
         run: |
-          dart pub global activate coverage
+          dart pub global activate coverage 1.16.1
           dart test --coverage=coverage
           dart pub global run coverage:format_coverage \
             --lcov --in=coverage --out=coverage/lcov.info \
@@ -56,11 +56,11 @@ jobs:
     name: floor (Dart 3.13.0)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
       # Flutter 3.47.0 bundles Dart 3.13.0, the SDK floor in pubspec.yaml.
-      - uses: subosito/flutter-action@v2
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2.23.0
         with:
           flutter-version: 3.47.0
           cache: true

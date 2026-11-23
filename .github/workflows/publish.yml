@@ -5,10 +5,11 @@ name: Publish to pub.dev
 # rejected). release.yml creates the tag on merge (via RELEASE_PAT) to trigger
 # this.
 #
-# Uses the Dart team's official reusable publish workflow, which performs the
-# pub.dev OIDC token exchange and runs `dart pub publish` WITH validation
-# (no --force). It is the recommended, maintained path - more robust and secure
-# than a hand-rolled publish step.
+# Uses the Dart team's official reusable publish workflow, which validates with
+# `dart pub publish --dry-run`, packs the archive offline, then performs the
+# pub.dev OIDC token exchange and publishes that archive. It is the
+# recommended, maintained path - more robust and secure than a hand-rolled
+# publish step.
 on:
   push:
     tags:
@@ -22,4 +23,4 @@ jobs:
   publish:
     permissions:
       id-token: write # OIDC token for keyless pub.dev auth
-    uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
+    uses: dart-lang/setup-dart/.github/workflows/publish.yml@2286a0c042b44434fe26d292bbce8d34f7ec662b # v1.8.2
