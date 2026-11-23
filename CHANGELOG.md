@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.0.2
+
+- **Chore:** CI pins every GitHub Action to the full commit SHA of its latest release, and each workflow gets only the permissions it uses.
+- **Chore:** dev dependencies are pinned exactly, at `lints` 6.1.0 and `test` 1.33.0. The `intl` range is unchanged.
+- **Chore:** `.gitignore` and `.pubignore` exclude `.env` files, keys and local databases, so a local publish cannot ship them.
+
 ## 3.0.1
 
 - **Docs:** the README has its Contributors section back, with a contributors badge, and its Contributing section points to Issues, Discussions and SECURITY.md.
