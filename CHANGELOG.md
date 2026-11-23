@@ -6,6 +6,7 @@
 - **Chore:** dev dependencies are pinned exactly, at `lints` 6.1.0 and `test` 1.33.0. The `intl` range is unchanged.
 - **Chore:** `.gitignore` and `.pubignore` exclude `.env` files, common key and keystore extensions, the default SSH key names and SQLite databases.
 - **Example:** the Android build moves to Gradle 9.5.0 (checksum-verified), AGP 9.3.1 and Kotlin 2.4.20, as in Flutter 3.50's template. Flutter 3.50 rejects the old versions.
+- **Example:** the app imports `material_ui` 1.11.1 instead of `package:flutter/material.dart`, which Flutter 3.50 deprecates.
 
 ## 3.0.1
 
