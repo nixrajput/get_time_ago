@@ -39,11 +39,6 @@ website/build
 .cache-loader
 
 # Misc
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -58,3 +53,21 @@ coverage/
 # Local agent state
 .superpowers/
 .claude/settings.local.json
+
+# Secrets and local databases
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+id_rsa
+id_dsa
+id_ecdsa
+id_ed25519
+*.db
+*.db-*
+*.sqlite*

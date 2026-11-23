@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:get_time_ago/get_time_ago.dart';
+import 'package:material_ui/material_ui.dart';
 
 import 'app_theme.dart';
 import 'collapsible_section.dart';
